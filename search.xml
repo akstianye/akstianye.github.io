@@ -102,55 +102,6 @@
       </tags>
   </entry>
   <entry>
-    <title>centos7挂载硬盘</title>
-    <url>/posts/e6ac7476/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-
-<h2 id="1-查看硬盘"><a href="#1-查看硬盘" class="headerlink" title="1. 查看硬盘"></a>1. 查看硬盘</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fdisk –l</span><br></pre></td></tr></table></figure>
-<h2 id="2-硬盘分区"><a href="#2-硬盘分区" class="headerlink" title="2. 硬盘分区"></a>2. 硬盘分区</h2><p>其中<code>vdb</code>为第一步中查到的硬盘设备名</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;sbin&#x2F;fdisk &#x2F;dev&#x2F;vdb</span><br></pre></td></tr></table></figure>
-
-<p><code>tips</code> :下面几步基本一直回车，最后输入q退出</p>
-<blockquote>
-<p>输入n进行分区</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Command (m for help): n</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>选择分区类型（p主分区）</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Select (default p): p</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>选择分区个数（也是分区id） </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Partition number (1-4, default 1): 1</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>选择分区空间大小</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Last sector, +sectors or +size&#123;K,M,G&#125; (2048-1953525167, default 1953525167): +300GB</span><br></pre></td></tr></table></figure>
-<h2 id="3-格式化分区"><a href="#3-格式化分区" class="headerlink" title="3. 格式化分区"></a>3. 格式化分区</h2><p><code>tips</code>:这里先查看一下已有硬盘格式 使用 <code>df -T</code></p>
-<p>将新分区格式化为ext4文件系统</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkfs -t ext4 &#x2F;dev&#x2F;vdb</span><br></pre></td></tr></table></figure>
-<h2 id="4-挂载硬盘"><a href="#4-挂载硬盘" class="headerlink" title="4. 挂载硬盘"></a>4. 挂载硬盘</h2><p>创建挂载点，在根目录下创建storage目录</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir &#x2F;storage</span><br></pre></td></tr></table></figure>
-<p>将<code>/dev/vdb</code>挂载到<code>/storage</code>下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mount &#x2F;dev&#x2F;vdb &#x2F;storage</span><br></pre></td></tr></table></figure>
-<h2 id="5-设置开机启动自动挂载硬盘"><a href="#5-设置开机启动自动挂载硬盘" class="headerlink" title="5. 设置开机启动自动挂载硬盘"></a>5. 设置开机启动自动挂载硬盘</h2><p>新创建的分区不能开机自动挂载，每次重启机器都要手动挂载。</p>
-<p>设置开机自动挂载需要修改<code>/etc/fstab</code>文件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>
-<p>在末尾添加</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;dev&#x2F;vdb &#x2F;storage ext4 defaults 1 2</span><br></pre></td></tr></table></figure>
-<h2 id="6-取消挂载"><a href="#6-取消挂载" class="headerlink" title="6. 取消挂载"></a>6. 取消挂载</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unmount &#x2F;dev&#x2F;vdb</span><br></pre></td></tr></table></figure>
-<p>移除原先添加的启动自动挂载</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>Centos</tag>
-        <tag>文件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Effective Java 笔记(一)</title>
     <url>/posts/f9ac33e3/</url>
     <content><![CDATA[<p><span></span></p>
@@ -236,18 +187,49 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux查看最大文件占用</title>
-    <url>/posts/5ef19cda/</url>
+    <title>centos7挂载硬盘</title>
+    <url>/posts/e6ac7476/</url>
     <content><![CDATA[<p><span></span></p>
 <a id="more"></a>
 
 
-<p>其中 <code>/path</code> 为需要查询的目录</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">du -h --max-depth&#x3D;1 &#x2F;path</span><br></pre></td></tr></table></figure>
-<!--more-->
 
-<p>按文件从大到小排序</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">du -h --max-depth&#x3D;1 &#x2F;path | sort -nr</span><br></pre></td></tr></table></figure>]]></content>
+<h2 id="1-查看硬盘"><a href="#1-查看硬盘" class="headerlink" title="1. 查看硬盘"></a>1. 查看硬盘</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fdisk –l</span><br></pre></td></tr></table></figure>
+<h2 id="2-硬盘分区"><a href="#2-硬盘分区" class="headerlink" title="2. 硬盘分区"></a>2. 硬盘分区</h2><p>其中<code>vdb</code>为第一步中查到的硬盘设备名</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;sbin&#x2F;fdisk &#x2F;dev&#x2F;vdb</span><br></pre></td></tr></table></figure>
+
+<p><code>tips</code> :下面几步基本一直回车，最后输入q退出</p>
+<blockquote>
+<p>输入n进行分区</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Command (m for help): n</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>选择分区类型（p主分区）</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Select (default p): p</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>选择分区个数（也是分区id） </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Partition number (1-4, default 1): 1</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>选择分区空间大小</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Last sector, +sectors or +size&#123;K,M,G&#125; (2048-1953525167, default 1953525167): +300GB</span><br></pre></td></tr></table></figure>
+<h2 id="3-格式化分区"><a href="#3-格式化分区" class="headerlink" title="3. 格式化分区"></a>3. 格式化分区</h2><p><code>tips</code>:这里先查看一下已有硬盘格式 使用 <code>df -T</code></p>
+<p>将新分区格式化为ext4文件系统</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkfs -t ext4 &#x2F;dev&#x2F;vdb</span><br></pre></td></tr></table></figure>
+<h2 id="4-挂载硬盘"><a href="#4-挂载硬盘" class="headerlink" title="4. 挂载硬盘"></a>4. 挂载硬盘</h2><p>创建挂载点，在根目录下创建storage目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir &#x2F;storage</span><br></pre></td></tr></table></figure>
+<p>将<code>/dev/vdb</code>挂载到<code>/storage</code>下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mount &#x2F;dev&#x2F;vdb &#x2F;storage</span><br></pre></td></tr></table></figure>
+<h2 id="5-设置开机启动自动挂载硬盘"><a href="#5-设置开机启动自动挂载硬盘" class="headerlink" title="5. 设置开机启动自动挂载硬盘"></a>5. 设置开机启动自动挂载硬盘</h2><p>新创建的分区不能开机自动挂载，每次重启机器都要手动挂载。</p>
+<p>设置开机自动挂载需要修改<code>/etc/fstab</code>文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>
+<p>在末尾添加</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;dev&#x2F;vdb &#x2F;storage ext4 defaults 1 2</span><br></pre></td></tr></table></figure>
+<h2 id="6-取消挂载"><a href="#6-取消挂载" class="headerlink" title="6. 取消挂载"></a>6. 取消挂载</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unmount &#x2F;dev&#x2F;vdb</span><br></pre></td></tr></table></figure>
+<p>移除原先添加的启动自动挂载</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>Centos</tag>
         <tag>文件</tag>
@@ -273,6 +255,24 @@
       <tags>
         <tag>URL</tag>
         <tag>编码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux查看最大文件占用</title>
+    <url>/posts/5ef19cda/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<p>其中 <code>/path</code> 为需要查询的目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">du -h --max-depth&#x3D;1 &#x2F;path</span><br></pre></td></tr></table></figure>
+<!--more-->
+
+<p>按文件从大到小排序</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">du -h --max-depth&#x3D;1 &#x2F;path | sort -nr</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>Centos</tag>
+        <tag>文件</tag>
       </tags>
   </entry>
   <entry>
@@ -312,6 +312,28 @@
       <tags>
         <tag>dns</tag>
         <tag>dns记录类型</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IDEA技巧收集</title>
+    <url>/posts/ec9abed7/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<h3 id="1-查找项目中未使用的代码"><a href="#1-查找项目中未使用的代码" class="headerlink" title="1. 查找项目中未使用的代码"></a>1. 查找项目中未使用的代码</h3><ol>
+<li><p>使用快捷键 <code>Ctrl</code>+<code>Alt</code>+<code>Shift</code>+<code>I</code></p>
+</li>
+<li><p>输入 <code>Unused declaration</code> 选择 <code>Java | declaration redundancy</code> 选项</p>
+</li>
+<li><p>在下方 <code>Members to report</code> 框中勾选搜索范围</p>
+</li>
+<li><p>点击 <code>ok</code> 搜索</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>IDEA</tag>
       </tags>
   </entry>
   <entry>
@@ -413,28 +435,6 @@
       </tags>
   </entry>
   <entry>
-    <title>IDEA技巧收集</title>
-    <url>/posts/ec9abed7/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<h3 id="1-查找项目中未使用的代码"><a href="#1-查找项目中未使用的代码" class="headerlink" title="1. 查找项目中未使用的代码"></a>1. 查找项目中未使用的代码</h3><ol>
-<li><p>使用快捷键 <code>Ctrl</code>+<code>Alt</code>+<code>Shift</code>+<code>I</code></p>
-</li>
-<li><p>输入 <code>Unused declaration</code> 选择 <code>Java | declaration redundancy</code> 选项</p>
-</li>
-<li><p>在下方 <code>Members to report</code> 框中勾选搜索范围</p>
-</li>
-<li><p>点击 <code>ok</code> 搜索</p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>IDEA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>java设计模式之单例模式</title>
     <url>/posts/23a824cc/</url>
     <content><![CDATA[<p><span></span></p>
@@ -494,6 +494,98 @@
         <tag>java</tag>
         <tag>设计模式</tag>
         <tag>单例</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>springboot devtools 热部署</title>
+    <url>/posts/5af71517/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<h5 id="添加pom依赖"><a href="#添加pom依赖" class="headerlink" title="添加pom依赖"></a>添加pom依赖</h5><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>maven plugin中添加</code></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">            	<span class="tag">&lt;<span class="name">fork</span>&gt;</span>true<span class="tag">&lt;/<span class="name">fork</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- spring热部署--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springloaded<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="application-yml中添加"><a href="#application-yml中添加" class="headerlink" title="application.yml中添加"></a>application.yml中添加</h5><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">devtools:</span></span><br><span class="line">    <span class="attr">restart:</span></span><br><span class="line">      <span class="comment">#热部署生效</span></span><br><span class="line">      <span class="attr">enabled:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>当我们修改了java类后，IDEA默认是不自动编译的，而spring-boot-devtools又是监测classpath下的文件发生变化才会重启应用 </p>
+<ul>
+<li>Ctrl+F9重新编译一下即可</li>
+<li>1. <code>File</code>&gt;&gt;<code>Settings</code>&gt;&gt;<code>Build</code>&gt;&gt;<code>Compiler</code>&gt;&gt;<code>Build Project automatically</code><br>2. <code>ctrl + shift + alt + /</code>,选择<code>Registry</code>,勾上 <code>Compiler autoMake allow when app running</code></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>springboot</tag>
+        <tag>热部署</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>yum使用阿里云镜像源</title>
+    <url>/posts/e341b84/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<h3 id="1-备份原配置文件"><a href="#1-备份原配置文件" class="headerlink" title="1. 备份原配置文件"></a>1. 备份原配置文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-下载新的CentOS-Base-repo-到-etc-yum-repos-d"><a href="#2-下载新的CentOS-Base-repo-到-etc-yum-repos-d" class="headerlink" title="2. 下载新的CentOS-Base.repo 到/etc/yum.repos.d/"></a>2. 下载新的<code>CentOS-Base.repo</code> 到<code>/etc/yum.repos.d/</code></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget -O &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;repo&#x2F;Centos-7.repo</span><br></pre></td></tr></table></figure>
+<h3 id="3-生成缓存"><a href="#3-生成缓存" class="headerlink" title="3. 生成缓存"></a>3. 生成缓存</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>yum</tag>
+        <tag>阿里云</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows下使用vundle管理gvim插件</title>
+    <url>/posts/d6218fbd/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<h2 id="1-安装gvim"><a href="#1-安装gvim" class="headerlink" title="1.安装gvim"></a>1.安装gvim</h2><p>官网下载地址 <a href="http://www.vim.org/download.php">http://www.vim.org/download.php</a>  </p>
+<p>注意安装目录避免空格、中文</p>
+<p>安装目录结构如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim</span><br><span class="line">|-- .vimrc   vim配置文件</span><br><span class="line">|-- vim74    vim目录</span><br><span class="line">|     |</span><br><span class="line">|-- vimfiles  其他文件目录，如插件等</span><br><span class="line">|     |</span><br></pre></td></tr></table></figure>
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><p>创建一个系统变量 例: <code>VIM = E:\gvim\Vim</code></p>
+<p>在<code>path</code>中加入<code>%VIM%\vim74\</code></p>
+<h2 id="2-安装vundle"><a href="#2-安装vundle" class="headerlink" title="2.安装vundle"></a>2.安装vundle</h2><p>安装<code>vundle</code>需要<code>git</code>与<code>curl</code></p>
+<p>此处不介绍git与curl的安装</p>
+<p>进入vim安装目录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/VundleVim/Vundle.vim.git vimfiles/bundle/Vundle.vim</span><br></pre></td></tr></table></figure>
+<p>复制<code>vundle官网</code>默认配置替换<code>.vimrc</code>文件内容<br><a href="https://github.com/VundleVim/Vundle.vim">https://github.com/VundleVim/Vundle.vim</a></p>
+<p>这里粘一份默认配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set nocompatible              &quot; be iMproved, required</span><br><span class="line">filetype off                  &quot; required</span><br><span class="line"></span><br><span class="line">&quot; set the runtime path to include Vundle and initialize</span><br><span class="line">set rtp+&#x3D;~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br><span class="line">call vundle#begin()</span><br><span class="line">&quot; alternatively, pass a path where Vundle should install plugins</span><br><span class="line">&quot;call vundle#begin(&#39;~&#x2F;some&#x2F;path&#x2F;here&#39;)</span><br><span class="line"></span><br><span class="line">&quot; let Vundle manage Vundle, required</span><br><span class="line">Plugin &#39;VundleVim&#x2F;Vundle.vim&#39;</span><br><span class="line"></span><br><span class="line">&quot; The following are examples of different formats supported.</span><br><span class="line">&quot; Keep Plugin commands between vundle#begin&#x2F;end.</span><br><span class="line">&quot; plugin on GitHub repo</span><br><span class="line">Plugin &#39;tpope&#x2F;vim-fugitive&#39;</span><br><span class="line">&quot; plugin from http:&#x2F;&#x2F;vim-scripts.org&#x2F;vim&#x2F;scripts.html</span><br><span class="line">&quot; Plugin &#39;L9&#39;</span><br><span class="line">&quot; Git plugin not hosted on GitHub</span><br><span class="line">Plugin &#39;git:&#x2F;&#x2F;git.wincent.com&#x2F;command-t.git&#39;</span><br><span class="line">&quot; git repos on your local machine (i.e. when working on your own plugin)</span><br><span class="line">Plugin &#39;file:&#x2F;&#x2F;&#x2F;home&#x2F;gmarik&#x2F;path&#x2F;to&#x2F;plugin&#39;</span><br><span class="line">&quot; The sparkup vim script is in a subdirectory of this repo called vim.</span><br><span class="line">&quot; Pass the path to set the runtimepath properly.</span><br><span class="line">Plugin &#39;rstacruz&#x2F;sparkup&#39;, &#123;&#39;rtp&#39;: &#39;vim&#x2F;&#39;&#125;</span><br><span class="line">&quot; Install L9 and avoid a Naming conflict if you&#39;ve already installed a</span><br><span class="line">&quot; different version somewhere else.</span><br><span class="line">&quot; Plugin &#39;ascenator&#x2F;L9&#39;, &#123;&#39;name&#39;: &#39;newL9&#39;&#125;</span><br><span class="line"></span><br><span class="line">&quot; All of your Plugins must be added before the following line</span><br><span class="line">call vundle#end()            &quot; required</span><br><span class="line">filetype plugin indent on    &quot; required</span><br><span class="line">&quot; To ignore plugin indent changes, instead use:</span><br><span class="line">&quot;filetype plugin on</span><br><span class="line">&quot;</span><br><span class="line">&quot; Brief help</span><br><span class="line">&quot; :PluginList       - lists configured plugins</span><br><span class="line">&quot; :PluginInstall    - installs plugins; append &#96;!&#96; to update or just :PluginUpdate</span><br><span class="line">&quot; :PluginSearch foo - searches for foo; append &#96;!&#96; to refresh local cache</span><br><span class="line">&quot; :PluginClean      - confirms removal of unused plugins; append &#96;!&#96; to auto-approve removal</span><br><span class="line">&quot;</span><br><span class="line">&quot; see :h vundle for more details or wiki for FAQ</span><br><span class="line">&quot; Put your non-Plugin stuff after this line</span><br></pre></td></tr></table></figure>
+<p>替换其中</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set rtp+&#x3D;~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br><span class="line">call vundle#begin()</span><br></pre></td></tr></table></figure>
+<p>为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set rtp+&#x3D;$VIM&#x2F;vimfiles&#x2F;bundle&#x2F;vundle.vim&#x2F;</span><br><span class="line">call vundle#rc(&#39;$VIM&#x2F;vimfiles&#x2F;bundle&#x2F;&#39;)</span><br></pre></td></tr></table></figure>
+<p>即指定<code>vundle</code>的目录</p>
+<p>其中如</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Plugin &#39;tpope&#x2F;vim-fugitive&#39;</span><br><span class="line">Plugin &#39;git:&#x2F;&#x2F;git.wincent.com&#x2F;command-t.git&#39;</span><br><span class="line">Plugin &#39;file:&#x2F;&#x2F;&#x2F;home&#x2F;gmarik&#x2F;path&#x2F;to&#x2F;plugin&#39;</span><br><span class="line">Plugin &#39;rstacruz&#x2F;sparkup&#39;, &#123;&#39;rtp&#39;: &#39;vim&#x2F;&#39;&#125;</span><br></pre></td></tr></table></figure>
+<p>是几种配置插件的方式</p>
+<p>可自行替换成自己需要的插件</p>
+<p>打开<code>gvim</code>后使用<br><code>:BundleInstall</code>命令安装插件<br><code>:BundleList</code> 查看插件列表<br><code>:BundleClean</code> 清理不用的插件</p>
+]]></content>
+      <tags>
+        <tag>vim</tag>
+        <tag>vundle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一些jvm内存分析命令</title>
+    <url>/posts/f76bf494/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">导出简单的内存信息</span><br><span class="line">jmap -histo &lt;pid&gt; &gt; file.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">导出完整heap信息</span><br><span class="line">jmap -dump:live,format=b,file=heap-dump.bin &lt;pid&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">分析dumpfile</span><br><span class="line">jhat &lt;dumpfile&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1s打印一次内存信息</span><br><span class="line">jstat -gcutil &lt;pid&gt; 1000</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>jvm</tag>
+        <tag>内存</tag>
       </tags>
   </entry>
   <entry>
@@ -671,98 +763,6 @@
       </tags>
   </entry>
   <entry>
-    <title>springboot devtools 热部署</title>
-    <url>/posts/5af71517/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<h5 id="添加pom依赖"><a href="#添加pom依赖" class="headerlink" title="添加pom依赖"></a>添加pom依赖</h5><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><code>maven plugin中添加</code></p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">            	<span class="tag">&lt;<span class="name">fork</span>&gt;</span>true<span class="tag">&lt;/<span class="name">fork</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- spring热部署--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springloaded<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="application-yml中添加"><a href="#application-yml中添加" class="headerlink" title="application.yml中添加"></a>application.yml中添加</h5><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">devtools:</span></span><br><span class="line">    <span class="attr">restart:</span></span><br><span class="line">      <span class="comment">#热部署生效</span></span><br><span class="line">      <span class="attr">enabled:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>当我们修改了java类后，IDEA默认是不自动编译的，而spring-boot-devtools又是监测classpath下的文件发生变化才会重启应用 </p>
-<ul>
-<li>Ctrl+F9重新编译一下即可</li>
-<li>1. <code>File</code>&gt;&gt;<code>Settings</code>&gt;&gt;<code>Build</code>&gt;&gt;<code>Compiler</code>&gt;&gt;<code>Build Project automatically</code><br>2. <code>ctrl + shift + alt + /</code>,选择<code>Registry</code>,勾上 <code>Compiler autoMake allow when app running</code></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>springboot</tag>
-        <tag>热部署</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>windows下使用vundle管理gvim插件</title>
-    <url>/posts/d6218fbd/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<h2 id="1-安装gvim"><a href="#1-安装gvim" class="headerlink" title="1.安装gvim"></a>1.安装gvim</h2><p>官网下载地址 <a href="http://www.vim.org/download.php">http://www.vim.org/download.php</a>  </p>
-<p>注意安装目录避免空格、中文</p>
-<p>安装目录结构如下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim</span><br><span class="line">|-- .vimrc   vim配置文件</span><br><span class="line">|-- vim74    vim目录</span><br><span class="line">|     |</span><br><span class="line">|-- vimfiles  其他文件目录，如插件等</span><br><span class="line">|     |</span><br></pre></td></tr></table></figure>
-<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><p>创建一个系统变量 例: <code>VIM = E:\gvim\Vim</code></p>
-<p>在<code>path</code>中加入<code>%VIM%\vim74\</code></p>
-<h2 id="2-安装vundle"><a href="#2-安装vundle" class="headerlink" title="2.安装vundle"></a>2.安装vundle</h2><p>安装<code>vundle</code>需要<code>git</code>与<code>curl</code></p>
-<p>此处不介绍git与curl的安装</p>
-<p>进入vim安装目录</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/VundleVim/Vundle.vim.git vimfiles/bundle/Vundle.vim</span><br></pre></td></tr></table></figure>
-<p>复制<code>vundle官网</code>默认配置替换<code>.vimrc</code>文件内容<br><a href="https://github.com/VundleVim/Vundle.vim">https://github.com/VundleVim/Vundle.vim</a></p>
-<p>这里粘一份默认配置</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set nocompatible              &quot; be iMproved, required</span><br><span class="line">filetype off                  &quot; required</span><br><span class="line"></span><br><span class="line">&quot; set the runtime path to include Vundle and initialize</span><br><span class="line">set rtp+&#x3D;~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br><span class="line">call vundle#begin()</span><br><span class="line">&quot; alternatively, pass a path where Vundle should install plugins</span><br><span class="line">&quot;call vundle#begin(&#39;~&#x2F;some&#x2F;path&#x2F;here&#39;)</span><br><span class="line"></span><br><span class="line">&quot; let Vundle manage Vundle, required</span><br><span class="line">Plugin &#39;VundleVim&#x2F;Vundle.vim&#39;</span><br><span class="line"></span><br><span class="line">&quot; The following are examples of different formats supported.</span><br><span class="line">&quot; Keep Plugin commands between vundle#begin&#x2F;end.</span><br><span class="line">&quot; plugin on GitHub repo</span><br><span class="line">Plugin &#39;tpope&#x2F;vim-fugitive&#39;</span><br><span class="line">&quot; plugin from http:&#x2F;&#x2F;vim-scripts.org&#x2F;vim&#x2F;scripts.html</span><br><span class="line">&quot; Plugin &#39;L9&#39;</span><br><span class="line">&quot; Git plugin not hosted on GitHub</span><br><span class="line">Plugin &#39;git:&#x2F;&#x2F;git.wincent.com&#x2F;command-t.git&#39;</span><br><span class="line">&quot; git repos on your local machine (i.e. when working on your own plugin)</span><br><span class="line">Plugin &#39;file:&#x2F;&#x2F;&#x2F;home&#x2F;gmarik&#x2F;path&#x2F;to&#x2F;plugin&#39;</span><br><span class="line">&quot; The sparkup vim script is in a subdirectory of this repo called vim.</span><br><span class="line">&quot; Pass the path to set the runtimepath properly.</span><br><span class="line">Plugin &#39;rstacruz&#x2F;sparkup&#39;, &#123;&#39;rtp&#39;: &#39;vim&#x2F;&#39;&#125;</span><br><span class="line">&quot; Install L9 and avoid a Naming conflict if you&#39;ve already installed a</span><br><span class="line">&quot; different version somewhere else.</span><br><span class="line">&quot; Plugin &#39;ascenator&#x2F;L9&#39;, &#123;&#39;name&#39;: &#39;newL9&#39;&#125;</span><br><span class="line"></span><br><span class="line">&quot; All of your Plugins must be added before the following line</span><br><span class="line">call vundle#end()            &quot; required</span><br><span class="line">filetype plugin indent on    &quot; required</span><br><span class="line">&quot; To ignore plugin indent changes, instead use:</span><br><span class="line">&quot;filetype plugin on</span><br><span class="line">&quot;</span><br><span class="line">&quot; Brief help</span><br><span class="line">&quot; :PluginList       - lists configured plugins</span><br><span class="line">&quot; :PluginInstall    - installs plugins; append &#96;!&#96; to update or just :PluginUpdate</span><br><span class="line">&quot; :PluginSearch foo - searches for foo; append &#96;!&#96; to refresh local cache</span><br><span class="line">&quot; :PluginClean      - confirms removal of unused plugins; append &#96;!&#96; to auto-approve removal</span><br><span class="line">&quot;</span><br><span class="line">&quot; see :h vundle for more details or wiki for FAQ</span><br><span class="line">&quot; Put your non-Plugin stuff after this line</span><br></pre></td></tr></table></figure>
-<p>替换其中</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set rtp+&#x3D;~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br><span class="line">call vundle#begin()</span><br></pre></td></tr></table></figure>
-<p>为</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set rtp+&#x3D;$VIM&#x2F;vimfiles&#x2F;bundle&#x2F;vundle.vim&#x2F;</span><br><span class="line">call vundle#rc(&#39;$VIM&#x2F;vimfiles&#x2F;bundle&#x2F;&#39;)</span><br></pre></td></tr></table></figure>
-<p>即指定<code>vundle</code>的目录</p>
-<p>其中如</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Plugin &#39;tpope&#x2F;vim-fugitive&#39;</span><br><span class="line">Plugin &#39;git:&#x2F;&#x2F;git.wincent.com&#x2F;command-t.git&#39;</span><br><span class="line">Plugin &#39;file:&#x2F;&#x2F;&#x2F;home&#x2F;gmarik&#x2F;path&#x2F;to&#x2F;plugin&#39;</span><br><span class="line">Plugin &#39;rstacruz&#x2F;sparkup&#39;, &#123;&#39;rtp&#39;: &#39;vim&#x2F;&#39;&#125;</span><br></pre></td></tr></table></figure>
-<p>是几种配置插件的方式</p>
-<p>可自行替换成自己需要的插件</p>
-<p>打开<code>gvim</code>后使用<br><code>:BundleInstall</code>命令安装插件<br><code>:BundleList</code> 查看插件列表<br><code>:BundleClean</code> 清理不用的插件</p>
-]]></content>
-      <tags>
-        <tag>vim</tag>
-        <tag>vundle</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>yum使用阿里云镜像源</title>
-    <url>/posts/e341b84/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<h3 id="1-备份原配置文件"><a href="#1-备份原配置文件" class="headerlink" title="1. 备份原配置文件"></a>1. 备份原配置文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="2-下载新的CentOS-Base-repo-到-etc-yum-repos-d"><a href="#2-下载新的CentOS-Base-repo-到-etc-yum-repos-d" class="headerlink" title="2. 下载新的CentOS-Base.repo 到/etc/yum.repos.d/"></a>2. 下载新的<code>CentOS-Base.repo</code> 到<code>/etc/yum.repos.d/</code></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget -O &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;repo&#x2F;Centos-7.repo</span><br></pre></td></tr></table></figure>
-<h3 id="3-生成缓存"><a href="#3-生成缓存" class="headerlink" title="3. 生成缓存"></a>3. 生成缓存</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>yum</tag>
-        <tag>阿里云</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一些jvm内存分析命令</title>
-    <url>/posts/f76bf494/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">导出简单的内存信息</span><br><span class="line">jmap -histo &lt;pid&gt; &gt; file.txt</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">导出完整heap信息</span><br><span class="line">jmap -dump:live,format=b,file=heap-dump.bin &lt;pid&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">分析dumpfile</span><br><span class="line">jhat &lt;dumpfile&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1s打印一次内存信息</span><br><span class="line">jstat -gcutil &lt;pid&gt; 1000</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>jvm</tag>
-        <tag>内存</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用Let&#39;s Encrypt为你的网站启用https</title>
     <url>/posts/16932c27/</url>
     <content><![CDATA[<p><span></span></p>
@@ -873,6 +873,91 @@
       </tags>
   </entry>
   <entry>
+    <title>小米手环NFC模拟加密卡</title>
+    <url>/posts/1fd4902a/</url>
+    <content><![CDATA[<h4 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h4><ul>
+<li>小米手环NFC版</li>
+<li>pn532或者其他nfc读写工具</li>
+<li>MifareOneTool软件</li>
+<li>原始门禁卡</li>
+<li>中间卡</li>
+</ul>
+<a id="more"></a>
+
+<h4 id="提取原始卡信息"><a href="#提取原始卡信息" class="headerlink" title="提取原始卡信息"></a>提取原始卡信息</h4><ol>
+<li>连接<code>pn532</code>到PC，并打开<code>MifareOneTool</code></li>
+<li><code>复制卡模式</code>选项卡下</li>
+<li>点击<code>检测连接</code>(控制台输出设备信息后表示pn532连接成功)</li>
+<li>将<code>原始门禁卡</code>放在pn532上</li>
+<li>点击<code>扫描卡片</code>(控制台输出卡片信息代表检测到卡片)</li>
+<li>点击<code>一键解原卡</code>(成功后会弹出保存窗口，命名后保存文件，例如origin.dump)</li>
+</ol>
+<h4 id="2选1-写入非加密信息到中间卡-lt-中间卡无法修改卡号-gt"><a href="#2选1-写入非加密信息到中间卡-lt-中间卡无法修改卡号-gt" class="headerlink" title="[2选1]写入非加密信息到中间卡&lt;中间卡无法修改卡号&gt;"></a>[2选1]写入非加密信息到中间卡&lt;中间卡<code>无法</code>修改卡号&gt;</h4><ol>
+<li>将<code>中间卡</code>放在pn532上</li>
+<li><code>高级模式</code>选项卡下</li>
+<li>点击<code>写M1</code>，选择origin.dump文件，如有弹窗，选<code>取消</code>(以白卡方式写入)<br>此步骤会写入(非加密+加密)数据，此时用手环模拟会提示加密卡无法模拟<br> <strong>注意：</strong>若此处写入失败，可以参考<code>附录</code>处理</li>
+<li>点击<code>选择key.mfd</code>，右下角切换到.dump文件，选择origin.dump文件</li>
+<li>点击<code>清M1</code>，如有弹窗，选<code>取消</code>(以白卡方式写入)<br>此步骤会清理(加密)部分数据</li>
+</ol>
+<h4 id="2选1-写入非加密信息到中间卡-lt-中间卡可以修改卡号-gt"><a href="#2选1-写入非加密信息到中间卡-lt-中间卡可以修改卡号-gt" class="headerlink" title="[2选1]写入非加密信息到中间卡&lt;中间卡可以修改卡号&gt;"></a>[2选1]写入非加密信息到中间卡&lt;中间卡<code>可以</code>修改卡号&gt;</h4><ol>
+<li>将<code>中间卡</code>放在pn532上</li>
+<li><code>复制卡模式</code>选项卡下，<code>[3]写入新卡</code>块中</li>
+<li>点击<code>写(UF)UID卡</code>，选择origin.dump文件，<br>此步骤会写入(非加密&lt;包括卡号&gt;+加密)数据，此时用手环模拟会提示加密卡无法模拟</li>
+<li><code>高级模式</code>选项卡下，点击<code>选择key.mfd</code>，右下角切换到.dump文件，选择origin.dump文件</li>
+<li>点击<code>清M1</code>，如有弹窗，选<code>取消</code>(以白卡方式写入)<br>此步骤会清理(加密)部分数据</li>
+</ol>
+<h4 id="手环模拟卡片"><a href="#手环模拟卡片" class="headerlink" title="手环模拟卡片"></a>手环模拟卡片</h4><ol>
+<li>打开小米运动-&gt;我的-&gt;小米手环nfc-&gt;门卡模拟</li>
+<li>将手环靠近<code>原始门禁卡</code>(中间卡)</li>
+<li>手环模拟成功后命名</li>
+</ol>
+<h4 id="写入加密信息到手环"><a href="#写入加密信息到手环" class="headerlink" title="写入加密信息到手环"></a>写入加密信息到手环</h4><ol>
+<li>打开MifareOneTool</li>
+<li><code>高级模式</code>选项卡下</li>
+<li>点一下<code>选择key.mfd</code>，弹出框后点<code>取消</code>(为了清理选项)</li>
+<li>点击<code>写M1</code>，选择origin.dump文件，如有弹窗，选<code>取消</code>(以白卡方式写入)</li>
+<li>如手环上有多张卡片，则先启用刚刚模拟的这张</li>
+<li>手环靠近pn532(建议提前将手环放在pn532旁边)</li>
+<li>控制台输出(63/64 写入成功)即代表成功</li>
+</ol>
+<h4 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h4><ol>
+<li>写入非加密信息到中间卡失败？<br>中间卡的<code>加密数据区</code>需要为<code>空</code>才可以写入新的加密数据<br>此时可以使用中间卡对应的dump文件<code>清M1</code></li>
+<li>没有中间卡的dump文件？<br>参考<code>提取原始卡数据信息</code>步骤，提取中间卡的dump文件</li>
+<li>使用<code>写M1</code>功能前，要注意下方选择key的按钮不能有值，即显示<code>选择key.mfd</code><br>若不是，则点击一下该按钮，再点取消，清空选择</li>
+<li><a href="https://drive.google.com/file/d/1wlhXkhbU8ggEBbTVjEPuNB5N8wmhDxSq/view?usp=sharing">MifareOneTool软件下载</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>小米手环</tag>
+        <tag>NFC</tag>
+        <tag>加密卡</tag>
+        <tag>MifareOneTool</tag>
+        <tag>pn532</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记一次ThreadLocal取值失败的问题</title>
+    <url>/posts/7ba3d7ca/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<h5 id="简单描述一下问题的情况"><a href="#简单描述一下问题的情况" class="headerlink" title="简单描述一下问题的情况"></a>简单描述一下问题的情况</h5><p>1.<code>springboot</code>项目</p>
+<p>2.使用<code>@FeignClient</code>处理微服务之间的调用</p>
+<p>3.项目中使用了<code>feign.RequestInterceptor</code>处理<code>token</code>传递,token校验完成后存放于线程变量<code>ThreadLocal</code>中</p>
+<p>4.开启<code>hystrix</code>后,在<code>RequestInterceptor</code>中无法获取到<code>ThreadLocal</code>存储的token</p>
+<h5 id="查找问题的过程"><a href="#查找问题的过程" class="headerlink" title="查找问题的过程"></a>查找问题的过程</h5><p>1.首先通过断点发现ThreadLocal取值失败</p>
+<p>2.怀疑是不在同一线程中，打印线程名，证实确实不是同一线程</p>
+<p>3.了解到Hystrix默认使用线程隔离</p>
+<h5 id="处理方式"><a href="#处理方式" class="headerlink" title="处理方式"></a>处理方式</h5><p>1.将<code>ThreadLocal</code>换成<code>InheritableThreadLocal</code>，这样可以在<code>子线程</code>内也获取到存入的值</p>
+]]></content>
+      <tags>
+        <tag>线程</tag>
+        <tag>ThreadLocal</tag>
+        <tag>Hystrix</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于java一些零零散散的点(三)</title>
     <url>/posts/aa005433/</url>
     <content><![CDATA[<p><span></span></p>
@@ -959,91 +1044,6 @@
 ]]></content>
       <tags>
         <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小米手环NFC模拟加密卡</title>
-    <url>/posts/1fd4902a/</url>
-    <content><![CDATA[<h4 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h4><ul>
-<li>小米手环NFC版</li>
-<li>pn532或者其他nfc读写工具</li>
-<li>MifareOneTool软件</li>
-<li>原始门禁卡</li>
-<li>中间卡</li>
-</ul>
-<a id="more"></a>
-
-<h4 id="提取原始卡信息"><a href="#提取原始卡信息" class="headerlink" title="提取原始卡信息"></a>提取原始卡信息</h4><ol>
-<li>连接<code>pn532</code>到PC，并打开<code>MifareOneTool</code></li>
-<li><code>复制卡模式</code>选项卡下</li>
-<li>点击<code>检测连接</code>(控制台输出设备信息后表示pn532连接成功)</li>
-<li>将<code>原始门禁卡</code>放在pn532上</li>
-<li>点击<code>扫描卡片</code>(控制台输出卡片信息代表检测到卡片)</li>
-<li>点击<code>一键解原卡</code>(成功后会弹出保存窗口，命名后保存文件，例如origin.dump)</li>
-</ol>
-<h4 id="2选1-写入非加密信息到中间卡-lt-中间卡无法修改卡号-gt"><a href="#2选1-写入非加密信息到中间卡-lt-中间卡无法修改卡号-gt" class="headerlink" title="[2选1]写入非加密信息到中间卡&lt;中间卡无法修改卡号&gt;"></a>[2选1]写入非加密信息到中间卡&lt;中间卡<code>无法</code>修改卡号&gt;</h4><ol>
-<li>将<code>中间卡</code>放在pn532上</li>
-<li><code>高级模式</code>选项卡下</li>
-<li>点击<code>写M1</code>，选择origin.dump文件，如有弹窗，选<code>取消</code>(以白卡方式写入)<br>此步骤会写入(非加密+加密)数据，此时用手环模拟会提示加密卡无法模拟<br> <strong>注意：</strong>若此处写入失败，可以参考<code>附录</code>处理</li>
-<li>点击<code>选择key.mfd</code>，右下角切换到.dump文件，选择origin.dump文件</li>
-<li>点击<code>清M1</code>，如有弹窗，选<code>取消</code>(以白卡方式写入)<br>此步骤会清理(加密)部分数据</li>
-</ol>
-<h4 id="2选1-写入非加密信息到中间卡-lt-中间卡可以修改卡号-gt"><a href="#2选1-写入非加密信息到中间卡-lt-中间卡可以修改卡号-gt" class="headerlink" title="[2选1]写入非加密信息到中间卡&lt;中间卡可以修改卡号&gt;"></a>[2选1]写入非加密信息到中间卡&lt;中间卡<code>可以</code>修改卡号&gt;</h4><ol>
-<li>将<code>中间卡</code>放在pn532上</li>
-<li><code>复制卡模式</code>选项卡下，<code>[3]写入新卡</code>块中</li>
-<li>点击<code>写(UF)UID卡</code>，选择origin.dump文件，<br>此步骤会写入(非加密&lt;包括卡号&gt;+加密)数据，此时用手环模拟会提示加密卡无法模拟</li>
-<li><code>高级模式</code>选项卡下，点击<code>选择key.mfd</code>，右下角切换到.dump文件，选择origin.dump文件</li>
-<li>点击<code>清M1</code>，如有弹窗，选<code>取消</code>(以白卡方式写入)<br>此步骤会清理(加密)部分数据</li>
-</ol>
-<h4 id="手环模拟卡片"><a href="#手环模拟卡片" class="headerlink" title="手环模拟卡片"></a>手环模拟卡片</h4><ol>
-<li>打开小米运动-&gt;我的-&gt;小米手环nfc-&gt;门卡模拟</li>
-<li>将手环靠近<code>原始门禁卡</code>(中间卡)</li>
-<li>手环模拟成功后命名</li>
-</ol>
-<h4 id="写入加密信息到手环"><a href="#写入加密信息到手环" class="headerlink" title="写入加密信息到手环"></a>写入加密信息到手环</h4><ol>
-<li>打开MifareOneTool</li>
-<li><code>高级模式</code>选项卡下</li>
-<li>点一下<code>选择key.mfd</code>，弹出框后点<code>取消</code>(为了清理选项)</li>
-<li>点击<code>写M1</code>，选择origin.dump文件，如有弹窗，选<code>取消</code>(以白卡方式写入)</li>
-<li>如手环上有多张卡片，则先启用刚刚模拟的这张</li>
-<li>手环靠近pn532(建议提前将手环放在pn532旁边)</li>
-<li>控制台输出(63/64 写入成功)即代表成功</li>
-</ol>
-<h4 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h4><ol>
-<li>写入非加密信息到中间卡失败？<br>中间卡的<code>加密数据区</code>需要为<code>空</code>才可以写入新的加密数据<br>此时可以使用中间卡对应的dump文件<code>清M1</code></li>
-<li>没有中间卡的dump文件？<br>参考<code>提取原始卡数据信息</code>步骤，提取中间卡的dump文件</li>
-<li>使用<code>写M1</code>功能前，要注意下方选择key的按钮不能有值，即显示<code>选择key.mfd</code><br>若不是，则点击一下该按钮，再点取消，清空选择</li>
-<li><a href="https://drive.google.com/file/d/1wlhXkhbU8ggEBbTVjEPuNB5N8wmhDxSq/view?usp=sharing">MifareOneTool软件下载</a></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>小米手环</tag>
-        <tag>NFC</tag>
-        <tag>加密卡</tag>
-        <tag>MifareOneTool</tag>
-        <tag>pn532</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记一次ThreadLocal取值失败的问题</title>
-    <url>/posts/7ba3d7ca/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<h5 id="简单描述一下问题的情况"><a href="#简单描述一下问题的情况" class="headerlink" title="简单描述一下问题的情况"></a>简单描述一下问题的情况</h5><p>1.<code>springboot</code>项目</p>
-<p>2.使用<code>@FeignClient</code>处理微服务之间的调用</p>
-<p>3.项目中使用了<code>feign.RequestInterceptor</code>处理<code>token</code>传递,token校验完成后存放于线程变量<code>ThreadLocal</code>中</p>
-<p>4.开启<code>hystrix</code>后,在<code>RequestInterceptor</code>中无法获取到<code>ThreadLocal</code>存储的token</p>
-<h5 id="查找问题的过程"><a href="#查找问题的过程" class="headerlink" title="查找问题的过程"></a>查找问题的过程</h5><p>1.首先通过断点发现ThreadLocal取值失败</p>
-<p>2.怀疑是不在同一线程中，打印线程名，证实确实不是同一线程</p>
-<p>3.了解到Hystrix默认使用线程隔离</p>
-<h5 id="处理方式"><a href="#处理方式" class="headerlink" title="处理方式"></a>处理方式</h5><p>1.将<code>ThreadLocal</code>换成<code>InheritableThreadLocal</code>，这样可以在<code>子线程</code>内也获取到存入的值</p>
-]]></content>
-      <tags>
-        <tag>线程</tag>
-        <tag>ThreadLocal</tag>
-        <tag>Hystrix</tag>
       </tags>
   </entry>
 </search>
