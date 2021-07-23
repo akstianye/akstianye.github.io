@@ -151,6 +151,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux查看最大文件占用</title>
+    <url>/posts/5ef19cda/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<p>其中 <code>/path</code> 为需要查询的目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">du -h --max-depth&#x3D;1 &#x2F;path</span><br></pre></td></tr></table></figure>
+<!--more-->
+
+<p>按文件从大到小排序</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">du -h --max-depth&#x3D;1 &#x2F;path | sort -nr</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>Centos</tag>
+        <tag>文件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Effective Java 笔记(一)</title>
     <url>/posts/f9ac33e3/</url>
     <content><![CDATA[<p><span></span></p>
@@ -236,24 +254,6 @@
       </tags>
   </entry>
   <entry>
-    <title>apt换国内源</title>
-    <url>/posts/a84f8eca/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<h3 id="1-备份原配置文件"><a href="#1-备份原配置文件" class="headerlink" title="1. 备份原配置文件"></a>1. 备份原配置文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.bak</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="2-修改sources-list"><a href="#2-修改sources-list" class="headerlink" title="2. 修改sources.list"></a>2. 修改sources.list</h3><p>stretch(debian9) </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch main contrib non-free</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch-updates main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch-updates main contrib non-free</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian-security stretch&#x2F;updates main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian-security stretch&#x2F;updates main contrib non-free</span><br></pre></td></tr></table></figure>
-<h3 id="3-更新源"><a href="#3-更新源" class="headerlink" title="3. 更新源"></a>3. 更新源</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>apt</tag>
-        <tag>镜像</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>URL中文参数编码问题</title>
     <url>/posts/e174da9f/</url>
     <content><![CDATA[<p><span></span></p>
@@ -276,21 +276,21 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux查看最大文件占用</title>
-    <url>/posts/5ef19cda/</url>
+    <title>apt换国内源</title>
+    <url>/posts/a84f8eca/</url>
     <content><![CDATA[<p><span></span></p>
 <a id="more"></a>
 
 
-<p>其中 <code>/path</code> 为需要查询的目录</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">du -h --max-depth&#x3D;1 &#x2F;path</span><br></pre></td></tr></table></figure>
-<!--more-->
+<h3 id="1-备份原配置文件"><a href="#1-备份原配置文件" class="headerlink" title="1. 备份原配置文件"></a>1. 备份原配置文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.bak</span><br></pre></td></tr></table></figure>
 
-<p>按文件从大到小排序</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">du -h --max-depth&#x3D;1 &#x2F;path | sort -nr</span><br></pre></td></tr></table></figure>]]></content>
+
+<h3 id="2-修改sources-list"><a href="#2-修改sources-list" class="headerlink" title="2. 修改sources.list"></a>2. 修改sources.list</h3><p>stretch(debian9) </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch main contrib non-free</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch-updates main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch-updates main contrib non-free</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian-security stretch&#x2F;updates main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian-security stretch&#x2F;updates main contrib non-free</span><br></pre></td></tr></table></figure>
+<h3 id="3-更新源"><a href="#3-更新源" class="headerlink" title="3. 更新源"></a>3. 更新源</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>Centos</tag>
-        <tag>文件</tag>
+        <tag>apt</tag>
+        <tag>镜像</tag>
       </tags>
   </entry>
   <entry>
@@ -497,26 +497,90 @@
       </tags>
   </entry>
   <entry>
-    <title>springboot devtools 热部署</title>
-    <url>/posts/5af71517/</url>
+    <title>mysql主从复制及读写分离的尝试</title>
+    <url>/posts/6fc5faff/</url>
     <content><![CDATA[<p><span></span></p>
 <a id="more"></a>
 
 
-<h5 id="添加pom依赖"><a href="#添加pom依赖" class="headerlink" title="添加pom依赖"></a>添加pom依赖</h5><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><code>maven plugin中添加</code></p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">            	<span class="tag">&lt;<span class="name">fork</span>&gt;</span>true<span class="tag">&lt;/<span class="name">fork</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- spring热部署--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springloaded<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="application-yml中添加"><a href="#application-yml中添加" class="headerlink" title="application.yml中添加"></a>application.yml中添加</h5><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">devtools:</span></span><br><span class="line">    <span class="attr">restart:</span></span><br><span class="line">      <span class="comment">#热部署生效</span></span><br><span class="line">      <span class="attr">enabled:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>当我们修改了java类后，IDEA默认是不自动编译的，而spring-boot-devtools又是监测classpath下的文件发生变化才会重启应用 </p>
+<hr>
+<h1 id="centos7-rpm安装mysql"><a href="#centos7-rpm安装mysql" class="headerlink" title="centos7 rpm安装mysql"></a>centos7 rpm安装mysql</h1><p>此次使用的是<code>MySQL Community Server 5.5.62</code></p>
+<p>可以自己选择版本<a href="https://dev.mysql.com/downloads/mysql/5.5.html#downloads">下载页面</a></p>
+<p>附上本次下载地址<br><a href="https://cdn.mysql.com//Downloads/MySQL-5.5/MySQL-server-5.5.62-1.el7.x86_64.rpm">mysql server</a><br><a href="https://cdn.mysql.com//Downloads/MySQL-5.5/MySQL-client-5.5.62-1.el7.x86_64.rpm">mysql client</a></p>
 <ul>
-<li>Ctrl+F9重新编译一下即可</li>
-<li>1. <code>File</code>&gt;&gt;<code>Settings</code>&gt;&gt;<code>Build</code>&gt;&gt;<code>Compiler</code>&gt;&gt;<code>Build Project automatically</code><br>2. <code>ctrl + shift + alt + /</code>,选择<code>Registry</code>,勾上 <code>Compiler autoMake allow when app running</code></li>
+<li><p>安装mysql-server  </p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rpm -ivh MySQL-server-5.5.62-1.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
+<p>  注: <code>-i</code>安装<br><code>-v</code>可视化<br><code>-h</code>显示进度</p>
+<p>  出现一下错误</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">error: Failed dependencies:</span><br><span class="line">        libaio.so.1()(64bit) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br><span class="line">        libaio.so.1(LIBAIO_0.1)(64bit) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br><span class="line">        libaio.so.1(LIBAIO_0.4)(64bit) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br><span class="line">        perl(Data::Dumper) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br></pre></td></tr></table></figure>
+<p>  提示缺少以下依赖</p>
+<ul>
+<li>libaio</li>
+<li>perl(Data::Dumper)</li>
 </ul>
+</li>
+</ul>
+<pre><code>下载地址  </code></pre><p><a href="http://mirror.centos.org/centos-7/7.6.1810/os/x86_64/Packages/libaio-0.3.109-13.el7.x86_64.rpm">libaio-0.3.109-13.el7.x86_64.rpm</a><br><a href="http://mirror.centos.org/centos-7/7.6.1810/os/x86_64/Packages/perl-Data-Dumper-2.145-3.el7.x86_64.rpm">perl-Data-Dumper-2.145-3.el7.x86_64.rpm</a></p>
+<pre><code>将以上依赖安装后再次安装mysql-server
+
+又出现以下错误
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Preparing...                          ################################# [100%]</span><br><span class="line">        file &#x2F;usr&#x2F;share&#x2F;mysql&#x2F;charsets&#x2F;README from install of MySQL-server-5.5.62-1.el7.x86_64 conflicts with file from package mariadb-libs-1:5.5.60-1.el7_5.x86_64</span><br><span class="line">        file &#x2F;usr&#x2F;share&#x2F;mysql&#x2F;charsets&#x2F;Index.xml from install of MySQL-server-5.5.62-1.el7.x86_64 conflicts with file from package mariadb-libs-1:5.5.60-1.el7_5.x86_64</span><br></pre></td></tr></table></figure>
+先卸载旧的mysql-libs
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum remove mysql-libs</span><br></pre></td></tr></table></figure>
+再次安装mysql-server
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">warning: MySQL-server-5.5.62-1.el7.x86_64.rpm: Header V3 DSA&#x2F;SHA1 Signature, key ID 5072e1f5: NOKEY</span><br><span class="line">Preparing...                          ################################# [100%]</span><br><span class="line">Updating &#x2F; installing...</span><br><span class="line">   1:MySQL-server-5.5.62-1.el7        ################################# [100%]</span><br><span class="line">warning: user mysql does not exist - using root</span><br><span class="line">warning: group mysql does not exist - using root</span><br><span class="line">190711  9:20:16 [Note] Ignoring --secure-file-priv value as server is running with --bootstrap.</span><br><span class="line">190711  9:20:16 [Note] &#x2F;usr&#x2F;sbin&#x2F;mysqld (mysqld 5.5.62) starting as process 12846 ...</span><br><span class="line">190711  9:20:16 [Note] Ignoring --secure-file-priv value as server is running with --bootstrap.</span><br><span class="line">190711  9:20:16 [Note] &#x2F;usr&#x2F;sbin&#x2F;mysqld (mysqld 5.5.62) starting as process 12853 ...</span><br><span class="line"></span><br><span class="line">	PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !</span><br><span class="line">To do so, start the server, then issue the following commands:</span><br><span class="line"></span><br><span class="line">	&#x2F;usr&#x2F;bin&#x2F;mysqladmin -u root password &#39;new-password&#39;</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysqladmin -u root -h iZm5e2cvrl3la2bzgnuxnnZ password &#39;new-password&#39;</span><br><span class="line"></span><br><span class="line">	Alternatively you can run:</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysql_secure_installation</span><br><span class="line"></span><br><span class="line">	which will also give you the option of removing the test</span><br><span class="line">databases and anonymous user created by default.  This is</span><br><span class="line">strongly recommended for production servers.</span><br><span class="line"></span><br><span class="line">	See the manual for more instructions.</span><br><span class="line"></span><br><span class="line">	Please report any problems at http:&#x2F;&#x2F;bugs.mysql.com&#x2F;</span><br></pre></td></tr></table></figure>
+有以上提示就安装成功了</code></pre><ul>
+<li><p>安装mysql-client</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rpm -ivh MySQL-client-5.5.62-1.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
+<p>  根据先前mysql-server安装成功后的提示依次执行</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysqladmin -u root password &#39;new-password&#39;</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysqladmin -u root -h iZm5e2cvrl3la2bzgnuxnnZ password &#39;new-password&#39;</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysql_secure_installation</span><br></pre></td></tr></table></figure>
+<p>以交互式方式</p>
+<ul>
+<li>设置root密码</li>
+<li>移除test库</li>
+<li>禁止root远程登录</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+<h1 id="配置master数据库"><a href="#配置master数据库" class="headerlink" title="配置master数据库"></a>配置master数据库</h1><ul>
+<li><p>my.cnf文件新增</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server-id &#x3D; 1</span><br><span class="line">log-bin&#x3D;&#x2F;var&#x2F;lib&#x2F;mysql&#x2F;mysql-bin</span><br><span class="line">binlog-ignore-db &#x3D; mysql</span><br><span class="line">binlog-ignore-db &#x3D; information_schema</span><br></pre></td></tr></table></figure></li>
+<li><p>重启master数据库  </p>
+</li>
+<li><p>查看master状态</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql&gt; show master status;</span><br><span class="line">+------------------+----------+--------------+--------------------------+</span><br><span class="line">| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB         |</span><br><span class="line">+------------------+----------+--------------+--------------------------+</span><br><span class="line">| mysql-bin.000001 |      339 |              | mysql,information_schema |</span><br><span class="line">+------------------+----------+--------------+--------------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure></li>
+<li><p>给slave数据库分配账号</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">grant replication slave on *.* to &#39;slave&#39;@&#39;%&#39; identified by &#39;password&#39;;</span><br></pre></td></tr></table></figure>
+<p>  此处<code>slave@%</code>中的<code>%</code>可以换成slave的ip</p>
+</li>
+</ul>
+<h1 id="配置slave数据库"><a href="#配置slave数据库" class="headerlink" title="配置slave数据库"></a>配置slave数据库</h1><ul>
+<li><p>my.cnf文件新增</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server-id &#x3D; 2</span><br><span class="line">replicate-ignore-db &#x3D; mysql</span><br><span class="line">replicate-ignore-db &#x3D; information_schema</span><br></pre></td></tr></table></figure></li>
+<li><p>连接到master数据库</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CHANGE MASTER TO MASTER_HOST&#x3D;&#39;1.1.1.1(masterIp)&#39;,MASTER_USER&#x3D;&#39;slave&#39;, MASTER_PASSWORD&#x3D;&#39;password&#39;,MASTER_LOG_FILE&#x3D;&#39; mysql-binlog.000001&#39;,MASTER_LOG_POS&#x3D;339;</span><br></pre></td></tr></table></figure>
+<p>填入<code>master数据库地址</code>、先前从master数据库中查看到的<code>binlog信息</code>，以及分配的<code>账号密码</code></p>
+</li>
+<li><p>启用slave同步</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">start slave;</span><br></pre></td></tr></table></figure></li>
+<li><p>查看slave信息</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">show slave status\G;</span><br></pre></td></tr></table></figure>
+<p>  显示如下即开启同步</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Slave_IO_Running: Yes</span><br><span class="line">Slave_SQL_Running: Yes</span><br></pre></td></tr></table></figure>
+<h1 id="mycat读写分离配置"><a href="#mycat读写分离配置" class="headerlink" title="mycat读写分离配置"></a>mycat读写分离配置</h1></li>
+</ul>
+<p>config/schema.xml</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;schema name&#x3D;&quot;databasename&quot; checkSQLschema&#x3D;&quot;false&quot; sqlMaxLimit&#x3D;&quot;100&quot; dataNode&#x3D;&quot;dn1&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;schema&gt;</span><br><span class="line"></span><br><span class="line">&lt;dataNode name&#x3D;&quot;dn1&quot; dataHost&#x3D;&quot;localhost1&quot; database&#x3D;&quot;databasename&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">&lt;dataHost name&#x3D;&quot;localhost1&quot; maxCon&#x3D;&quot;1000&quot; minCon&#x3D;&quot;10&quot; balance&#x3D;&quot;3&quot;</span><br><span class="line">		  writeType&#x3D;&quot;0&quot; dbType&#x3D;&quot;mysql&quot; dbDriver&#x3D;&quot;native&quot; switchType&#x3D;&quot;1&quot;  slaveThreshold&#x3D;&quot;100&quot;&gt;</span><br><span class="line">	&lt;heartbeat&gt;select user()&lt;&#x2F;heartbeat&gt;</span><br><span class="line">	&lt;!-- can have multi write hosts --&gt;</span><br><span class="line">	&lt;writeHost host&#x3D;&quot;hostM1&quot; url&#x3D;&quot;master1:3306&quot; user&#x3D;&quot;root&quot;</span><br><span class="line">			   password&#x3D;&quot;root&quot;&gt;</span><br><span class="line">		&lt;!-- can have multi read hosts --&gt;</span><br><span class="line">		&lt;readHost host&#x3D;&quot;hostS2&quot; url&#x3D;&quot;ip1:3306&quot; user&#x3D;&quot;root&quot; password&#x3D;&quot;root&quot; &#x2F;&gt;</span><br><span class="line">		&lt;readHost host&#x3D;&quot;hosts3&quot; url&#x3D;&quot;ip2:3306&quot; user&#x3D;&quot;root&quot; password&#x3D;&quot;root&quot; &#x2F;&gt;</span><br><span class="line">	&lt;&#x2F;writeHost&gt;</span><br><span class="line">&lt;&#x2F;dataHost&gt;</span><br></pre></td></tr></table></figure>
+<p>config/server.xml</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;user name&#x3D;&quot;username&quot; defaultAccount&#x3D;&quot;true&quot;&gt;</span><br><span class="line">	&lt;property name&#x3D;&quot;password&quot;&gt;password&lt;&#x2F;property&gt;</span><br><span class="line">	&lt;property name&#x3D;&quot;schemas&quot;&gt;database&lt;&#x2F;property&gt;</span><br><span class="line">&lt;&#x2F;user&gt;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <tags>
-        <tag>springboot</tag>
-        <tag>热部署</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -607,90 +671,43 @@
       </tags>
   </entry>
   <entry>
-    <title>mysql主从复制及读写分离的尝试</title>
-    <url>/posts/6fc5faff/</url>
+    <title>springboot devtools 热部署</title>
+    <url>/posts/5af71517/</url>
     <content><![CDATA[<p><span></span></p>
 <a id="more"></a>
 
 
-<hr>
-<h1 id="centos7-rpm安装mysql"><a href="#centos7-rpm安装mysql" class="headerlink" title="centos7 rpm安装mysql"></a>centos7 rpm安装mysql</h1><p>此次使用的是<code>MySQL Community Server 5.5.62</code></p>
-<p>可以自己选择版本<a href="https://dev.mysql.com/downloads/mysql/5.5.html#downloads">下载页面</a></p>
-<p>附上本次下载地址<br><a href="https://cdn.mysql.com//Downloads/MySQL-5.5/MySQL-server-5.5.62-1.el7.x86_64.rpm">mysql server</a><br><a href="https://cdn.mysql.com//Downloads/MySQL-5.5/MySQL-client-5.5.62-1.el7.x86_64.rpm">mysql client</a></p>
+<h5 id="添加pom依赖"><a href="#添加pom依赖" class="headerlink" title="添加pom依赖"></a>添加pom依赖</h5><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>maven plugin中添加</code></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">            	<span class="tag">&lt;<span class="name">fork</span>&gt;</span>true<span class="tag">&lt;/<span class="name">fork</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- spring热部署--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springloaded<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="application-yml中添加"><a href="#application-yml中添加" class="headerlink" title="application.yml中添加"></a>application.yml中添加</h5><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">devtools:</span></span><br><span class="line">    <span class="attr">restart:</span></span><br><span class="line">      <span class="comment">#热部署生效</span></span><br><span class="line">      <span class="attr">enabled:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>当我们修改了java类后，IDEA默认是不自动编译的，而spring-boot-devtools又是监测classpath下的文件发生变化才会重启应用 </p>
 <ul>
-<li><p>安装mysql-server  </p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rpm -ivh MySQL-server-5.5.62-1.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
-<p>  注: <code>-i</code>安装<br><code>-v</code>可视化<br><code>-h</code>显示进度</p>
-<p>  出现一下错误</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">error: Failed dependencies:</span><br><span class="line">        libaio.so.1()(64bit) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br><span class="line">        libaio.so.1(LIBAIO_0.1)(64bit) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br><span class="line">        libaio.so.1(LIBAIO_0.4)(64bit) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br><span class="line">        perl(Data::Dumper) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br></pre></td></tr></table></figure>
-<p>  提示缺少以下依赖</p>
-<ul>
-<li>libaio</li>
-<li>perl(Data::Dumper)</li>
+<li>Ctrl+F9重新编译一下即可</li>
+<li>1. <code>File</code>&gt;&gt;<code>Settings</code>&gt;&gt;<code>Build</code>&gt;&gt;<code>Compiler</code>&gt;&gt;<code>Build Project automatically</code><br>2. <code>ctrl + shift + alt + /</code>,选择<code>Registry</code>,勾上 <code>Compiler autoMake allow when app running</code></li>
 </ul>
-</li>
-</ul>
-<pre><code>下载地址  </code></pre><p><a href="http://mirror.centos.org/centos-7/7.6.1810/os/x86_64/Packages/libaio-0.3.109-13.el7.x86_64.rpm">libaio-0.3.109-13.el7.x86_64.rpm</a><br><a href="http://mirror.centos.org/centos-7/7.6.1810/os/x86_64/Packages/perl-Data-Dumper-2.145-3.el7.x86_64.rpm">perl-Data-Dumper-2.145-3.el7.x86_64.rpm</a></p>
-<pre><code>将以上依赖安装后再次安装mysql-server
-
-又出现以下错误
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Preparing...                          ################################# [100%]</span><br><span class="line">        file &#x2F;usr&#x2F;share&#x2F;mysql&#x2F;charsets&#x2F;README from install of MySQL-server-5.5.62-1.el7.x86_64 conflicts with file from package mariadb-libs-1:5.5.60-1.el7_5.x86_64</span><br><span class="line">        file &#x2F;usr&#x2F;share&#x2F;mysql&#x2F;charsets&#x2F;Index.xml from install of MySQL-server-5.5.62-1.el7.x86_64 conflicts with file from package mariadb-libs-1:5.5.60-1.el7_5.x86_64</span><br></pre></td></tr></table></figure>
-先卸载旧的mysql-libs
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum remove mysql-libs</span><br></pre></td></tr></table></figure>
-再次安装mysql-server
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">warning: MySQL-server-5.5.62-1.el7.x86_64.rpm: Header V3 DSA&#x2F;SHA1 Signature, key ID 5072e1f5: NOKEY</span><br><span class="line">Preparing...                          ################################# [100%]</span><br><span class="line">Updating &#x2F; installing...</span><br><span class="line">   1:MySQL-server-5.5.62-1.el7        ################################# [100%]</span><br><span class="line">warning: user mysql does not exist - using root</span><br><span class="line">warning: group mysql does not exist - using root</span><br><span class="line">190711  9:20:16 [Note] Ignoring --secure-file-priv value as server is running with --bootstrap.</span><br><span class="line">190711  9:20:16 [Note] &#x2F;usr&#x2F;sbin&#x2F;mysqld (mysqld 5.5.62) starting as process 12846 ...</span><br><span class="line">190711  9:20:16 [Note] Ignoring --secure-file-priv value as server is running with --bootstrap.</span><br><span class="line">190711  9:20:16 [Note] &#x2F;usr&#x2F;sbin&#x2F;mysqld (mysqld 5.5.62) starting as process 12853 ...</span><br><span class="line"></span><br><span class="line">	PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !</span><br><span class="line">To do so, start the server, then issue the following commands:</span><br><span class="line"></span><br><span class="line">	&#x2F;usr&#x2F;bin&#x2F;mysqladmin -u root password &#39;new-password&#39;</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysqladmin -u root -h iZm5e2cvrl3la2bzgnuxnnZ password &#39;new-password&#39;</span><br><span class="line"></span><br><span class="line">	Alternatively you can run:</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysql_secure_installation</span><br><span class="line"></span><br><span class="line">	which will also give you the option of removing the test</span><br><span class="line">databases and anonymous user created by default.  This is</span><br><span class="line">strongly recommended for production servers.</span><br><span class="line"></span><br><span class="line">	See the manual for more instructions.</span><br><span class="line"></span><br><span class="line">	Please report any problems at http:&#x2F;&#x2F;bugs.mysql.com&#x2F;</span><br></pre></td></tr></table></figure>
-有以上提示就安装成功了</code></pre><ul>
-<li><p>安装mysql-client</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rpm -ivh MySQL-client-5.5.62-1.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
-<p>  根据先前mysql-server安装成功后的提示依次执行</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysqladmin -u root password &#39;new-password&#39;</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysqladmin -u root -h iZm5e2cvrl3la2bzgnuxnnZ password &#39;new-password&#39;</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysql_secure_installation</span><br></pre></td></tr></table></figure>
-<p>以交互式方式</p>
-<ul>
-<li>设置root密码</li>
-<li>移除test库</li>
-<li>禁止root远程登录</li>
-<li>…</li>
-</ul>
-</li>
-</ul>
-<h1 id="配置master数据库"><a href="#配置master数据库" class="headerlink" title="配置master数据库"></a>配置master数据库</h1><ul>
-<li><p>my.cnf文件新增</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server-id &#x3D; 1</span><br><span class="line">log-bin&#x3D;&#x2F;var&#x2F;lib&#x2F;mysql&#x2F;mysql-bin</span><br><span class="line">binlog-ignore-db &#x3D; mysql</span><br><span class="line">binlog-ignore-db &#x3D; information_schema</span><br></pre></td></tr></table></figure></li>
-<li><p>重启master数据库  </p>
-</li>
-<li><p>查看master状态</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql&gt; show master status;</span><br><span class="line">+------------------+----------+--------------+--------------------------+</span><br><span class="line">| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB         |</span><br><span class="line">+------------------+----------+--------------+--------------------------+</span><br><span class="line">| mysql-bin.000001 |      339 |              | mysql,information_schema |</span><br><span class="line">+------------------+----------+--------------+--------------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure></li>
-<li><p>给slave数据库分配账号</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">grant replication slave on *.* to &#39;slave&#39;@&#39;%&#39; identified by &#39;password&#39;;</span><br></pre></td></tr></table></figure>
-<p>  此处<code>slave@%</code>中的<code>%</code>可以换成slave的ip</p>
-</li>
-</ul>
-<h1 id="配置slave数据库"><a href="#配置slave数据库" class="headerlink" title="配置slave数据库"></a>配置slave数据库</h1><ul>
-<li><p>my.cnf文件新增</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server-id &#x3D; 2</span><br><span class="line">replicate-ignore-db &#x3D; mysql</span><br><span class="line">replicate-ignore-db &#x3D; information_schema</span><br></pre></td></tr></table></figure></li>
-<li><p>连接到master数据库</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CHANGE MASTER TO MASTER_HOST&#x3D;&#39;1.1.1.1(masterIp)&#39;,MASTER_USER&#x3D;&#39;slave&#39;, MASTER_PASSWORD&#x3D;&#39;password&#39;,MASTER_LOG_FILE&#x3D;&#39; mysql-binlog.000001&#39;,MASTER_LOG_POS&#x3D;339;</span><br></pre></td></tr></table></figure>
-<p>填入<code>master数据库地址</code>、先前从master数据库中查看到的<code>binlog信息</code>，以及分配的<code>账号密码</code></p>
-</li>
-<li><p>启用slave同步</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">start slave;</span><br></pre></td></tr></table></figure></li>
-<li><p>查看slave信息</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">show slave status\G;</span><br></pre></td></tr></table></figure>
-<p>  显示如下即开启同步</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Slave_IO_Running: Yes</span><br><span class="line">Slave_SQL_Running: Yes</span><br></pre></td></tr></table></figure>
-<h1 id="mycat读写分离配置"><a href="#mycat读写分离配置" class="headerlink" title="mycat读写分离配置"></a>mycat读写分离配置</h1></li>
-</ul>
-<p>config/schema.xml</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;schema name&#x3D;&quot;databasename&quot; checkSQLschema&#x3D;&quot;false&quot; sqlMaxLimit&#x3D;&quot;100&quot; dataNode&#x3D;&quot;dn1&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;schema&gt;</span><br><span class="line"></span><br><span class="line">&lt;dataNode name&#x3D;&quot;dn1&quot; dataHost&#x3D;&quot;localhost1&quot; database&#x3D;&quot;databasename&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">&lt;dataHost name&#x3D;&quot;localhost1&quot; maxCon&#x3D;&quot;1000&quot; minCon&#x3D;&quot;10&quot; balance&#x3D;&quot;3&quot;</span><br><span class="line">		  writeType&#x3D;&quot;0&quot; dbType&#x3D;&quot;mysql&quot; dbDriver&#x3D;&quot;native&quot; switchType&#x3D;&quot;1&quot;  slaveThreshold&#x3D;&quot;100&quot;&gt;</span><br><span class="line">	&lt;heartbeat&gt;select user()&lt;&#x2F;heartbeat&gt;</span><br><span class="line">	&lt;!-- can have multi write hosts --&gt;</span><br><span class="line">	&lt;writeHost host&#x3D;&quot;hostM1&quot; url&#x3D;&quot;master1:3306&quot; user&#x3D;&quot;root&quot;</span><br><span class="line">			   password&#x3D;&quot;root&quot;&gt;</span><br><span class="line">		&lt;!-- can have multi read hosts --&gt;</span><br><span class="line">		&lt;readHost host&#x3D;&quot;hostS2&quot; url&#x3D;&quot;ip1:3306&quot; user&#x3D;&quot;root&quot; password&#x3D;&quot;root&quot; &#x2F;&gt;</span><br><span class="line">		&lt;readHost host&#x3D;&quot;hosts3&quot; url&#x3D;&quot;ip2:3306&quot; user&#x3D;&quot;root&quot; password&#x3D;&quot;root&quot; &#x2F;&gt;</span><br><span class="line">	&lt;&#x2F;writeHost&gt;</span><br><span class="line">&lt;&#x2F;dataHost&gt;</span><br></pre></td></tr></table></figure>
-<p>config/server.xml</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;user name&#x3D;&quot;username&quot; defaultAccount&#x3D;&quot;true&quot;&gt;</span><br><span class="line">	&lt;property name&#x3D;&quot;password&quot;&gt;password&lt;&#x2F;property&gt;</span><br><span class="line">	&lt;property name&#x3D;&quot;schemas&quot;&gt;database&lt;&#x2F;property&gt;</span><br><span class="line">&lt;&#x2F;user&gt;</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <tags>
-        <tag>mysql</tag>
+        <tag>springboot</tag>
+        <tag>热部署</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>yum使用阿里云镜像源</title>
+    <url>/posts/e341b84/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<h3 id="1-备份原配置文件"><a href="#1-备份原配置文件" class="headerlink" title="1. 备份原配置文件"></a>1. 备份原配置文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-下载新的CentOS-Base-repo-到-etc-yum-repos-d"><a href="#2-下载新的CentOS-Base-repo-到-etc-yum-repos-d" class="headerlink" title="2. 下载新的CentOS-Base.repo 到/etc/yum.repos.d/"></a>2. 下载新的<code>CentOS-Base.repo</code> 到<code>/etc/yum.repos.d/</code></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget -O &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;repo&#x2F;Centos-7.repo</span><br></pre></td></tr></table></figure>
+<h3 id="3-生成缓存"><a href="#3-生成缓存" class="headerlink" title="3. 生成缓存"></a>3. 生成缓存</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>yum</tag>
+        <tag>阿里云</tag>
       </tags>
   </entry>
   <entry>
@@ -727,23 +744,6 @@
       <tags>
         <tag>vim</tag>
         <tag>vundle</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>yum使用阿里云镜像源</title>
-    <url>/posts/e341b84/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<h3 id="1-备份原配置文件"><a href="#1-备份原配置文件" class="headerlink" title="1. 备份原配置文件"></a>1. 备份原配置文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="2-下载新的CentOS-Base-repo-到-etc-yum-repos-d"><a href="#2-下载新的CentOS-Base-repo-到-etc-yum-repos-d" class="headerlink" title="2. 下载新的CentOS-Base.repo 到/etc/yum.repos.d/"></a>2. 下载新的<code>CentOS-Base.repo</code> 到<code>/etc/yum.repos.d/</code></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget -O &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;repo&#x2F;Centos-7.repo</span><br></pre></td></tr></table></figure>
-<h3 id="3-生成缓存"><a href="#3-生成缓存" class="headerlink" title="3. 生成缓存"></a>3. 生成缓存</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>yum</tag>
-        <tag>阿里云</tag>
       </tags>
   </entry>
   <entry>
@@ -893,6 +893,69 @@
       </tags>
   </entry>
   <entry>
+    <title>小米手环NFC模拟加密卡</title>
+    <url>/posts/1fd4902a/</url>
+    <content><![CDATA[<h4 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h4><ul>
+<li>小米手环NFC版</li>
+<li>pn532或者其他nfc读写工具</li>
+<li>MifareOneTool软件</li>
+<li>原始门禁卡</li>
+<li>中间卡</li>
+</ul>
+<a id="more"></a>
+
+<h4 id="提取原始卡信息"><a href="#提取原始卡信息" class="headerlink" title="提取原始卡信息"></a>提取原始卡信息</h4><ol>
+<li>连接<code>pn532</code>到PC，并打开<code>MifareOneTool</code></li>
+<li><code>复制卡模式</code>选项卡下</li>
+<li>点击<code>检测连接</code>(控制台输出设备信息后表示pn532连接成功)</li>
+<li>将<code>原始门禁卡</code>放在pn532上</li>
+<li>点击<code>扫描卡片</code>(控制台输出卡片信息代表检测到卡片)</li>
+<li>点击<code>一键解原卡</code>(成功后会弹出保存窗口，命名后保存文件，例如origin.dump)</li>
+</ol>
+<h4 id="2选1-写入非加密信息到中间卡-lt-中间卡无法修改卡号-gt"><a href="#2选1-写入非加密信息到中间卡-lt-中间卡无法修改卡号-gt" class="headerlink" title="[2选1]写入非加密信息到中间卡&lt;中间卡无法修改卡号&gt;"></a>[2选1]写入非加密信息到中间卡&lt;中间卡<code>无法</code>修改卡号&gt;</h4><ol>
+<li>将<code>中间卡</code>放在pn532上</li>
+<li><code>高级模式</code>选项卡下</li>
+<li>点击<code>写M1</code>，选择origin.dump文件，如有弹窗，选<code>取消</code>(以白卡方式写入)<br>此步骤会写入(非加密+加密)数据，此时用手环模拟会提示加密卡无法模拟<br> <strong>注意：</strong>若此处写入失败，可以参考<code>附录</code>处理</li>
+<li>点击<code>选择key.mfd</code>，右下角切换到.dump文件，选择origin.dump文件</li>
+<li>点击<code>清M1</code>，如有弹窗，选<code>取消</code>(以白卡方式写入)<br>此步骤会清理(加密)部分数据</li>
+</ol>
+<h4 id="2选1-写入非加密信息到中间卡-lt-中间卡可以修改卡号-gt"><a href="#2选1-写入非加密信息到中间卡-lt-中间卡可以修改卡号-gt" class="headerlink" title="[2选1]写入非加密信息到中间卡&lt;中间卡可以修改卡号&gt;"></a>[2选1]写入非加密信息到中间卡&lt;中间卡<code>可以</code>修改卡号&gt;</h4><ol>
+<li>将<code>中间卡</code>放在pn532上</li>
+<li><code>复制卡模式</code>选项卡下，<code>[3]写入新卡</code>块中</li>
+<li>点击<code>写(UF)UID卡</code>，选择origin.dump文件，<br>此步骤会写入(非加密&lt;包括卡号&gt;+加密)数据，此时用手环模拟会提示加密卡无法模拟</li>
+<li><code>高级模式</code>选项卡下，点击<code>选择key.mfd</code>，右下角切换到.dump文件，选择origin.dump文件</li>
+<li>点击<code>清M1</code>，如有弹窗，选<code>取消</code>(以白卡方式写入)<br>此步骤会清理(加密)部分数据</li>
+</ol>
+<h4 id="手环模拟卡片"><a href="#手环模拟卡片" class="headerlink" title="手环模拟卡片"></a>手环模拟卡片</h4><ol>
+<li>打开小米运动-&gt;我的-&gt;小米手环nfc-&gt;门卡模拟</li>
+<li>将手环靠近<code>原始门禁卡</code>(中间卡)</li>
+<li>手环模拟成功后命名</li>
+</ol>
+<h4 id="写入加密信息到手环"><a href="#写入加密信息到手环" class="headerlink" title="写入加密信息到手环"></a>写入加密信息到手环</h4><ol>
+<li>打开MifareOneTool</li>
+<li><code>高级模式</code>选项卡下</li>
+<li>点一下<code>选择key.mfd</code>，弹出框后点<code>取消</code>(为了清理选项)</li>
+<li>点击<code>写M1</code>，选择origin.dump文件，如有弹窗，选<code>取消</code>(以白卡方式写入)</li>
+<li>如手环上有多张卡片，则先启用刚刚模拟的这张</li>
+<li>手环靠近pn532(建议提前将手环放在pn532旁边)</li>
+<li>控制台输出(63/64 写入成功)即代表成功</li>
+</ol>
+<h4 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h4><ol>
+<li>写入非加密信息到中间卡失败？<br>中间卡的<code>加密数据区</code>需要为<code>空</code>才可以写入新的加密数据<br>此时可以使用中间卡对应的dump文件<code>清M1</code></li>
+<li>没有中间卡的dump文件？<br>参考<code>提取原始卡数据信息</code>步骤，提取中间卡的dump文件</li>
+<li>使用<code>写M1</code>功能前，要注意下方选择key的按钮不能有值，即显示<code>选择key.mfd</code><br>若不是，则点击一下该按钮，再点取消，清空选择</li>
+<li><a href="https://drive.google.com/file/d/1wlhXkhbU8ggEBbTVjEPuNB5N8wmhDxSq/view?usp=sharing">MifareOneTool软件下载</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>小米手环</tag>
+        <tag>NFC</tag>
+        <tag>加密卡</tag>
+        <tag>MifareOneTool</tag>
+        <tag>pn532</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于java一些零零散散的点(二)</title>
     <url>/posts/d4f37418/</url>
     <content><![CDATA[<p><span></span></p>
@@ -959,69 +1022,6 @@
 ]]></content>
       <tags>
         <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小米手环NFC模拟加密卡</title>
-    <url>/posts/1fd4902a/</url>
-    <content><![CDATA[<h4 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h4><ul>
-<li>小米手环NFC版</li>
-<li>pn532或者其他nfc读写工具</li>
-<li>MifareOneTool软件</li>
-<li>原始门禁卡</li>
-<li>中间卡</li>
-</ul>
-<a id="more"></a>
-
-<h4 id="提取原始卡信息"><a href="#提取原始卡信息" class="headerlink" title="提取原始卡信息"></a>提取原始卡信息</h4><ol>
-<li>连接<code>pn532</code>到PC，并打开<code>MifareOneTool</code></li>
-<li><code>复制卡模式</code>选项卡下</li>
-<li>点击<code>检测连接</code>(控制台输出设备信息后表示pn532连接成功)</li>
-<li>将<code>原始门禁卡</code>放在pn532上</li>
-<li>点击<code>扫描卡片</code>(控制台输出卡片信息代表检测到卡片)</li>
-<li>点击<code>一键解原卡</code>(成功后会弹出保存窗口，命名后保存文件，例如origin.dump)</li>
-</ol>
-<h4 id="2选1-写入非加密信息到中间卡-lt-中间卡无法修改卡号-gt"><a href="#2选1-写入非加密信息到中间卡-lt-中间卡无法修改卡号-gt" class="headerlink" title="[2选1]写入非加密信息到中间卡&lt;中间卡无法修改卡号&gt;"></a>[2选1]写入非加密信息到中间卡&lt;中间卡<code>无法</code>修改卡号&gt;</h4><ol>
-<li>将<code>中间卡</code>放在pn532上</li>
-<li><code>高级模式</code>选项卡下</li>
-<li>点击<code>写M1</code>，选择origin.dump文件，如有弹窗，选<code>取消</code>(以白卡方式写入)<br>此步骤会写入(非加密+加密)数据，此时用手环模拟会提示加密卡无法模拟<br> <strong>注意：</strong>若此处写入失败，可以参考<code>附录</code>处理</li>
-<li>点击<code>选择key.mfd</code>，右下角切换到.dump文件，选择origin.dump文件</li>
-<li>点击<code>清M1</code>，如有弹窗，选<code>取消</code>(以白卡方式写入)<br>此步骤会清理(加密)部分数据</li>
-</ol>
-<h4 id="2选1-写入非加密信息到中间卡-lt-中间卡可以修改卡号-gt"><a href="#2选1-写入非加密信息到中间卡-lt-中间卡可以修改卡号-gt" class="headerlink" title="[2选1]写入非加密信息到中间卡&lt;中间卡可以修改卡号&gt;"></a>[2选1]写入非加密信息到中间卡&lt;中间卡<code>可以</code>修改卡号&gt;</h4><ol>
-<li>将<code>中间卡</code>放在pn532上</li>
-<li><code>复制卡模式</code>选项卡下，<code>[3]写入新卡</code>块中</li>
-<li>点击<code>写(UF)UID卡</code>，选择origin.dump文件，<br>此步骤会写入(非加密&lt;包括卡号&gt;+加密)数据，此时用手环模拟会提示加密卡无法模拟</li>
-<li><code>高级模式</code>选项卡下，点击<code>选择key.mfd</code>，右下角切换到.dump文件，选择origin.dump文件</li>
-<li>点击<code>清M1</code>，如有弹窗，选<code>取消</code>(以白卡方式写入)<br>此步骤会清理(加密)部分数据</li>
-</ol>
-<h4 id="手环模拟卡片"><a href="#手环模拟卡片" class="headerlink" title="手环模拟卡片"></a>手环模拟卡片</h4><ol>
-<li>打开小米运动-&gt;我的-&gt;小米手环nfc-&gt;门卡模拟</li>
-<li>将手环靠近<code>原始门禁卡</code>(中间卡)</li>
-<li>手环模拟成功后命名</li>
-</ol>
-<h4 id="写入加密信息到手环"><a href="#写入加密信息到手环" class="headerlink" title="写入加密信息到手环"></a>写入加密信息到手环</h4><ol>
-<li>打开MifareOneTool</li>
-<li><code>高级模式</code>选项卡下</li>
-<li>点一下<code>选择key.mfd</code>，弹出框后点<code>取消</code>(为了清理选项)</li>
-<li>点击<code>写M1</code>，选择origin.dump文件，如有弹窗，选<code>取消</code>(以白卡方式写入)</li>
-<li>如手环上有多张卡片，则先启用刚刚模拟的这张</li>
-<li>手环靠近pn532(建议提前将手环放在pn532旁边)</li>
-<li>控制台输出(63/64 写入成功)即代表成功</li>
-</ol>
-<h4 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h4><ol>
-<li>写入非加密信息到中间卡失败？<br>中间卡的<code>加密数据区</code>需要为<code>空</code>才可以写入新的加密数据<br>此时可以使用中间卡对应的dump文件<code>清M1</code></li>
-<li>没有中间卡的dump文件？<br>参考<code>提取原始卡数据信息</code>步骤，提取中间卡的dump文件</li>
-<li>使用<code>写M1</code>功能前，要注意下方选择key的按钮不能有值，即显示<code>选择key.mfd</code><br>若不是，则点击一下该按钮，再点取消，清空选择</li>
-<li><a href="https://drive.google.com/file/d/1wlhXkhbU8ggEBbTVjEPuNB5N8wmhDxSq/view?usp=sharing">MifareOneTool软件下载</a></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>小米手环</tag>
-        <tag>NFC</tag>
-        <tag>加密卡</tag>
-        <tag>MifareOneTool</tag>
-        <tag>pn532</tag>
       </tags>
   </entry>
   <entry>
