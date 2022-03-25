@@ -1,6 +1,6 @@
 User-agent: *
-Disallow: /2019/01/14/%E4%B8%80%E4%BA%9Bjvm%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90%E5%91%BD%E4%BB%A4/
-Disallow: /2019/07/11/mysql%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%8F%8A%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB%E7%9A%84%E5%B0%9D%E8%AF%95/
-Disallow: /2019/02/27/Centos7%E5%AE%89%E8%A3%85qBittorrent/
+Disallow: /2019/01/14/一些jvm内存分析命令/
+Disallow: /2019/07/11/mysql主从复制及读写分离的尝试/
+Disallow: /2019/02/27/Centos7安装qBittorrent/
 Disallow: /cdn-cgi/
 Sitemap: http://blog.akstianye.moe/sitemap.xml
