@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Centos7安装DockerCE</title>
+    <url>/posts/b9257e54/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<p>1.移除旧版本</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum remove docker \</span></span><br><span class="line"><span class="bash">                  docker-client \</span></span><br><span class="line"><span class="bash">                  docker-client-latest \</span></span><br><span class="line"><span class="bash">                  docker-common \</span></span><br><span class="line"><span class="bash">                  docker-latest \</span></span><br><span class="line"><span class="bash">                  docker-latest-logrotate \</span></span><br><span class="line"><span class="bash">                  docker-logrotate \</span></span><br><span class="line"><span class="bash">                  docker-engine</span></span><br></pre></td></tr></table></figure>
+<p>2.安装yum工具</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install -y yum-utils \</span></span><br><span class="line"><span class="bash">  device-mapper-persistent-data \</span></span><br><span class="line"><span class="bash">  lvm2</span></span><br></pre></td></tr></table></figure>
+<p>3.设置yum仓库</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager \</span></span><br><span class="line"><span class="bash">    --add-repo \</span></span><br><span class="line"><span class="bash">    https://download.docker.com/linux/centos/docker-ce.repo</span></span><br></pre></td></tr></table></figure>
+<p><code>&lt;可选&gt;</code></p>
+<ul>
+<li><p>启用nightly</p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager --<span class="built_in">enable</span> docker-ce-nightly</span></span><br></pre></td></tr></table></figure></li>
+<li><p>禁用nightly</p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager --<span class="built_in">disable</span> docker-ce-nightly</span></span><br></pre></td></tr></table></figure></li>
+<li><p>启用test</p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager --<span class="built_in">enable</span> docker-ce-test</span></span><br></pre></td></tr></table></figure></li>
+<li><p>禁用test</p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager --<span class="built_in">disable</span> docker-ce-test</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>4.安装DockerCE</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install docker-ce docker-ce-cli containerd.io</span></span><br></pre></td></tr></table></figure>
+<p>5.启动</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl start docker</span></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>Centos</tag>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Centos7压缩解压文件</title>
     <url>/posts/6653c2e1/</url>
     <content><![CDATA[<p><span></span></p>
@@ -118,57 +151,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Centos7安装DockerCE</title>
-    <url>/posts/b9257e54/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<p>1.移除旧版本</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum remove docker \</span></span><br><span class="line"><span class="bash">                  docker-client \</span></span><br><span class="line"><span class="bash">                  docker-client-latest \</span></span><br><span class="line"><span class="bash">                  docker-common \</span></span><br><span class="line"><span class="bash">                  docker-latest \</span></span><br><span class="line"><span class="bash">                  docker-latest-logrotate \</span></span><br><span class="line"><span class="bash">                  docker-logrotate \</span></span><br><span class="line"><span class="bash">                  docker-engine</span></span><br></pre></td></tr></table></figure>
-<p>2.安装yum工具</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install -y yum-utils \</span></span><br><span class="line"><span class="bash">  device-mapper-persistent-data \</span></span><br><span class="line"><span class="bash">  lvm2</span></span><br></pre></td></tr></table></figure>
-<p>3.设置yum仓库</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager \</span></span><br><span class="line"><span class="bash">    --add-repo \</span></span><br><span class="line"><span class="bash">    https://download.docker.com/linux/centos/docker-ce.repo</span></span><br></pre></td></tr></table></figure>
-<p><code>&lt;可选&gt;</code></p>
-<ul>
-<li><p>启用nightly</p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager --<span class="built_in">enable</span> docker-ce-nightly</span></span><br></pre></td></tr></table></figure></li>
-<li><p>禁用nightly</p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager --<span class="built_in">disable</span> docker-ce-nightly</span></span><br></pre></td></tr></table></figure></li>
-<li><p>启用test</p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager --<span class="built_in">enable</span> docker-ce-test</span></span><br></pre></td></tr></table></figure></li>
-<li><p>禁用test</p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager --<span class="built_in">disable</span> docker-ce-test</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>4.安装DockerCE</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install docker-ce docker-ce-cli containerd.io</span></span><br></pre></td></tr></table></figure>
-<p>5.启动</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl start docker</span></span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>Centos</tag>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux查看最大文件占用</title>
-    <url>/posts/5ef19cda/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<p>其中 <code>/path</code> 为需要查询的目录</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">du -h --max-depth&#x3D;1 &#x2F;path</span><br></pre></td></tr></table></figure>
-<!--more-->
-
-<p>按文件从大到小排序</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">du -h --max-depth&#x3D;1 &#x2F;path | sort -nr</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>Centos</tag>
-        <tag>文件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Effective Java 笔记(一)</title>
     <url>/posts/f9ac33e3/</url>
     <content><![CDATA[<p><span></span></p>
@@ -254,6 +236,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux查看最大文件占用</title>
+    <url>/posts/5ef19cda/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<p>其中 <code>/path</code> 为需要查询的目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">du -h --max-depth&#x3D;1 &#x2F;path</span><br></pre></td></tr></table></figure>
+<!--more-->
+
+<p>按文件从大到小排序</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">du -h --max-depth&#x3D;1 &#x2F;path | sort -nr</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>Centos</tag>
+        <tag>文件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>URL中文参数编码问题</title>
     <url>/posts/e174da9f/</url>
     <content><![CDATA[<p><span></span></p>
@@ -276,24 +276,21 @@
       </tags>
   </entry>
   <entry>
-    <title>dns解析记录类型</title>
-    <url>/posts/b237770b/</url>
-    <content><![CDATA[<p>一点对dns解析记录类型的说明</p>
+    <title>apt换国内源</title>
+    <url>/posts/a84f8eca/</url>
+    <content><![CDATA[<p><span></span></p>
 <a id="more"></a>
 
 
-<h4 id="A记录"><a href="#A记录" class="headerlink" title="A记录"></a>A记录</h4><p>将域名指向一个IPV4地址</p>
-<h4 id="AAAA记录"><a href="#AAAA记录" class="headerlink" title="AAAA记录"></a>AAAA记录</h4><p>将域名指向一个IPV6地址</p>
-<h4 id="CNAME记录"><a href="#CNAME记录" class="headerlink" title="CNAME记录"></a>CNAME记录</h4><p>将域名指向一个域名，访问此域名等同于访问被指向的域名</p>
-<h4 id="TXT记录"><a href="#TXT记录" class="headerlink" title="TXT记录"></a>TXT记录</h4><p>可任意填写，可为空，一般做一些验证时使用。</p>
-<h4 id="MX记录"><a href="#MX记录" class="headerlink" title="MX记录"></a>MX记录</h4><p>建立电子邮箱服务，指向邮箱服务商提供的MX记录地址</p>
-<h4 id="NS记录"><a href="#NS记录" class="headerlink" title="NS记录"></a>NS记录</h4><p>域名解析服务器记录，可将子域名指定某个域名服务器来解析</p>
-<h4 id="SRV记录"><a href="#SRV记录" class="headerlink" title="SRV记录"></a>SRV记录</h4><p>SRV记录了哪台计算机提供了哪个服务，格式为：服务名.协议类型</p>
-<h4 id="CAA记录"><a href="#CAA记录" class="headerlink" title="CAA记录"></a>CAA记录</h4><p>用于限定可以给此域名颁发证书的机构</p>
-]]></content>
+<h3 id="1-备份原配置文件"><a href="#1-备份原配置文件" class="headerlink" title="1. 备份原配置文件"></a>1. 备份原配置文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.bak</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-修改sources-list"><a href="#2-修改sources-list" class="headerlink" title="2. 修改sources.list"></a>2. 修改sources.list</h3><p>stretch(debian9) </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch main contrib non-free</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch-updates main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch-updates main contrib non-free</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian-security stretch&#x2F;updates main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian-security stretch&#x2F;updates main contrib non-free</span><br></pre></td></tr></table></figure>
+<h3 id="3-更新源"><a href="#3-更新源" class="headerlink" title="3. 更新源"></a>3. 更新源</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>dns</tag>
-        <tag>dns记录类型</tag>
+        <tag>apt</tag>
+        <tag>镜像</tag>
       </tags>
   </entry>
   <entry>
@@ -417,6 +414,27 @@
       </tags>
   </entry>
   <entry>
+    <title>dns解析记录类型</title>
+    <url>/posts/b237770b/</url>
+    <content><![CDATA[<p>一点对dns解析记录类型的说明</p>
+<a id="more"></a>
+
+
+<h4 id="A记录"><a href="#A记录" class="headerlink" title="A记录"></a>A记录</h4><p>将域名指向一个IPV4地址</p>
+<h4 id="AAAA记录"><a href="#AAAA记录" class="headerlink" title="AAAA记录"></a>AAAA记录</h4><p>将域名指向一个IPV6地址</p>
+<h4 id="CNAME记录"><a href="#CNAME记录" class="headerlink" title="CNAME记录"></a>CNAME记录</h4><p>将域名指向一个域名，访问此域名等同于访问被指向的域名</p>
+<h4 id="TXT记录"><a href="#TXT记录" class="headerlink" title="TXT记录"></a>TXT记录</h4><p>可任意填写，可为空，一般做一些验证时使用。</p>
+<h4 id="MX记录"><a href="#MX记录" class="headerlink" title="MX记录"></a>MX记录</h4><p>建立电子邮箱服务，指向邮箱服务商提供的MX记录地址</p>
+<h4 id="NS记录"><a href="#NS记录" class="headerlink" title="NS记录"></a>NS记录</h4><p>域名解析服务器记录，可将子域名指定某个域名服务器来解析</p>
+<h4 id="SRV记录"><a href="#SRV记录" class="headerlink" title="SRV记录"></a>SRV记录</h4><p>SRV记录了哪台计算机提供了哪个服务，格式为：服务名.协议类型</p>
+<h4 id="CAA记录"><a href="#CAA记录" class="headerlink" title="CAA记录"></a>CAA记录</h4><p>用于限定可以给此域名颁发证书的机构</p>
+]]></content>
+      <tags>
+        <tag>dns</tag>
+        <tag>dns记录类型</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>java设计模式之单例模式</title>
     <url>/posts/23a824cc/</url>
     <content><![CDATA[<p><span></span></p>
@@ -476,187 +494,6 @@
         <tag>java</tag>
         <tag>设计模式</tag>
         <tag>单例</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>apt换国内源</title>
-    <url>/posts/a84f8eca/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<h3 id="1-备份原配置文件"><a href="#1-备份原配置文件" class="headerlink" title="1. 备份原配置文件"></a>1. 备份原配置文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.bak</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="2-修改sources-list"><a href="#2-修改sources-list" class="headerlink" title="2. 修改sources.list"></a>2. 修改sources.list</h3><p>stretch(debian9) </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch main contrib non-free</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch-updates main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch-updates main contrib non-free</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian-security stretch&#x2F;updates main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian-security stretch&#x2F;updates main contrib non-free</span><br></pre></td></tr></table></figure>
-<h3 id="3-更新源"><a href="#3-更新源" class="headerlink" title="3. 更新源"></a>3. 更新源</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>apt</tag>
-        <tag>镜像</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>rfc2616_section-14</title>
-    <url>/posts/e7a2c981/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<blockquote class="blockquote-center">本文主要对http协议中的header参数做一个清单，主要包括参数的格式及解释
-</blockquote>
-
-
-
-<h5 id="1-Accept"><a href="#1-Accept" class="headerlink" title="1. Accept"></a>1. Accept</h5><p>Accept指明客户端可以接收什么样的媒体格式</p>
-<ul>
-<li><p>格式<br>Accept: media-range[accept-params],…</p>
-<ul>
-<li><p><code>media-range</code>:媒体类型  type/* | type/subtype | */*<br>eg:text/html  </p>
-</li>
-<li><p><code>accept-params</code>: 附加参数 eg: q=0.8</p>
-</li>
-<li><p>其中media-range以<code>,</code>分割。media-range与accept-params用<code>;</code>连接  </p>
-</li>
-<li><p>诸如type/*指大类下的全部小类  </p>
-</li>
-<li><p>q指优先级，范围[0-1],默认1,数字越大优先级越高,服务器在能够返回的类型中应当优先返回优先级高的媒体格式</p>
-</li>
-<li><p>媒体类型可以被更具体的媒体类型覆盖<br>eg: text/*,text/html 后者将会覆盖前者，等同具有更高的优先级</p>
-</li>
-<li><p>q因子的取值是某种媒体类型找到的最高优先级媒体类型的q值，即最具体的媒体类型的q值。</p>
-</li>
-<li><p>若无Accept字段，则认为所有的媒体类型都可以接受</p>
-</li>
-<li><p>若服务器无法返回Accept中指定的任一类型，应当返回406 (not acceptable)</p>
-</li>
-</ul>
-</li>
-</ul>
-<h5 id="2-Accept-Charset"><a href="#2-Accept-Charset" class="headerlink" title="2. Accept-Charset"></a>2. Accept-Charset</h5><p>Accept-Charset指明客户端可以接收什么样的字符集</p>
-<ul>
-<li>格式<br>Accept-Charset: ( charset | * ) [q=value], …  <ul>
-<li>q指优先级，范围[0-1],默认1，数字越大优先级越高</li>
-<li>若存在特殊值*,则匹配所有字符集，包括ISO-8859-1</li>
-<li>若不存在*,则未显式指定的字符集q值为0。ISO-8859-1除外，为1。</li>
-<li>若不存在Accept-Charset字段，则认为所有字符集均可接受</li>
-<li>若服务器无法返回Accept-Charset中指定的任一字符集，应当返回406 (not acceptable)</li>
-</ul>
-</li>
-</ul>
-<h5 id="3-Accept-Encoding"><a href="#3-Accept-Encoding" class="headerlink" title="3. Accept-Encoding"></a>3. Accept-Encoding</h5><ul>
-<li>格式<br>Accept-Encoding: ( codings | * ) [q=values], …  <ul>
-<li>如果服务器的编码在Accept-Encoding的指定中且q!=0，则该编码可用</li>
-<li>特殊*匹配所有未明确列出的编码方式</li>
-<li>如果多个指定的编码都可接受，则使用其中q值最高的返回</li>
-<li><code>identity</code>默认是被接受的，除非显式拒绝，如<code>identity;q=0</code>或<code>*;q=0</code>。当Accept-Encoding为空时，则认为只接受<code>identity</code>编码</li>
-<li>当有Accept-Encoding字段时，服务器无法以指定的编码返回，应当返回406 (not acceptable)</li>
-<li>当无Accept-Encoding字段时，服务器认为客户端可以接受任意编码，若identity在服务器可用，则应当使用identity,除非其他编码更合适，如有额外内容需要返回.</li>
-<li>当无Accept-Encoding字段时,且identity在服务器不可用时，可以考虑http1.0通常能够接受的编码,如(gzip,compress)等</li>
-<li>有时一些旧客户端发送的内容与Accept-Encoding指定的编码不一致时，可以考虑以内容来判断返回什么编码</li>
-<li>http1.0在Accept-Encoding中不支持q值，所以q值的功能在x-gzip、x-compress中是无效的，也是不允许的.</li>
-</ul>
-</li>
-</ul>
-<h5 id="4-Accept-Language"><a href="#4-Accept-Language" class="headerlink" title="4. Accept-Language"></a>4. Accept-Language</h5><ul>
-<li>格式<br>Accept-Language: (language | *) [q=value], …  <ul>
-<li>q值为优先级，范围[0-1]，默认为1，数字越大优先级越高</li>
-<li>语言与指定的language完全匹配或者前缀匹配(即-之前完全匹配)，都认为匹配</li>
-<li>特别的*匹配所有</li>
-<li>前缀匹配不意味着语言也如此分配,即不认为用户理解带特定标签的语言，也会理解所有带该标签的语言</li>
-<li>q的值应当为最长匹配语言的q值</li>
-<li>若无Accept-Language，则服务器认为所有语言都可接受</li>
-<li>若有Accept-Language，则服务器认为所有指定的并且q值大于0的语言可接受</li>
-<li>在请求中携带用户的完整语言信息可能会有隐私的问题，建议客户端给出语言偏好选择，若选择被禁用，则不应该在请求头中携带语言信息</li>
-<li>用户不了解语言匹配的规则，客户端应当给与用户一定的引导</li>
-</ul>
-</li>
-</ul>
-<h5 id="5-Accept-Ranges"><a href="#5-Accept-Ranges" class="headerlink" title="5. Accept-Ranges"></a>5. Accept-Ranges</h5><ul>
-<li>格式  </li>
-</ul>
-<h5 id="17-Content-Type"><a href="#17-Content-Type" class="headerlink" title="17. Content-Type"></a>17. Content-Type</h5><ul>
-<li>格式  </li>
-</ul>
-]]></content>
-      <tags>
-        <tag>http</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>springboot devtools 热部署</title>
-    <url>/posts/5af71517/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<h5 id="添加pom依赖"><a href="#添加pom依赖" class="headerlink" title="添加pom依赖"></a>添加pom依赖</h5><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><code>maven plugin中添加</code></p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">            	<span class="tag">&lt;<span class="name">fork</span>&gt;</span>true<span class="tag">&lt;/<span class="name">fork</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- spring热部署--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springloaded<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="application-yml中添加"><a href="#application-yml中添加" class="headerlink" title="application.yml中添加"></a>application.yml中添加</h5><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">devtools:</span></span><br><span class="line">    <span class="attr">restart:</span></span><br><span class="line">      <span class="comment">#热部署生效</span></span><br><span class="line">      <span class="attr">enabled:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>当我们修改了java类后，IDEA默认是不自动编译的，而spring-boot-devtools又是监测classpath下的文件发生变化才会重启应用 </p>
-<ul>
-<li>Ctrl+F9重新编译一下即可</li>
-<li>1. <code>File</code>&gt;&gt;<code>Settings</code>&gt;&gt;<code>Build</code>&gt;&gt;<code>Compiler</code>&gt;&gt;<code>Build Project automatically</code><br>2. <code>ctrl + shift + alt + /</code>,选择<code>Registry</code>,勾上 <code>Compiler autoMake allow when app running</code></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>springboot</tag>
-        <tag>热部署</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>windows下使用vundle管理gvim插件</title>
-    <url>/posts/d6218fbd/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<h2 id="1-安装gvim"><a href="#1-安装gvim" class="headerlink" title="1.安装gvim"></a>1.安装gvim</h2><p>官网下载地址 <a href="http://www.vim.org/download.php">http://www.vim.org/download.php</a>  </p>
-<p>注意安装目录避免空格、中文</p>
-<p>安装目录结构如下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim</span><br><span class="line">|-- .vimrc   vim配置文件</span><br><span class="line">|-- vim74    vim目录</span><br><span class="line">|     |</span><br><span class="line">|-- vimfiles  其他文件目录，如插件等</span><br><span class="line">|     |</span><br></pre></td></tr></table></figure>
-<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><p>创建一个系统变量 例: <code>VIM = E:\gvim\Vim</code></p>
-<p>在<code>path</code>中加入<code>%VIM%\vim74\</code></p>
-<h2 id="2-安装vundle"><a href="#2-安装vundle" class="headerlink" title="2.安装vundle"></a>2.安装vundle</h2><p>安装<code>vundle</code>需要<code>git</code>与<code>curl</code></p>
-<p>此处不介绍git与curl的安装</p>
-<p>进入vim安装目录</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/VundleVim/Vundle.vim.git vimfiles/bundle/Vundle.vim</span><br></pre></td></tr></table></figure>
-<p>复制<code>vundle官网</code>默认配置替换<code>.vimrc</code>文件内容<br><a href="https://github.com/VundleVim/Vundle.vim">https://github.com/VundleVim/Vundle.vim</a></p>
-<p>这里粘一份默认配置</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set nocompatible              &quot; be iMproved, required</span><br><span class="line">filetype off                  &quot; required</span><br><span class="line"></span><br><span class="line">&quot; set the runtime path to include Vundle and initialize</span><br><span class="line">set rtp+&#x3D;~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br><span class="line">call vundle#begin()</span><br><span class="line">&quot; alternatively, pass a path where Vundle should install plugins</span><br><span class="line">&quot;call vundle#begin(&#39;~&#x2F;some&#x2F;path&#x2F;here&#39;)</span><br><span class="line"></span><br><span class="line">&quot; let Vundle manage Vundle, required</span><br><span class="line">Plugin &#39;VundleVim&#x2F;Vundle.vim&#39;</span><br><span class="line"></span><br><span class="line">&quot; The following are examples of different formats supported.</span><br><span class="line">&quot; Keep Plugin commands between vundle#begin&#x2F;end.</span><br><span class="line">&quot; plugin on GitHub repo</span><br><span class="line">Plugin &#39;tpope&#x2F;vim-fugitive&#39;</span><br><span class="line">&quot; plugin from http:&#x2F;&#x2F;vim-scripts.org&#x2F;vim&#x2F;scripts.html</span><br><span class="line">&quot; Plugin &#39;L9&#39;</span><br><span class="line">&quot; Git plugin not hosted on GitHub</span><br><span class="line">Plugin &#39;git:&#x2F;&#x2F;git.wincent.com&#x2F;command-t.git&#39;</span><br><span class="line">&quot; git repos on your local machine (i.e. when working on your own plugin)</span><br><span class="line">Plugin &#39;file:&#x2F;&#x2F;&#x2F;home&#x2F;gmarik&#x2F;path&#x2F;to&#x2F;plugin&#39;</span><br><span class="line">&quot; The sparkup vim script is in a subdirectory of this repo called vim.</span><br><span class="line">&quot; Pass the path to set the runtimepath properly.</span><br><span class="line">Plugin &#39;rstacruz&#x2F;sparkup&#39;, &#123;&#39;rtp&#39;: &#39;vim&#x2F;&#39;&#125;</span><br><span class="line">&quot; Install L9 and avoid a Naming conflict if you&#39;ve already installed a</span><br><span class="line">&quot; different version somewhere else.</span><br><span class="line">&quot; Plugin &#39;ascenator&#x2F;L9&#39;, &#123;&#39;name&#39;: &#39;newL9&#39;&#125;</span><br><span class="line"></span><br><span class="line">&quot; All of your Plugins must be added before the following line</span><br><span class="line">call vundle#end()            &quot; required</span><br><span class="line">filetype plugin indent on    &quot; required</span><br><span class="line">&quot; To ignore plugin indent changes, instead use:</span><br><span class="line">&quot;filetype plugin on</span><br><span class="line">&quot;</span><br><span class="line">&quot; Brief help</span><br><span class="line">&quot; :PluginList       - lists configured plugins</span><br><span class="line">&quot; :PluginInstall    - installs plugins; append &#96;!&#96; to update or just :PluginUpdate</span><br><span class="line">&quot; :PluginSearch foo - searches for foo; append &#96;!&#96; to refresh local cache</span><br><span class="line">&quot; :PluginClean      - confirms removal of unused plugins; append &#96;!&#96; to auto-approve removal</span><br><span class="line">&quot;</span><br><span class="line">&quot; see :h vundle for more details or wiki for FAQ</span><br><span class="line">&quot; Put your non-Plugin stuff after this line</span><br></pre></td></tr></table></figure>
-<p>替换其中</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set rtp+&#x3D;~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br><span class="line">call vundle#begin()</span><br></pre></td></tr></table></figure>
-<p>为</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set rtp+&#x3D;$VIM&#x2F;vimfiles&#x2F;bundle&#x2F;vundle.vim&#x2F;</span><br><span class="line">call vundle#rc(&#39;$VIM&#x2F;vimfiles&#x2F;bundle&#x2F;&#39;)</span><br></pre></td></tr></table></figure>
-<p>即指定<code>vundle</code>的目录</p>
-<p>其中如</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Plugin &#39;tpope&#x2F;vim-fugitive&#39;</span><br><span class="line">Plugin &#39;git:&#x2F;&#x2F;git.wincent.com&#x2F;command-t.git&#39;</span><br><span class="line">Plugin &#39;file:&#x2F;&#x2F;&#x2F;home&#x2F;gmarik&#x2F;path&#x2F;to&#x2F;plugin&#39;</span><br><span class="line">Plugin &#39;rstacruz&#x2F;sparkup&#39;, &#123;&#39;rtp&#39;: &#39;vim&#x2F;&#39;&#125;</span><br></pre></td></tr></table></figure>
-<p>是几种配置插件的方式</p>
-<p>可自行替换成自己需要的插件</p>
-<p>打开<code>gvim</code>后使用<br><code>:BundleInstall</code>命令安装插件<br><code>:BundleList</code> 查看插件列表<br><code>:BundleClean</code> 清理不用的插件</p>
-]]></content>
-      <tags>
-        <tag>vim</tag>
-        <tag>vundle</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>yum使用阿里云镜像源</title>
-    <url>/posts/e341b84/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<h3 id="1-备份原配置文件"><a href="#1-备份原配置文件" class="headerlink" title="1. 备份原配置文件"></a>1. 备份原配置文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="2-下载新的CentOS-Base-repo-到-etc-yum-repos-d"><a href="#2-下载新的CentOS-Base-repo-到-etc-yum-repos-d" class="headerlink" title="2. 下载新的CentOS-Base.repo 到/etc/yum.repos.d/"></a>2. 下载新的<code>CentOS-Base.repo</code> 到<code>/etc/yum.repos.d/</code></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget -O &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;repo&#x2F;Centos-7.repo</span><br></pre></td></tr></table></figure>
-<h3 id="3-生成缓存"><a href="#3-生成缓存" class="headerlink" title="3. 生成缓存"></a>3. 生成缓存</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>yum</tag>
-        <tag>阿里云</tag>
       </tags>
   </entry>
   <entry>
@@ -747,6 +584,169 @@
       </tags>
   </entry>
   <entry>
+    <title>windows下使用vundle管理gvim插件</title>
+    <url>/posts/d6218fbd/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<h2 id="1-安装gvim"><a href="#1-安装gvim" class="headerlink" title="1.安装gvim"></a>1.安装gvim</h2><p>官网下载地址 <a href="http://www.vim.org/download.php">http://www.vim.org/download.php</a>  </p>
+<p>注意安装目录避免空格、中文</p>
+<p>安装目录结构如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim</span><br><span class="line">|-- .vimrc   vim配置文件</span><br><span class="line">|-- vim74    vim目录</span><br><span class="line">|     |</span><br><span class="line">|-- vimfiles  其他文件目录，如插件等</span><br><span class="line">|     |</span><br></pre></td></tr></table></figure>
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><p>创建一个系统变量 例: <code>VIM = E:\gvim\Vim</code></p>
+<p>在<code>path</code>中加入<code>%VIM%\vim74\</code></p>
+<h2 id="2-安装vundle"><a href="#2-安装vundle" class="headerlink" title="2.安装vundle"></a>2.安装vundle</h2><p>安装<code>vundle</code>需要<code>git</code>与<code>curl</code></p>
+<p>此处不介绍git与curl的安装</p>
+<p>进入vim安装目录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/VundleVim/Vundle.vim.git vimfiles/bundle/Vundle.vim</span><br></pre></td></tr></table></figure>
+<p>复制<code>vundle官网</code>默认配置替换<code>.vimrc</code>文件内容<br><a href="https://github.com/VundleVim/Vundle.vim">https://github.com/VundleVim/Vundle.vim</a></p>
+<p>这里粘一份默认配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set nocompatible              &quot; be iMproved, required</span><br><span class="line">filetype off                  &quot; required</span><br><span class="line"></span><br><span class="line">&quot; set the runtime path to include Vundle and initialize</span><br><span class="line">set rtp+&#x3D;~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br><span class="line">call vundle#begin()</span><br><span class="line">&quot; alternatively, pass a path where Vundle should install plugins</span><br><span class="line">&quot;call vundle#begin(&#39;~&#x2F;some&#x2F;path&#x2F;here&#39;)</span><br><span class="line"></span><br><span class="line">&quot; let Vundle manage Vundle, required</span><br><span class="line">Plugin &#39;VundleVim&#x2F;Vundle.vim&#39;</span><br><span class="line"></span><br><span class="line">&quot; The following are examples of different formats supported.</span><br><span class="line">&quot; Keep Plugin commands between vundle#begin&#x2F;end.</span><br><span class="line">&quot; plugin on GitHub repo</span><br><span class="line">Plugin &#39;tpope&#x2F;vim-fugitive&#39;</span><br><span class="line">&quot; plugin from http:&#x2F;&#x2F;vim-scripts.org&#x2F;vim&#x2F;scripts.html</span><br><span class="line">&quot; Plugin &#39;L9&#39;</span><br><span class="line">&quot; Git plugin not hosted on GitHub</span><br><span class="line">Plugin &#39;git:&#x2F;&#x2F;git.wincent.com&#x2F;command-t.git&#39;</span><br><span class="line">&quot; git repos on your local machine (i.e. when working on your own plugin)</span><br><span class="line">Plugin &#39;file:&#x2F;&#x2F;&#x2F;home&#x2F;gmarik&#x2F;path&#x2F;to&#x2F;plugin&#39;</span><br><span class="line">&quot; The sparkup vim script is in a subdirectory of this repo called vim.</span><br><span class="line">&quot; Pass the path to set the runtimepath properly.</span><br><span class="line">Plugin &#39;rstacruz&#x2F;sparkup&#39;, &#123;&#39;rtp&#39;: &#39;vim&#x2F;&#39;&#125;</span><br><span class="line">&quot; Install L9 and avoid a Naming conflict if you&#39;ve already installed a</span><br><span class="line">&quot; different version somewhere else.</span><br><span class="line">&quot; Plugin &#39;ascenator&#x2F;L9&#39;, &#123;&#39;name&#39;: &#39;newL9&#39;&#125;</span><br><span class="line"></span><br><span class="line">&quot; All of your Plugins must be added before the following line</span><br><span class="line">call vundle#end()            &quot; required</span><br><span class="line">filetype plugin indent on    &quot; required</span><br><span class="line">&quot; To ignore plugin indent changes, instead use:</span><br><span class="line">&quot;filetype plugin on</span><br><span class="line">&quot;</span><br><span class="line">&quot; Brief help</span><br><span class="line">&quot; :PluginList       - lists configured plugins</span><br><span class="line">&quot; :PluginInstall    - installs plugins; append &#96;!&#96; to update or just :PluginUpdate</span><br><span class="line">&quot; :PluginSearch foo - searches for foo; append &#96;!&#96; to refresh local cache</span><br><span class="line">&quot; :PluginClean      - confirms removal of unused plugins; append &#96;!&#96; to auto-approve removal</span><br><span class="line">&quot;</span><br><span class="line">&quot; see :h vundle for more details or wiki for FAQ</span><br><span class="line">&quot; Put your non-Plugin stuff after this line</span><br></pre></td></tr></table></figure>
+<p>替换其中</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set rtp+&#x3D;~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br><span class="line">call vundle#begin()</span><br></pre></td></tr></table></figure>
+<p>为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set rtp+&#x3D;$VIM&#x2F;vimfiles&#x2F;bundle&#x2F;vundle.vim&#x2F;</span><br><span class="line">call vundle#rc(&#39;$VIM&#x2F;vimfiles&#x2F;bundle&#x2F;&#39;)</span><br></pre></td></tr></table></figure>
+<p>即指定<code>vundle</code>的目录</p>
+<p>其中如</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Plugin &#39;tpope&#x2F;vim-fugitive&#39;</span><br><span class="line">Plugin &#39;git:&#x2F;&#x2F;git.wincent.com&#x2F;command-t.git&#39;</span><br><span class="line">Plugin &#39;file:&#x2F;&#x2F;&#x2F;home&#x2F;gmarik&#x2F;path&#x2F;to&#x2F;plugin&#39;</span><br><span class="line">Plugin &#39;rstacruz&#x2F;sparkup&#39;, &#123;&#39;rtp&#39;: &#39;vim&#x2F;&#39;&#125;</span><br></pre></td></tr></table></figure>
+<p>是几种配置插件的方式</p>
+<p>可自行替换成自己需要的插件</p>
+<p>打开<code>gvim</code>后使用<br><code>:BundleInstall</code>命令安装插件<br><code>:BundleList</code> 查看插件列表<br><code>:BundleClean</code> 清理不用的插件</p>
+]]></content>
+      <tags>
+        <tag>vim</tag>
+        <tag>vundle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>springboot devtools 热部署</title>
+    <url>/posts/5af71517/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<h5 id="添加pom依赖"><a href="#添加pom依赖" class="headerlink" title="添加pom依赖"></a>添加pom依赖</h5><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>maven plugin中添加</code></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">            	<span class="tag">&lt;<span class="name">fork</span>&gt;</span>true<span class="tag">&lt;/<span class="name">fork</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- spring热部署--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springloaded<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="application-yml中添加"><a href="#application-yml中添加" class="headerlink" title="application.yml中添加"></a>application.yml中添加</h5><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">devtools:</span></span><br><span class="line">    <span class="attr">restart:</span></span><br><span class="line">      <span class="comment">#热部署生效</span></span><br><span class="line">      <span class="attr">enabled:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>当我们修改了java类后，IDEA默认是不自动编译的，而spring-boot-devtools又是监测classpath下的文件发生变化才会重启应用 </p>
+<ul>
+<li>Ctrl+F9重新编译一下即可</li>
+<li>1. <code>File</code>&gt;&gt;<code>Settings</code>&gt;&gt;<code>Build</code>&gt;&gt;<code>Compiler</code>&gt;&gt;<code>Build Project automatically</code><br>2. <code>ctrl + shift + alt + /</code>,选择<code>Registry</code>,勾上 <code>Compiler autoMake allow when app running</code></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>springboot</tag>
+        <tag>热部署</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>yum使用阿里云镜像源</title>
+    <url>/posts/e341b84/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<h3 id="1-备份原配置文件"><a href="#1-备份原配置文件" class="headerlink" title="1. 备份原配置文件"></a>1. 备份原配置文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-下载新的CentOS-Base-repo-到-etc-yum-repos-d"><a href="#2-下载新的CentOS-Base-repo-到-etc-yum-repos-d" class="headerlink" title="2. 下载新的CentOS-Base.repo 到/etc/yum.repos.d/"></a>2. 下载新的<code>CentOS-Base.repo</code> 到<code>/etc/yum.repos.d/</code></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget -O &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;repo&#x2F;Centos-7.repo</span><br></pre></td></tr></table></figure>
+<h3 id="3-生成缓存"><a href="#3-生成缓存" class="headerlink" title="3. 生成缓存"></a>3. 生成缓存</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>yum</tag>
+        <tag>阿里云</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>rfc2616_section-14</title>
+    <url>/posts/e7a2c981/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<blockquote class="blockquote-center">本文主要对http协议中的header参数做一个清单，主要包括参数的格式及解释
+</blockquote>
+
+
+
+<h5 id="1-Accept"><a href="#1-Accept" class="headerlink" title="1. Accept"></a>1. Accept</h5><p>Accept指明客户端可以接收什么样的媒体格式</p>
+<ul>
+<li><p>格式<br>Accept: media-range[accept-params],…</p>
+<ul>
+<li><p><code>media-range</code>:媒体类型  type/* | type/subtype | */*<br>eg:text/html  </p>
+</li>
+<li><p><code>accept-params</code>: 附加参数 eg: q=0.8</p>
+</li>
+<li><p>其中media-range以<code>,</code>分割。media-range与accept-params用<code>;</code>连接  </p>
+</li>
+<li><p>诸如type/*指大类下的全部小类  </p>
+</li>
+<li><p>q指优先级，范围[0-1],默认1,数字越大优先级越高,服务器在能够返回的类型中应当优先返回优先级高的媒体格式</p>
+</li>
+<li><p>媒体类型可以被更具体的媒体类型覆盖<br>eg: text/*,text/html 后者将会覆盖前者，等同具有更高的优先级</p>
+</li>
+<li><p>q因子的取值是某种媒体类型找到的最高优先级媒体类型的q值，即最具体的媒体类型的q值。</p>
+</li>
+<li><p>若无Accept字段，则认为所有的媒体类型都可以接受</p>
+</li>
+<li><p>若服务器无法返回Accept中指定的任一类型，应当返回406 (not acceptable)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-Accept-Charset"><a href="#2-Accept-Charset" class="headerlink" title="2. Accept-Charset"></a>2. Accept-Charset</h5><p>Accept-Charset指明客户端可以接收什么样的字符集</p>
+<ul>
+<li>格式<br>Accept-Charset: ( charset | * ) [q=value], …  <ul>
+<li>q指优先级，范围[0-1],默认1，数字越大优先级越高</li>
+<li>若存在特殊值*,则匹配所有字符集，包括ISO-8859-1</li>
+<li>若不存在*,则未显式指定的字符集q值为0。ISO-8859-1除外，为1。</li>
+<li>若不存在Accept-Charset字段，则认为所有字符集均可接受</li>
+<li>若服务器无法返回Accept-Charset中指定的任一字符集，应当返回406 (not acceptable)</li>
+</ul>
+</li>
+</ul>
+<h5 id="3-Accept-Encoding"><a href="#3-Accept-Encoding" class="headerlink" title="3. Accept-Encoding"></a>3. Accept-Encoding</h5><ul>
+<li>格式<br>Accept-Encoding: ( codings | * ) [q=values], …  <ul>
+<li>如果服务器的编码在Accept-Encoding的指定中且q!=0，则该编码可用</li>
+<li>特殊*匹配所有未明确列出的编码方式</li>
+<li>如果多个指定的编码都可接受，则使用其中q值最高的返回</li>
+<li><code>identity</code>默认是被接受的，除非显式拒绝，如<code>identity;q=0</code>或<code>*;q=0</code>。当Accept-Encoding为空时，则认为只接受<code>identity</code>编码</li>
+<li>当有Accept-Encoding字段时，服务器无法以指定的编码返回，应当返回406 (not acceptable)</li>
+<li>当无Accept-Encoding字段时，服务器认为客户端可以接受任意编码，若identity在服务器可用，则应当使用identity,除非其他编码更合适，如有额外内容需要返回.</li>
+<li>当无Accept-Encoding字段时,且identity在服务器不可用时，可以考虑http1.0通常能够接受的编码,如(gzip,compress)等</li>
+<li>有时一些旧客户端发送的内容与Accept-Encoding指定的编码不一致时，可以考虑以内容来判断返回什么编码</li>
+<li>http1.0在Accept-Encoding中不支持q值，所以q值的功能在x-gzip、x-compress中是无效的，也是不允许的.</li>
+</ul>
+</li>
+</ul>
+<h5 id="4-Accept-Language"><a href="#4-Accept-Language" class="headerlink" title="4. Accept-Language"></a>4. Accept-Language</h5><ul>
+<li>格式<br>Accept-Language: (language | *) [q=value], …  <ul>
+<li>q值为优先级，范围[0-1]，默认为1，数字越大优先级越高</li>
+<li>语言与指定的language完全匹配或者前缀匹配(即-之前完全匹配)，都认为匹配</li>
+<li>特别的*匹配所有</li>
+<li>前缀匹配不意味着语言也如此分配,即不认为用户理解带特定标签的语言，也会理解所有带该标签的语言</li>
+<li>q的值应当为最长匹配语言的q值</li>
+<li>若无Accept-Language，则服务器认为所有语言都可接受</li>
+<li>若有Accept-Language，则服务器认为所有指定的并且q值大于0的语言可接受</li>
+<li>在请求中携带用户的完整语言信息可能会有隐私的问题，建议客户端给出语言偏好选择，若选择被禁用，则不应该在请求头中携带语言信息</li>
+<li>用户不了解语言匹配的规则，客户端应当给与用户一定的引导</li>
+</ul>
+</li>
+</ul>
+<h5 id="5-Accept-Ranges"><a href="#5-Accept-Ranges" class="headerlink" title="5. Accept-Ranges"></a>5. Accept-Ranges</h5><ul>
+<li>格式  </li>
+</ul>
+<h5 id="17-Content-Type"><a href="#17-Content-Type" class="headerlink" title="17. Content-Type"></a>17. Content-Type</h5><ul>
+<li>格式  </li>
+</ul>
+]]></content>
+      <tags>
+        <tag>http</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一些jvm内存分析命令</title>
     <url>/posts/f76bf494/</url>
     <content><![CDATA[<p><span></span></p>
@@ -760,56 +760,6 @@
       <tags>
         <tag>jvm</tag>
         <tag>内存</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用Let&#39;s Encrypt为你的网站启用https</title>
-    <url>/posts/16932c27/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<blockquote class="blockquote-center">`Let's Encrypt` 是一个`免费`、`开放`，`自动化`的`证书颁发机构`。我们可以从这取得一个证书为网站启用https
-</blockquote>
-
-
-
-<h2 id="安装cerbot"><a href="#安装cerbot" class="headerlink" title="安装cerbot"></a>安装<code>cerbot</code></h2><p>官方推荐我们使用<code>cerbot</code>客户端<br>我这里使用的是<code>centos-7</code>系统</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y cerbot</span><br></pre></td></tr></table></figure>
-<p>若yum仓库无cerbot<br>则尝试</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum -y install yum-utils</span><br><span class="line">yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install python2-certbot-nginx</span><br></pre></td></tr></table></figure>
-<h4 id="安装中可能出现的问题"><a href="#安装中可能出现的问题" class="headerlink" title="安装中可能出现的问题"></a>安装中可能出现的问题</h4><p>解决方案</p>
-<p>1.安装python-urllib3</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;vault.centos.org&#x2F;7.7.1908&#x2F;os&#x2F;Source&#x2F;SPackages&#x2F;python-urllib3-1.10.2-7.el7.src.rpm</span><br><span class="line">rpm -ivh python-urllib3-1.10.2-7.el7.src.rpm</span><br></pre></td></tr></table></figure>
-<p>2.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install --upgrade setuptools</span><br></pre></td></tr></table></figure>
-<p>3.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install requests urllib3 pyOpenSSL --force --upgrade</span><br></pre></td></tr></table></figure>
-<p>4.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install requests&#x3D;&#x3D;2.6.0</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="获取证书"><a href="#获取证书" class="headerlink" title="获取证书"></a>获取证书</h2><p>有两种情况</p>
-<h3 id="网站已经在运行了"><a href="#网站已经在运行了" class="headerlink" title="网站已经在运行了"></a>网站已经在运行了</h3><p>那么使用<code>webroot</code>模式</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo certbot certonly --webroot -w /var/www/example -d example.com</span><br></pre></td></tr></table></figure>
-<h3 id="项目不是一个网站而是服务"><a href="#项目不是一个网站而是服务" class="headerlink" title="项目不是一个网站而是服务"></a>项目不是一个网站而是服务</h3><p>可以使用<code>standalone</code>模式</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo certbot certonly --standalone -d example.com</span><br></pre></td></tr></table></figure>
-<p>完成后提示如下</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">IMPORTANT NOTES:</span><br><span class="line"></span><br><span class="line">- Congratulations! Your certificate and chain have been saved at</span><br><span class="line"></span><br><span class="line">/etc/letsencrypt/live/example.com/fullchain.pem. Your cert will</span><br><span class="line"></span><br><span class="line">expire on 2018-02-08. To obtain a new version of the certificate in</span><br><span class="line"></span><br><span class="line">the future, simply run Let&#x27;s Encrypt again.</span><br><span class="line"></span><br><span class="line">- If you like Let&#x27;s Encrypt, please consider supporting our work by:</span><br><span class="line"></span><br><span class="line">Donating to ISRG / Let&#x27;s Encrypt:  https://letsencrypt.org/donate</span><br><span class="line"></span><br><span class="line">Donating to EFF:                    https://eff.org/donate-le</span><br></pre></td></tr></table></figure>
-<p>证书生成目录为<code>/etc/letsencrypt/live/</code>下域名对应目录下</p>
-<h5 id="注意：获取证书时可以先关闭防火墙，然后确保80、443端口没有被占用-关闭nginx"><a href="#注意：获取证书时可以先关闭防火墙，然后确保80、443端口没有被占用-关闭nginx" class="headerlink" title="注意：获取证书时可以先关闭防火墙，然后确保80、443端口没有被占用(关闭nginx)"></a>注意：获取证书时可以先关闭防火墙，然后确保80、443端口没有被占用(关闭nginx)</h5><h2 id="配置https"><a href="#配置https" class="headerlink" title="配置https"></a>配置https</h2><p>此处以nginx 为例</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    listen 80;</span><br><span class="line">	server_name example.com;</span><br><span class="line">	rewrite ^&#x2F;(.*) https:&#x2F;&#x2F;$server_name&#x2F;$1 permanent;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">	listen 443;</span><br><span class="line">        server_name example.com;</span><br><span class="line">        ssl on;</span><br><span class="line">        ssl_certificate   &#x2F;etc&#x2F;letsencrypt&#x2F;live&#x2F;example.com&#x2F;fullchain.pem;</span><br><span class="line">        ssl_certificate_key  &#x2F;etc&#x2F;letsencrypt&#x2F;live&#x2F;example.com&#x2F;privkey.pem;</span><br><span class="line">        ssl_session_timeout 5m;</span><br><span class="line">        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;</span><br><span class="line">        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">        ssl_prefer_server_ciphers on;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如出现<code>the &quot;ssl&quot; parameter requires ngx_http_ssl_module</code>错误,则需要安装<code>https</code>模块<br>进入nginx源码目录</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./configure --with-http_ssl_module</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
-<p>然后将<code>objs</code>目录下<code>nginx</code>文件替换安装目录下的文件<br>重启nginx</p>
-<h2 id="刷新证书"><a href="#刷新证书" class="headerlink" title="刷新证书"></a>刷新证书</h2><p><code>Let&#39;s Encrypt</code> 提供的证书只有 <code>90</code> 天的<code>有效期</code><br>我看可以使用如下命令刷新证书时间</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">certbot renew --pre-hook &quot;systemctl stop nginx&quot; --post-hook &quot;systemctl start nginx&quot;</span><br></pre></td></tr></table></figure>
-<p>也可以写个定时任务自动刷新,如使用<code>crontab</code></p>
-]]></content>
-      <tags>
-        <tag>https</tag>
-        <tag>nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -870,6 +820,56 @@
 ]]></content>
       <tags>
         <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用Let&#39;s Encrypt为你的网站启用https</title>
+    <url>/posts/16932c27/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<blockquote class="blockquote-center">`Let's Encrypt` 是一个`免费`、`开放`，`自动化`的`证书颁发机构`。我们可以从这取得一个证书为网站启用https
+</blockquote>
+
+
+
+<h2 id="安装cerbot"><a href="#安装cerbot" class="headerlink" title="安装cerbot"></a>安装<code>cerbot</code></h2><p>官方推荐我们使用<code>cerbot</code>客户端<br>我这里使用的是<code>centos-7</code>系统</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y cerbot</span><br></pre></td></tr></table></figure>
+<p>若yum仓库无cerbot<br>则尝试</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum -y install yum-utils</span><br><span class="line">yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install python2-certbot-nginx</span><br></pre></td></tr></table></figure>
+<h4 id="安装中可能出现的问题"><a href="#安装中可能出现的问题" class="headerlink" title="安装中可能出现的问题"></a>安装中可能出现的问题</h4><p>解决方案</p>
+<p>1.安装python-urllib3</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;vault.centos.org&#x2F;7.7.1908&#x2F;os&#x2F;Source&#x2F;SPackages&#x2F;python-urllib3-1.10.2-7.el7.src.rpm</span><br><span class="line">rpm -ivh python-urllib3-1.10.2-7.el7.src.rpm</span><br></pre></td></tr></table></figure>
+<p>2.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install --upgrade setuptools</span><br></pre></td></tr></table></figure>
+<p>3.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install requests urllib3 pyOpenSSL --force --upgrade</span><br></pre></td></tr></table></figure>
+<p>4.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install requests&#x3D;&#x3D;2.6.0</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="获取证书"><a href="#获取证书" class="headerlink" title="获取证书"></a>获取证书</h2><p>有两种情况</p>
+<h3 id="网站已经在运行了"><a href="#网站已经在运行了" class="headerlink" title="网站已经在运行了"></a>网站已经在运行了</h3><p>那么使用<code>webroot</code>模式</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo certbot certonly --webroot -w /var/www/example -d example.com</span><br></pre></td></tr></table></figure>
+<h3 id="项目不是一个网站而是服务"><a href="#项目不是一个网站而是服务" class="headerlink" title="项目不是一个网站而是服务"></a>项目不是一个网站而是服务</h3><p>可以使用<code>standalone</code>模式</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo certbot certonly --standalone -d example.com</span><br></pre></td></tr></table></figure>
+<p>完成后提示如下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">IMPORTANT NOTES:</span><br><span class="line"></span><br><span class="line">- Congratulations! Your certificate and chain have been saved at</span><br><span class="line"></span><br><span class="line">/etc/letsencrypt/live/example.com/fullchain.pem. Your cert will</span><br><span class="line"></span><br><span class="line">expire on 2018-02-08. To obtain a new version of the certificate in</span><br><span class="line"></span><br><span class="line">the future, simply run Let&#x27;s Encrypt again.</span><br><span class="line"></span><br><span class="line">- If you like Let&#x27;s Encrypt, please consider supporting our work by:</span><br><span class="line"></span><br><span class="line">Donating to ISRG / Let&#x27;s Encrypt:  https://letsencrypt.org/donate</span><br><span class="line"></span><br><span class="line">Donating to EFF:                    https://eff.org/donate-le</span><br></pre></td></tr></table></figure>
+<p>证书生成目录为<code>/etc/letsencrypt/live/</code>下域名对应目录下</p>
+<h5 id="注意：获取证书时可以先关闭防火墙，然后确保80、443端口没有被占用-关闭nginx"><a href="#注意：获取证书时可以先关闭防火墙，然后确保80、443端口没有被占用-关闭nginx" class="headerlink" title="注意：获取证书时可以先关闭防火墙，然后确保80、443端口没有被占用(关闭nginx)"></a>注意：获取证书时可以先关闭防火墙，然后确保80、443端口没有被占用(关闭nginx)</h5><h2 id="配置https"><a href="#配置https" class="headerlink" title="配置https"></a>配置https</h2><p>此处以nginx 为例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    listen 80;</span><br><span class="line">	server_name example.com;</span><br><span class="line">	rewrite ^&#x2F;(.*) https:&#x2F;&#x2F;$server_name&#x2F;$1 permanent;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">	listen 443;</span><br><span class="line">        server_name example.com;</span><br><span class="line">        ssl on;</span><br><span class="line">        ssl_certificate   &#x2F;etc&#x2F;letsencrypt&#x2F;live&#x2F;example.com&#x2F;fullchain.pem;</span><br><span class="line">        ssl_certificate_key  &#x2F;etc&#x2F;letsencrypt&#x2F;live&#x2F;example.com&#x2F;privkey.pem;</span><br><span class="line">        ssl_session_timeout 5m;</span><br><span class="line">        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;</span><br><span class="line">        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">        ssl_prefer_server_ciphers on;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如出现<code>the &quot;ssl&quot; parameter requires ngx_http_ssl_module</code>错误,则需要安装<code>https</code>模块<br>进入nginx源码目录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./configure --with-http_ssl_module</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+<p>然后将<code>objs</code>目录下<code>nginx</code>文件替换安装目录下的文件<br>重启nginx</p>
+<h2 id="刷新证书"><a href="#刷新证书" class="headerlink" title="刷新证书"></a>刷新证书</h2><p><code>Let&#39;s Encrypt</code> 提供的证书只有 <code>90</code> 天的<code>有效期</code><br>我看可以使用如下命令刷新证书时间</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">certbot renew --pre-hook &quot;systemctl stop nginx&quot; --post-hook &quot;systemctl start nginx&quot;</span><br></pre></td></tr></table></figure>
+<p>也可以写个定时任务自动刷新,如使用<code>crontab</code></p>
+]]></content>
+      <tags>
+        <tag>https</tag>
+        <tag>nginx</tag>
       </tags>
   </entry>
   <entry>
