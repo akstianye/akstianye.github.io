@@ -36,6 +36,39 @@
       </tags>
   </entry>
   <entry>
+    <title>Centos7安装DockerCE</title>
+    <url>/posts/b9257e54/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<p>1.移除旧版本</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum remove docker \</span></span><br><span class="line"><span class="bash">                  docker-client \</span></span><br><span class="line"><span class="bash">                  docker-client-latest \</span></span><br><span class="line"><span class="bash">                  docker-common \</span></span><br><span class="line"><span class="bash">                  docker-latest \</span></span><br><span class="line"><span class="bash">                  docker-latest-logrotate \</span></span><br><span class="line"><span class="bash">                  docker-logrotate \</span></span><br><span class="line"><span class="bash">                  docker-engine</span></span><br></pre></td></tr></table></figure>
+<p>2.安装yum工具</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install -y yum-utils \</span></span><br><span class="line"><span class="bash">  device-mapper-persistent-data \</span></span><br><span class="line"><span class="bash">  lvm2</span></span><br></pre></td></tr></table></figure>
+<p>3.设置yum仓库</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager \</span></span><br><span class="line"><span class="bash">    --add-repo \</span></span><br><span class="line"><span class="bash">    https://download.docker.com/linux/centos/docker-ce.repo</span></span><br></pre></td></tr></table></figure>
+<p><code>&lt;可选&gt;</code></p>
+<ul>
+<li><p>启用nightly</p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager --<span class="built_in">enable</span> docker-ce-nightly</span></span><br></pre></td></tr></table></figure></li>
+<li><p>禁用nightly</p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager --<span class="built_in">disable</span> docker-ce-nightly</span></span><br></pre></td></tr></table></figure></li>
+<li><p>启用test</p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager --<span class="built_in">enable</span> docker-ce-test</span></span><br></pre></td></tr></table></figure></li>
+<li><p>禁用test</p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager --<span class="built_in">disable</span> docker-ce-test</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>4.安装DockerCE</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install docker-ce docker-ce-cli containerd.io</span></span><br></pre></td></tr></table></figure>
+<p>5.启动</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl start docker</span></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>Centos</tag>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Centos7安装qBittorrent</title>
     <url>/posts/d0313409/</url>
     <content><![CDATA[<p><span></span></p>
@@ -69,36 +102,70 @@
       </tags>
   </entry>
   <entry>
-    <title>Centos7安装DockerCE</title>
-    <url>/posts/b9257e54/</url>
+    <title>centos7挂载硬盘</title>
+    <url>/posts/e6ac7476/</url>
     <content><![CDATA[<p><span></span></p>
 <a id="more"></a>
 
 
-<p>1.移除旧版本</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum remove docker \</span></span><br><span class="line"><span class="bash">                  docker-client \</span></span><br><span class="line"><span class="bash">                  docker-client-latest \</span></span><br><span class="line"><span class="bash">                  docker-common \</span></span><br><span class="line"><span class="bash">                  docker-latest \</span></span><br><span class="line"><span class="bash">                  docker-latest-logrotate \</span></span><br><span class="line"><span class="bash">                  docker-logrotate \</span></span><br><span class="line"><span class="bash">                  docker-engine</span></span><br></pre></td></tr></table></figure>
-<p>2.安装yum工具</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install -y yum-utils \</span></span><br><span class="line"><span class="bash">  device-mapper-persistent-data \</span></span><br><span class="line"><span class="bash">  lvm2</span></span><br></pre></td></tr></table></figure>
-<p>3.设置yum仓库</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager \</span></span><br><span class="line"><span class="bash">    --add-repo \</span></span><br><span class="line"><span class="bash">    https://download.docker.com/linux/centos/docker-ce.repo</span></span><br></pre></td></tr></table></figure>
-<p><code>&lt;可选&gt;</code></p>
-<ul>
-<li><p>启用nightly</p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager --<span class="built_in">enable</span> docker-ce-nightly</span></span><br></pre></td></tr></table></figure></li>
-<li><p>禁用nightly</p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager --<span class="built_in">disable</span> docker-ce-nightly</span></span><br></pre></td></tr></table></figure></li>
-<li><p>启用test</p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager --<span class="built_in">enable</span> docker-ce-test</span></span><br></pre></td></tr></table></figure></li>
-<li><p>禁用test</p>
-  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum-config-manager --<span class="built_in">disable</span> docker-ce-test</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>4.安装DockerCE</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install docker-ce docker-ce-cli containerd.io</span></span><br></pre></td></tr></table></figure>
-<p>5.启动</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo systemctl start docker</span></span><br></pre></td></tr></table></figure>]]></content>
+
+<h2 id="1-查看硬盘"><a href="#1-查看硬盘" class="headerlink" title="1. 查看硬盘"></a>1. 查看硬盘</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fdisk –l</span><br></pre></td></tr></table></figure>
+<h2 id="2-硬盘分区"><a href="#2-硬盘分区" class="headerlink" title="2. 硬盘分区"></a>2. 硬盘分区</h2><p>其中<code>vdb</code>为第一步中查到的硬盘设备名</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;sbin&#x2F;fdisk &#x2F;dev&#x2F;vdb</span><br></pre></td></tr></table></figure>
+
+<p><code>tips</code> :下面几步基本一直回车，最后输入q退出</p>
+<blockquote>
+<p>输入n进行分区</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Command (m for help): n</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>选择分区类型（p主分区）</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Select (default p): p</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>选择分区个数（也是分区id） </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Partition number (1-4, default 1): 1</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>选择分区空间大小</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Last sector, +sectors or +size&#123;K,M,G&#125; (2048-1953525167, default 1953525167): +300GB</span><br></pre></td></tr></table></figure>
+<h2 id="3-格式化分区"><a href="#3-格式化分区" class="headerlink" title="3. 格式化分区"></a>3. 格式化分区</h2><p><code>tips</code>:这里先查看一下已有硬盘格式 使用 <code>df -T</code></p>
+<p>将新分区格式化为ext4文件系统</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkfs -t ext4 &#x2F;dev&#x2F;vdb</span><br></pre></td></tr></table></figure>
+<h2 id="4-挂载硬盘"><a href="#4-挂载硬盘" class="headerlink" title="4. 挂载硬盘"></a>4. 挂载硬盘</h2><p>创建挂载点，在根目录下创建storage目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir &#x2F;storage</span><br></pre></td></tr></table></figure>
+<p>将<code>/dev/vdb</code>挂载到<code>/storage</code>下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mount &#x2F;dev&#x2F;vdb &#x2F;storage</span><br></pre></td></tr></table></figure>
+<h2 id="5-设置开机启动自动挂载硬盘"><a href="#5-设置开机启动自动挂载硬盘" class="headerlink" title="5. 设置开机启动自动挂载硬盘"></a>5. 设置开机启动自动挂载硬盘</h2><p>新创建的分区不能开机自动挂载，每次重启机器都要手动挂载。</p>
+<p>设置开机自动挂载需要修改<code>/etc/fstab</code>文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>
+<p>在末尾添加</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;dev&#x2F;vdb &#x2F;storage ext4 defaults 1 2</span><br></pre></td></tr></table></figure>
+<h2 id="6-取消挂载"><a href="#6-取消挂载" class="headerlink" title="6. 取消挂载"></a>6. 取消挂载</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unmount &#x2F;dev&#x2F;vdb</span><br></pre></td></tr></table></figure>
+<p>移除原先添加的启动自动挂载</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>Centos</tag>
-        <tag>Docker</tag>
+        <tag>文件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>apt换国内源</title>
+    <url>/posts/a84f8eca/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<h3 id="1-备份原配置文件"><a href="#1-备份原配置文件" class="headerlink" title="1. 备份原配置文件"></a>1. 备份原配置文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.bak</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-修改sources-list"><a href="#2-修改sources-list" class="headerlink" title="2. 修改sources.list"></a>2. 修改sources.list</h3><p>stretch(debian9) </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch main contrib non-free</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch-updates main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch-updates main contrib non-free</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian-security stretch&#x2F;updates main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian-security stretch&#x2F;updates main contrib non-free</span><br></pre></td></tr></table></figure>
+<h3 id="3-更新源"><a href="#3-更新源" class="headerlink" title="3. 更新源"></a>3. 更新源</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>apt</tag>
+        <tag>镜像</tag>
       </tags>
   </entry>
   <entry>
@@ -187,113 +254,6 @@
       </tags>
   </entry>
   <entry>
-    <title>centos7挂载硬盘</title>
-    <url>/posts/e6ac7476/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-
-<h2 id="1-查看硬盘"><a href="#1-查看硬盘" class="headerlink" title="1. 查看硬盘"></a>1. 查看硬盘</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fdisk –l</span><br></pre></td></tr></table></figure>
-<h2 id="2-硬盘分区"><a href="#2-硬盘分区" class="headerlink" title="2. 硬盘分区"></a>2. 硬盘分区</h2><p>其中<code>vdb</code>为第一步中查到的硬盘设备名</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;sbin&#x2F;fdisk &#x2F;dev&#x2F;vdb</span><br></pre></td></tr></table></figure>
-
-<p><code>tips</code> :下面几步基本一直回车，最后输入q退出</p>
-<blockquote>
-<p>输入n进行分区</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Command (m for help): n</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>选择分区类型（p主分区）</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Select (default p): p</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>选择分区个数（也是分区id） </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Partition number (1-4, default 1): 1</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>选择分区空间大小</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Last sector, +sectors or +size&#123;K,M,G&#125; (2048-1953525167, default 1953525167): +300GB</span><br></pre></td></tr></table></figure>
-<h2 id="3-格式化分区"><a href="#3-格式化分区" class="headerlink" title="3. 格式化分区"></a>3. 格式化分区</h2><p><code>tips</code>:这里先查看一下已有硬盘格式 使用 <code>df -T</code></p>
-<p>将新分区格式化为ext4文件系统</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkfs -t ext4 &#x2F;dev&#x2F;vdb</span><br></pre></td></tr></table></figure>
-<h2 id="4-挂载硬盘"><a href="#4-挂载硬盘" class="headerlink" title="4. 挂载硬盘"></a>4. 挂载硬盘</h2><p>创建挂载点，在根目录下创建storage目录</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir &#x2F;storage</span><br></pre></td></tr></table></figure>
-<p>将<code>/dev/vdb</code>挂载到<code>/storage</code>下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mount &#x2F;dev&#x2F;vdb &#x2F;storage</span><br></pre></td></tr></table></figure>
-<h2 id="5-设置开机启动自动挂载硬盘"><a href="#5-设置开机启动自动挂载硬盘" class="headerlink" title="5. 设置开机启动自动挂载硬盘"></a>5. 设置开机启动自动挂载硬盘</h2><p>新创建的分区不能开机自动挂载，每次重启机器都要手动挂载。</p>
-<p>设置开机自动挂载需要修改<code>/etc/fstab</code>文件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>
-<p>在末尾添加</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;dev&#x2F;vdb &#x2F;storage ext4 defaults 1 2</span><br></pre></td></tr></table></figure>
-<h2 id="6-取消挂载"><a href="#6-取消挂载" class="headerlink" title="6. 取消挂载"></a>6. 取消挂载</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unmount &#x2F;dev&#x2F;vdb</span><br></pre></td></tr></table></figure>
-<p>移除原先添加的启动自动挂载</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>Centos</tag>
-        <tag>文件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux查看最大文件占用</title>
-    <url>/posts/5ef19cda/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<p>其中 <code>/path</code> 为需要查询的目录</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">du -h --max-depth&#x3D;1 &#x2F;path</span><br></pre></td></tr></table></figure>
-<!--more-->
-
-<p>按文件从大到小排序</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">du -h --max-depth&#x3D;1 &#x2F;path | sort -nr</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>Centos</tag>
-        <tag>文件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>URL中文参数编码问题</title>
-    <url>/posts/e174da9f/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-
-<p><strong>需要检查的几个地方</strong></p>
-<p>1.request设置编码</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">request.setCharacterEncoding(<span class="string">&quot;UTF-8&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-
-<p>2. tomcat设置编码 ```server.xml文件```</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">&lt;connectionTimeout=&quot;20000&quot; redirectPort=&quot;8443&quot; URIEncoding=&quot;UTF-8&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<p>或者直接使用编码工具</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">URLEncoder.encode(str, encoding)</span><br><span class="line">URLDecoder.decode(str, encoding)</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>URL</tag>
-        <tag>编码</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>apt换国内源</title>
-    <url>/posts/a84f8eca/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<h3 id="1-备份原配置文件"><a href="#1-备份原配置文件" class="headerlink" title="1. 备份原配置文件"></a>1. 备份原配置文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.bak</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="2-修改sources-list"><a href="#2-修改sources-list" class="headerlink" title="2. 修改sources.list"></a>2. 修改sources.list</h3><p>stretch(debian9) </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch main contrib non-free</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch-updates main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian stretch-updates main contrib non-free</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian-security stretch&#x2F;updates main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;debian-security stretch&#x2F;updates main contrib non-free</span><br></pre></td></tr></table></figure>
-<h3 id="3-更新源"><a href="#3-更新源" class="headerlink" title="3. 更新源"></a>3. 更新源</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>apt</tag>
-        <tag>镜像</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>dns解析记录类型</title>
     <url>/posts/b237770b/</url>
     <content><![CDATA[<p>一点对dns解析记录类型的说明</p>
@@ -312,104 +272,6 @@
       <tags>
         <tag>dns</tag>
         <tag>dns记录类型</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git 入门</title>
-    <url>/posts/c2d266ba/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<h2 id="初始化参数"><a href="#初始化参数" class="headerlink" title="初始化参数"></a>初始化参数</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;你的名字&quot;</span><br><span class="line">git config --global user.email &quot;你的邮箱地址&quot;</span><br></pre></td></tr></table></figure>
-<!-- more -->
-
-<h2 id="保存账号密码"><a href="#保存账号密码" class="headerlink" title="保存账号密码"></a>保存账号密码</h2><ul>
-<li>记住密码(默认15分钟)</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global credential.helper cache</span><br></pre></td></tr></table></figure>
-<ul>
-<li>自己设置时间(单位，秒)</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config credential.helper &#39;cache --timeout&#x3D;3600&#39;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>长期保存</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ul>
-<li>克隆项目</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 克隆master分支</span><br><span class="line">git clone &lt;版本库的网址&gt;</span><br><span class="line">&#x2F;&#x2F; 指定克隆的分支名</span><br><span class="line">git clone -b &lt;分支名&gt; &lt;版本库的网址&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>查看状态</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 查看当前状态</span><br><span class="line">git status</span><br><span class="line">&#x2F;&#x2F; 查看本地仓库的提交历史</span><br><span class="line">git log</span><br></pre></td></tr></table></figure>
-<ul>
-<li>提交代码</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 添加文件包版本控制</span><br><span class="line">git add &lt;文件&gt;</span><br><span class="line">&#x2F;&#x2F; 提交到本地仓库</span><br><span class="line">git commit -m &#39;提交说明&#39;</span><br><span class="line">&#x2F;&#x2F; 提交代码到远程仓库</span><br><span class="line">git push origin &lt;分支名&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>更新代码</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git pull origin &lt;分支名&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="一次简单的流程"><a href="#一次简单的流程" class="headerlink" title="一次简单的流程"></a>一次简单的流程</h2><p>先将代码clone到本地</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone &lt;项目地址&gt;</span><br></pre></td></tr></table></figure>
-<p>添加一个新文件,并将新文件添加到版本控制</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add init.txt</span><br></pre></td></tr></table></figure>
-<p>提交到本地仓库</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit -m &#39;添加了一个新文件&#39; </span><br></pre></td></tr></table></figure>
-<p>将文件<code>init.txt</code>修改一点内容,再次提交</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add init.txt</span><br><span class="line">git commit -m &#39;修改了一点内容&#39;</span><br></pre></td></tr></table></figure>
-<p>将文件提交到远程仓库</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push origin &lt;分支,默认master&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-]]></content>
-      <tags>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -497,209 +359,43 @@
       </tags>
   </entry>
   <entry>
-    <title>windows下使用vundle管理gvim插件</title>
-    <url>/posts/d6218fbd/</url>
+    <title>Linux查看最大文件占用</title>
+    <url>/posts/5ef19cda/</url>
     <content><![CDATA[<p><span></span></p>
 <a id="more"></a>
 
 
-<h2 id="1-安装gvim"><a href="#1-安装gvim" class="headerlink" title="1.安装gvim"></a>1.安装gvim</h2><p>官网下载地址 <a href="http://www.vim.org/download.php">http://www.vim.org/download.php</a>  </p>
-<p>注意安装目录避免空格、中文</p>
-<p>安装目录结构如下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim</span><br><span class="line">|-- .vimrc   vim配置文件</span><br><span class="line">|-- vim74    vim目录</span><br><span class="line">|     |</span><br><span class="line">|-- vimfiles  其他文件目录，如插件等</span><br><span class="line">|     |</span><br></pre></td></tr></table></figure>
-<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><p>创建一个系统变量 例: <code>VIM = E:\gvim\Vim</code></p>
-<p>在<code>path</code>中加入<code>%VIM%\vim74\</code></p>
-<h2 id="2-安装vundle"><a href="#2-安装vundle" class="headerlink" title="2.安装vundle"></a>2.安装vundle</h2><p>安装<code>vundle</code>需要<code>git</code>与<code>curl</code></p>
-<p>此处不介绍git与curl的安装</p>
-<p>进入vim安装目录</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/VundleVim/Vundle.vim.git vimfiles/bundle/Vundle.vim</span><br></pre></td></tr></table></figure>
-<p>复制<code>vundle官网</code>默认配置替换<code>.vimrc</code>文件内容<br><a href="https://github.com/VundleVim/Vundle.vim">https://github.com/VundleVim/Vundle.vim</a></p>
-<p>这里粘一份默认配置</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set nocompatible              &quot; be iMproved, required</span><br><span class="line">filetype off                  &quot; required</span><br><span class="line"></span><br><span class="line">&quot; set the runtime path to include Vundle and initialize</span><br><span class="line">set rtp+&#x3D;~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br><span class="line">call vundle#begin()</span><br><span class="line">&quot; alternatively, pass a path where Vundle should install plugins</span><br><span class="line">&quot;call vundle#begin(&#39;~&#x2F;some&#x2F;path&#x2F;here&#39;)</span><br><span class="line"></span><br><span class="line">&quot; let Vundle manage Vundle, required</span><br><span class="line">Plugin &#39;VundleVim&#x2F;Vundle.vim&#39;</span><br><span class="line"></span><br><span class="line">&quot; The following are examples of different formats supported.</span><br><span class="line">&quot; Keep Plugin commands between vundle#begin&#x2F;end.</span><br><span class="line">&quot; plugin on GitHub repo</span><br><span class="line">Plugin &#39;tpope&#x2F;vim-fugitive&#39;</span><br><span class="line">&quot; plugin from http:&#x2F;&#x2F;vim-scripts.org&#x2F;vim&#x2F;scripts.html</span><br><span class="line">&quot; Plugin &#39;L9&#39;</span><br><span class="line">&quot; Git plugin not hosted on GitHub</span><br><span class="line">Plugin &#39;git:&#x2F;&#x2F;git.wincent.com&#x2F;command-t.git&#39;</span><br><span class="line">&quot; git repos on your local machine (i.e. when working on your own plugin)</span><br><span class="line">Plugin &#39;file:&#x2F;&#x2F;&#x2F;home&#x2F;gmarik&#x2F;path&#x2F;to&#x2F;plugin&#39;</span><br><span class="line">&quot; The sparkup vim script is in a subdirectory of this repo called vim.</span><br><span class="line">&quot; Pass the path to set the runtimepath properly.</span><br><span class="line">Plugin &#39;rstacruz&#x2F;sparkup&#39;, &#123;&#39;rtp&#39;: &#39;vim&#x2F;&#39;&#125;</span><br><span class="line">&quot; Install L9 and avoid a Naming conflict if you&#39;ve already installed a</span><br><span class="line">&quot; different version somewhere else.</span><br><span class="line">&quot; Plugin &#39;ascenator&#x2F;L9&#39;, &#123;&#39;name&#39;: &#39;newL9&#39;&#125;</span><br><span class="line"></span><br><span class="line">&quot; All of your Plugins must be added before the following line</span><br><span class="line">call vundle#end()            &quot; required</span><br><span class="line">filetype plugin indent on    &quot; required</span><br><span class="line">&quot; To ignore plugin indent changes, instead use:</span><br><span class="line">&quot;filetype plugin on</span><br><span class="line">&quot;</span><br><span class="line">&quot; Brief help</span><br><span class="line">&quot; :PluginList       - lists configured plugins</span><br><span class="line">&quot; :PluginInstall    - installs plugins; append &#96;!&#96; to update or just :PluginUpdate</span><br><span class="line">&quot; :PluginSearch foo - searches for foo; append &#96;!&#96; to refresh local cache</span><br><span class="line">&quot; :PluginClean      - confirms removal of unused plugins; append &#96;!&#96; to auto-approve removal</span><br><span class="line">&quot;</span><br><span class="line">&quot; see :h vundle for more details or wiki for FAQ</span><br><span class="line">&quot; Put your non-Plugin stuff after this line</span><br></pre></td></tr></table></figure>
-<p>替换其中</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set rtp+&#x3D;~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br><span class="line">call vundle#begin()</span><br></pre></td></tr></table></figure>
-<p>为</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set rtp+&#x3D;$VIM&#x2F;vimfiles&#x2F;bundle&#x2F;vundle.vim&#x2F;</span><br><span class="line">call vundle#rc(&#39;$VIM&#x2F;vimfiles&#x2F;bundle&#x2F;&#39;)</span><br></pre></td></tr></table></figure>
-<p>即指定<code>vundle</code>的目录</p>
-<p>其中如</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Plugin &#39;tpope&#x2F;vim-fugitive&#39;</span><br><span class="line">Plugin &#39;git:&#x2F;&#x2F;git.wincent.com&#x2F;command-t.git&#39;</span><br><span class="line">Plugin &#39;file:&#x2F;&#x2F;&#x2F;home&#x2F;gmarik&#x2F;path&#x2F;to&#x2F;plugin&#39;</span><br><span class="line">Plugin &#39;rstacruz&#x2F;sparkup&#39;, &#123;&#39;rtp&#39;: &#39;vim&#x2F;&#39;&#125;</span><br></pre></td></tr></table></figure>
-<p>是几种配置插件的方式</p>
-<p>可自行替换成自己需要的插件</p>
-<p>打开<code>gvim</code>后使用<br><code>:BundleInstall</code>命令安装插件<br><code>:BundleList</code> 查看插件列表<br><code>:BundleClean</code> 清理不用的插件</p>
-]]></content>
+<p>其中 <code>/path</code> 为需要查询的目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">du -h --max-depth&#x3D;1 &#x2F;path</span><br></pre></td></tr></table></figure>
+<!--more-->
+
+<p>按文件从大到小排序</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">du -h --max-depth&#x3D;1 &#x2F;path | sort -nr</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>vim</tag>
-        <tag>vundle</tag>
+        <tag>Centos</tag>
+        <tag>文件</tag>
       </tags>
   </entry>
   <entry>
-    <title>yum使用阿里云镜像源</title>
-    <url>/posts/e341b84/</url>
+    <title>URL中文参数编码问题</title>
+    <url>/posts/e174da9f/</url>
     <content><![CDATA[<p><span></span></p>
 <a id="more"></a>
 
 
-<h3 id="1-备份原配置文件"><a href="#1-备份原配置文件" class="headerlink" title="1. 备份原配置文件"></a>1. 备份原配置文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
+
+<p><strong>需要检查的几个地方</strong></p>
+<p>1.request设置编码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">request.setCharacterEncoding(<span class="string">&quot;UTF-8&quot;</span>);</span><br></pre></td></tr></table></figure>
 
 
-<h3 id="2-下载新的CentOS-Base-repo-到-etc-yum-repos-d"><a href="#2-下载新的CentOS-Base-repo-到-etc-yum-repos-d" class="headerlink" title="2. 下载新的CentOS-Base.repo 到/etc/yum.repos.d/"></a>2. 下载新的<code>CentOS-Base.repo</code> 到<code>/etc/yum.repos.d/</code></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget -O &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;repo&#x2F;Centos-7.repo</span><br></pre></td></tr></table></figure>
-<h3 id="3-生成缓存"><a href="#3-生成缓存" class="headerlink" title="3. 生成缓存"></a>3. 生成缓存</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>]]></content>
+<p>2. tomcat设置编码 ```server.xml文件```</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">&lt;connectionTimeout=&quot;20000&quot; redirectPort=&quot;8443&quot; URIEncoding=&quot;UTF-8&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>或者直接使用编码工具</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">URLEncoder.encode(str, encoding)</span><br><span class="line">URLDecoder.decode(str, encoding)</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>yum</tag>
-        <tag>阿里云</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>mysql主从复制及读写分离的尝试</title>
-    <url>/posts/6fc5faff/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<hr>
-<h1 id="centos7-rpm安装mysql"><a href="#centos7-rpm安装mysql" class="headerlink" title="centos7 rpm安装mysql"></a>centos7 rpm安装mysql</h1><p>此次使用的是<code>MySQL Community Server 5.5.62</code></p>
-<p>可以自己选择版本<a href="https://dev.mysql.com/downloads/mysql/5.5.html#downloads">下载页面</a></p>
-<p>附上本次下载地址<br><a href="https://cdn.mysql.com//Downloads/MySQL-5.5/MySQL-server-5.5.62-1.el7.x86_64.rpm">mysql server</a><br><a href="https://cdn.mysql.com//Downloads/MySQL-5.5/MySQL-client-5.5.62-1.el7.x86_64.rpm">mysql client</a></p>
-<ul>
-<li><p>安装mysql-server  </p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rpm -ivh MySQL-server-5.5.62-1.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
-<p>  注: <code>-i</code>安装<br><code>-v</code>可视化<br><code>-h</code>显示进度</p>
-<p>  出现一下错误</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">error: Failed dependencies:</span><br><span class="line">        libaio.so.1()(64bit) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br><span class="line">        libaio.so.1(LIBAIO_0.1)(64bit) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br><span class="line">        libaio.so.1(LIBAIO_0.4)(64bit) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br><span class="line">        perl(Data::Dumper) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br></pre></td></tr></table></figure>
-<p>  提示缺少以下依赖</p>
-<ul>
-<li>libaio</li>
-<li>perl(Data::Dumper)</li>
-</ul>
-</li>
-</ul>
-<pre><code>下载地址  </code></pre><p><a href="http://mirror.centos.org/centos-7/7.6.1810/os/x86_64/Packages/libaio-0.3.109-13.el7.x86_64.rpm">libaio-0.3.109-13.el7.x86_64.rpm</a><br><a href="http://mirror.centos.org/centos-7/7.6.1810/os/x86_64/Packages/perl-Data-Dumper-2.145-3.el7.x86_64.rpm">perl-Data-Dumper-2.145-3.el7.x86_64.rpm</a></p>
-<pre><code>将以上依赖安装后再次安装mysql-server
-
-又出现以下错误
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Preparing...                          ################################# [100%]</span><br><span class="line">        file &#x2F;usr&#x2F;share&#x2F;mysql&#x2F;charsets&#x2F;README from install of MySQL-server-5.5.62-1.el7.x86_64 conflicts with file from package mariadb-libs-1:5.5.60-1.el7_5.x86_64</span><br><span class="line">        file &#x2F;usr&#x2F;share&#x2F;mysql&#x2F;charsets&#x2F;Index.xml from install of MySQL-server-5.5.62-1.el7.x86_64 conflicts with file from package mariadb-libs-1:5.5.60-1.el7_5.x86_64</span><br></pre></td></tr></table></figure>
-先卸载旧的mysql-libs
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum remove mysql-libs</span><br></pre></td></tr></table></figure>
-再次安装mysql-server
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">warning: MySQL-server-5.5.62-1.el7.x86_64.rpm: Header V3 DSA&#x2F;SHA1 Signature, key ID 5072e1f5: NOKEY</span><br><span class="line">Preparing...                          ################################# [100%]</span><br><span class="line">Updating &#x2F; installing...</span><br><span class="line">   1:MySQL-server-5.5.62-1.el7        ################################# [100%]</span><br><span class="line">warning: user mysql does not exist - using root</span><br><span class="line">warning: group mysql does not exist - using root</span><br><span class="line">190711  9:20:16 [Note] Ignoring --secure-file-priv value as server is running with --bootstrap.</span><br><span class="line">190711  9:20:16 [Note] &#x2F;usr&#x2F;sbin&#x2F;mysqld (mysqld 5.5.62) starting as process 12846 ...</span><br><span class="line">190711  9:20:16 [Note] Ignoring --secure-file-priv value as server is running with --bootstrap.</span><br><span class="line">190711  9:20:16 [Note] &#x2F;usr&#x2F;sbin&#x2F;mysqld (mysqld 5.5.62) starting as process 12853 ...</span><br><span class="line"></span><br><span class="line">	PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !</span><br><span class="line">To do so, start the server, then issue the following commands:</span><br><span class="line"></span><br><span class="line">	&#x2F;usr&#x2F;bin&#x2F;mysqladmin -u root password &#39;new-password&#39;</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysqladmin -u root -h iZm5e2cvrl3la2bzgnuxnnZ password &#39;new-password&#39;</span><br><span class="line"></span><br><span class="line">	Alternatively you can run:</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysql_secure_installation</span><br><span class="line"></span><br><span class="line">	which will also give you the option of removing the test</span><br><span class="line">databases and anonymous user created by default.  This is</span><br><span class="line">strongly recommended for production servers.</span><br><span class="line"></span><br><span class="line">	See the manual for more instructions.</span><br><span class="line"></span><br><span class="line">	Please report any problems at http:&#x2F;&#x2F;bugs.mysql.com&#x2F;</span><br></pre></td></tr></table></figure>
-有以上提示就安装成功了</code></pre><ul>
-<li><p>安装mysql-client</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rpm -ivh MySQL-client-5.5.62-1.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
-<p>  根据先前mysql-server安装成功后的提示依次执行</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysqladmin -u root password &#39;new-password&#39;</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysqladmin -u root -h iZm5e2cvrl3la2bzgnuxnnZ password &#39;new-password&#39;</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysql_secure_installation</span><br></pre></td></tr></table></figure>
-<p>以交互式方式</p>
-<ul>
-<li>设置root密码</li>
-<li>移除test库</li>
-<li>禁止root远程登录</li>
-<li>…</li>
-</ul>
-</li>
-</ul>
-<h1 id="配置master数据库"><a href="#配置master数据库" class="headerlink" title="配置master数据库"></a>配置master数据库</h1><ul>
-<li><p>my.cnf文件新增</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server-id &#x3D; 1</span><br><span class="line">log-bin&#x3D;&#x2F;var&#x2F;lib&#x2F;mysql&#x2F;mysql-bin</span><br><span class="line">binlog-ignore-db &#x3D; mysql</span><br><span class="line">binlog-ignore-db &#x3D; information_schema</span><br></pre></td></tr></table></figure></li>
-<li><p>重启master数据库  </p>
-</li>
-<li><p>查看master状态</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql&gt; show master status;</span><br><span class="line">+------------------+----------+--------------+--------------------------+</span><br><span class="line">| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB         |</span><br><span class="line">+------------------+----------+--------------+--------------------------+</span><br><span class="line">| mysql-bin.000001 |      339 |              | mysql,information_schema |</span><br><span class="line">+------------------+----------+--------------+--------------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure></li>
-<li><p>给slave数据库分配账号</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">grant replication slave on *.* to &#39;slave&#39;@&#39;%&#39; identified by &#39;password&#39;;</span><br></pre></td></tr></table></figure>
-<p>  此处<code>slave@%</code>中的<code>%</code>可以换成slave的ip</p>
-</li>
-</ul>
-<h1 id="配置slave数据库"><a href="#配置slave数据库" class="headerlink" title="配置slave数据库"></a>配置slave数据库</h1><ul>
-<li><p>my.cnf文件新增</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server-id &#x3D; 2</span><br><span class="line">replicate-ignore-db &#x3D; mysql</span><br><span class="line">replicate-ignore-db &#x3D; information_schema</span><br></pre></td></tr></table></figure></li>
-<li><p>连接到master数据库</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CHANGE MASTER TO MASTER_HOST&#x3D;&#39;1.1.1.1(masterIp)&#39;,MASTER_USER&#x3D;&#39;slave&#39;, MASTER_PASSWORD&#x3D;&#39;password&#39;,MASTER_LOG_FILE&#x3D;&#39; mysql-binlog.000001&#39;,MASTER_LOG_POS&#x3D;339;</span><br></pre></td></tr></table></figure>
-<p>填入<code>master数据库地址</code>、先前从master数据库中查看到的<code>binlog信息</code>，以及分配的<code>账号密码</code></p>
-</li>
-<li><p>启用slave同步</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">start slave;</span><br></pre></td></tr></table></figure></li>
-<li><p>查看slave信息</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">show slave status\G;</span><br></pre></td></tr></table></figure>
-<p>  显示如下即开启同步</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Slave_IO_Running: Yes</span><br><span class="line">Slave_SQL_Running: Yes</span><br></pre></td></tr></table></figure>
-<h1 id="mycat读写分离配置"><a href="#mycat读写分离配置" class="headerlink" title="mycat读写分离配置"></a>mycat读写分离配置</h1></li>
-</ul>
-<p>config/schema.xml</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;schema name&#x3D;&quot;databasename&quot; checkSQLschema&#x3D;&quot;false&quot; sqlMaxLimit&#x3D;&quot;100&quot; dataNode&#x3D;&quot;dn1&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;schema&gt;</span><br><span class="line"></span><br><span class="line">&lt;dataNode name&#x3D;&quot;dn1&quot; dataHost&#x3D;&quot;localhost1&quot; database&#x3D;&quot;databasename&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">&lt;dataHost name&#x3D;&quot;localhost1&quot; maxCon&#x3D;&quot;1000&quot; minCon&#x3D;&quot;10&quot; balance&#x3D;&quot;3&quot;</span><br><span class="line">		  writeType&#x3D;&quot;0&quot; dbType&#x3D;&quot;mysql&quot; dbDriver&#x3D;&quot;native&quot; switchType&#x3D;&quot;1&quot;  slaveThreshold&#x3D;&quot;100&quot;&gt;</span><br><span class="line">	&lt;heartbeat&gt;select user()&lt;&#x2F;heartbeat&gt;</span><br><span class="line">	&lt;!-- can have multi write hosts --&gt;</span><br><span class="line">	&lt;writeHost host&#x3D;&quot;hostM1&quot; url&#x3D;&quot;master1:3306&quot; user&#x3D;&quot;root&quot;</span><br><span class="line">			   password&#x3D;&quot;root&quot;&gt;</span><br><span class="line">		&lt;!-- can have multi read hosts --&gt;</span><br><span class="line">		&lt;readHost host&#x3D;&quot;hostS2&quot; url&#x3D;&quot;ip1:3306&quot; user&#x3D;&quot;root&quot; password&#x3D;&quot;root&quot; &#x2F;&gt;</span><br><span class="line">		&lt;readHost host&#x3D;&quot;hosts3&quot; url&#x3D;&quot;ip2:3306&quot; user&#x3D;&quot;root&quot; password&#x3D;&quot;root&quot; &#x2F;&gt;</span><br><span class="line">	&lt;&#x2F;writeHost&gt;</span><br><span class="line">&lt;&#x2F;dataHost&gt;</span><br></pre></td></tr></table></figure>
-<p>config/server.xml</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;user name&#x3D;&quot;username&quot; defaultAccount&#x3D;&quot;true&quot;&gt;</span><br><span class="line">	&lt;property name&#x3D;&quot;password&quot;&gt;password&lt;&#x2F;property&gt;</span><br><span class="line">	&lt;property name&#x3D;&quot;schemas&quot;&gt;database&lt;&#x2F;property&gt;</span><br><span class="line">&lt;&#x2F;user&gt;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一些jvm内存分析命令</title>
-    <url>/posts/f76bf494/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">导出简单的内存信息</span><br><span class="line">jmap -histo &lt;pid&gt; &gt; file.txt</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">导出完整heap信息</span><br><span class="line">jmap -dump:live,format=b,file=heap-dump.bin &lt;pid&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">分析dumpfile</span><br><span class="line">jhat &lt;dumpfile&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1s打印一次内存信息</span><br><span class="line">jstat -gcutil &lt;pid&gt; 1000</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>jvm</tag>
-        <tag>内存</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用Let&#39;s Encrypt为你的网站启用https</title>
-    <url>/posts/16932c27/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<blockquote class="blockquote-center">`Let's Encrypt` 是一个`免费`、`开放`，`自动化`的`证书颁发机构`。我们可以从这取得一个证书为网站启用https
-</blockquote>
-
-
-
-<h2 id="安装cerbot"><a href="#安装cerbot" class="headerlink" title="安装cerbot"></a>安装<code>cerbot</code></h2><p>官方推荐我们使用<code>cerbot</code>客户端<br>我这里使用的是<code>centos-7</code>系统</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y cerbot</span><br></pre></td></tr></table></figure>
-<p>若yum仓库无cerbot<br>则尝试</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum -y install yum-utils</span><br><span class="line">yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install python2-certbot-nginx</span><br></pre></td></tr></table></figure>
-<h4 id="安装中可能出现的问题"><a href="#安装中可能出现的问题" class="headerlink" title="安装中可能出现的问题"></a>安装中可能出现的问题</h4><p>解决方案</p>
-<p>1.安装python-urllib3</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;vault.centos.org&#x2F;7.7.1908&#x2F;os&#x2F;Source&#x2F;SPackages&#x2F;python-urllib3-1.10.2-7.el7.src.rpm</span><br><span class="line">rpm -ivh python-urllib3-1.10.2-7.el7.src.rpm</span><br></pre></td></tr></table></figure>
-<p>2.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install --upgrade setuptools</span><br></pre></td></tr></table></figure>
-<p>3.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install requests urllib3 pyOpenSSL --force --upgrade</span><br></pre></td></tr></table></figure>
-<p>4.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install requests&#x3D;&#x3D;2.6.0</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="获取证书"><a href="#获取证书" class="headerlink" title="获取证书"></a>获取证书</h2><p>有两种情况</p>
-<h3 id="网站已经在运行了"><a href="#网站已经在运行了" class="headerlink" title="网站已经在运行了"></a>网站已经在运行了</h3><p>那么使用<code>webroot</code>模式</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo certbot certonly --webroot -w /var/www/example -d example.com</span><br></pre></td></tr></table></figure>
-<h3 id="项目不是一个网站而是服务"><a href="#项目不是一个网站而是服务" class="headerlink" title="项目不是一个网站而是服务"></a>项目不是一个网站而是服务</h3><p>可以使用<code>standalone</code>模式</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo certbot certonly --standalone -d example.com</span><br></pre></td></tr></table></figure>
-<p>完成后提示如下</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">IMPORTANT NOTES:</span><br><span class="line"></span><br><span class="line">- Congratulations! Your certificate and chain have been saved at</span><br><span class="line"></span><br><span class="line">/etc/letsencrypt/live/example.com/fullchain.pem. Your cert will</span><br><span class="line"></span><br><span class="line">expire on 2018-02-08. To obtain a new version of the certificate in</span><br><span class="line"></span><br><span class="line">the future, simply run Let&#x27;s Encrypt again.</span><br><span class="line"></span><br><span class="line">- If you like Let&#x27;s Encrypt, please consider supporting our work by:</span><br><span class="line"></span><br><span class="line">Donating to ISRG / Let&#x27;s Encrypt:  https://letsencrypt.org/donate</span><br><span class="line"></span><br><span class="line">Donating to EFF:                    https://eff.org/donate-le</span><br></pre></td></tr></table></figure>
-<p>证书生成目录为<code>/etc/letsencrypt/live/</code>下域名对应目录下</p>
-<h5 id="注意：获取证书时可以先关闭防火墙，然后确保80、443端口没有被占用-关闭nginx"><a href="#注意：获取证书时可以先关闭防火墙，然后确保80、443端口没有被占用-关闭nginx" class="headerlink" title="注意：获取证书时可以先关闭防火墙，然后确保80、443端口没有被占用(关闭nginx)"></a>注意：获取证书时可以先关闭防火墙，然后确保80、443端口没有被占用(关闭nginx)</h5><h2 id="配置https"><a href="#配置https" class="headerlink" title="配置https"></a>配置https</h2><p>此处以nginx 为例</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    listen 80;</span><br><span class="line">	server_name example.com;</span><br><span class="line">	rewrite ^&#x2F;(.*) https:&#x2F;&#x2F;$server_name&#x2F;$1 permanent;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">	listen 443;</span><br><span class="line">        server_name example.com;</span><br><span class="line">        ssl on;</span><br><span class="line">        ssl_certificate   &#x2F;etc&#x2F;letsencrypt&#x2F;live&#x2F;example.com&#x2F;fullchain.pem;</span><br><span class="line">        ssl_certificate_key  &#x2F;etc&#x2F;letsencrypt&#x2F;live&#x2F;example.com&#x2F;privkey.pem;</span><br><span class="line">        ssl_session_timeout 5m;</span><br><span class="line">        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;</span><br><span class="line">        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">        ssl_prefer_server_ciphers on;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如出现<code>the &quot;ssl&quot; parameter requires ngx_http_ssl_module</code>错误,则需要安装<code>https</code>模块<br>进入nginx源码目录</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./configure --with-http_ssl_module</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
-<p>然后将<code>objs</code>目录下<code>nginx</code>文件替换安装目录下的文件<br>重启nginx</p>
-<h2 id="刷新证书"><a href="#刷新证书" class="headerlink" title="刷新证书"></a>刷新证书</h2><p><code>Let&#39;s Encrypt</code> 提供的证书只有 <code>90</code> 天的<code>有效期</code><br>我看可以使用如下命令刷新证书时间</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">certbot renew --pre-hook &quot;systemctl stop nginx&quot; --post-hook &quot;systemctl start nginx&quot;</span><br></pre></td></tr></table></figure>
-<p>也可以写个定时任务自动刷新,如使用<code>crontab</code></p>
-]]></content>
-      <tags>
-        <tag>https</tag>
-        <tag>nginx</tag>
+        <tag>URL</tag>
+        <tag>编码</tag>
       </tags>
   </entry>
   <entry>
@@ -813,6 +509,310 @@
       </tags>
   </entry>
   <entry>
+    <title>yum使用阿里云镜像源</title>
+    <url>/posts/e341b84/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<h3 id="1-备份原配置文件"><a href="#1-备份原配置文件" class="headerlink" title="1. 备份原配置文件"></a>1. 备份原配置文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-下载新的CentOS-Base-repo-到-etc-yum-repos-d"><a href="#2-下载新的CentOS-Base-repo-到-etc-yum-repos-d" class="headerlink" title="2. 下载新的CentOS-Base.repo 到/etc/yum.repos.d/"></a>2. 下载新的<code>CentOS-Base.repo</code> 到<code>/etc/yum.repos.d/</code></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget -O &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;repo&#x2F;Centos-7.repo</span><br></pre></td></tr></table></figure>
+<h3 id="3-生成缓存"><a href="#3-生成缓存" class="headerlink" title="3. 生成缓存"></a>3. 生成缓存</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>yum</tag>
+        <tag>阿里云</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows下使用vundle管理gvim插件</title>
+    <url>/posts/d6218fbd/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<h2 id="1-安装gvim"><a href="#1-安装gvim" class="headerlink" title="1.安装gvim"></a>1.安装gvim</h2><p>官网下载地址 <a href="http://www.vim.org/download.php">http://www.vim.org/download.php</a>  </p>
+<p>注意安装目录避免空格、中文</p>
+<p>安装目录结构如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim</span><br><span class="line">|-- .vimrc   vim配置文件</span><br><span class="line">|-- vim74    vim目录</span><br><span class="line">|     |</span><br><span class="line">|-- vimfiles  其他文件目录，如插件等</span><br><span class="line">|     |</span><br></pre></td></tr></table></figure>
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><p>创建一个系统变量 例: <code>VIM = E:\gvim\Vim</code></p>
+<p>在<code>path</code>中加入<code>%VIM%\vim74\</code></p>
+<h2 id="2-安装vundle"><a href="#2-安装vundle" class="headerlink" title="2.安装vundle"></a>2.安装vundle</h2><p>安装<code>vundle</code>需要<code>git</code>与<code>curl</code></p>
+<p>此处不介绍git与curl的安装</p>
+<p>进入vim安装目录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/VundleVim/Vundle.vim.git vimfiles/bundle/Vundle.vim</span><br></pre></td></tr></table></figure>
+<p>复制<code>vundle官网</code>默认配置替换<code>.vimrc</code>文件内容<br><a href="https://github.com/VundleVim/Vundle.vim">https://github.com/VundleVim/Vundle.vim</a></p>
+<p>这里粘一份默认配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set nocompatible              &quot; be iMproved, required</span><br><span class="line">filetype off                  &quot; required</span><br><span class="line"></span><br><span class="line">&quot; set the runtime path to include Vundle and initialize</span><br><span class="line">set rtp+&#x3D;~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br><span class="line">call vundle#begin()</span><br><span class="line">&quot; alternatively, pass a path where Vundle should install plugins</span><br><span class="line">&quot;call vundle#begin(&#39;~&#x2F;some&#x2F;path&#x2F;here&#39;)</span><br><span class="line"></span><br><span class="line">&quot; let Vundle manage Vundle, required</span><br><span class="line">Plugin &#39;VundleVim&#x2F;Vundle.vim&#39;</span><br><span class="line"></span><br><span class="line">&quot; The following are examples of different formats supported.</span><br><span class="line">&quot; Keep Plugin commands between vundle#begin&#x2F;end.</span><br><span class="line">&quot; plugin on GitHub repo</span><br><span class="line">Plugin &#39;tpope&#x2F;vim-fugitive&#39;</span><br><span class="line">&quot; plugin from http:&#x2F;&#x2F;vim-scripts.org&#x2F;vim&#x2F;scripts.html</span><br><span class="line">&quot; Plugin &#39;L9&#39;</span><br><span class="line">&quot; Git plugin not hosted on GitHub</span><br><span class="line">Plugin &#39;git:&#x2F;&#x2F;git.wincent.com&#x2F;command-t.git&#39;</span><br><span class="line">&quot; git repos on your local machine (i.e. when working on your own plugin)</span><br><span class="line">Plugin &#39;file:&#x2F;&#x2F;&#x2F;home&#x2F;gmarik&#x2F;path&#x2F;to&#x2F;plugin&#39;</span><br><span class="line">&quot; The sparkup vim script is in a subdirectory of this repo called vim.</span><br><span class="line">&quot; Pass the path to set the runtimepath properly.</span><br><span class="line">Plugin &#39;rstacruz&#x2F;sparkup&#39;, &#123;&#39;rtp&#39;: &#39;vim&#x2F;&#39;&#125;</span><br><span class="line">&quot; Install L9 and avoid a Naming conflict if you&#39;ve already installed a</span><br><span class="line">&quot; different version somewhere else.</span><br><span class="line">&quot; Plugin &#39;ascenator&#x2F;L9&#39;, &#123;&#39;name&#39;: &#39;newL9&#39;&#125;</span><br><span class="line"></span><br><span class="line">&quot; All of your Plugins must be added before the following line</span><br><span class="line">call vundle#end()            &quot; required</span><br><span class="line">filetype plugin indent on    &quot; required</span><br><span class="line">&quot; To ignore plugin indent changes, instead use:</span><br><span class="line">&quot;filetype plugin on</span><br><span class="line">&quot;</span><br><span class="line">&quot; Brief help</span><br><span class="line">&quot; :PluginList       - lists configured plugins</span><br><span class="line">&quot; :PluginInstall    - installs plugins; append &#96;!&#96; to update or just :PluginUpdate</span><br><span class="line">&quot; :PluginSearch foo - searches for foo; append &#96;!&#96; to refresh local cache</span><br><span class="line">&quot; :PluginClean      - confirms removal of unused plugins; append &#96;!&#96; to auto-approve removal</span><br><span class="line">&quot;</span><br><span class="line">&quot; see :h vundle for more details or wiki for FAQ</span><br><span class="line">&quot; Put your non-Plugin stuff after this line</span><br></pre></td></tr></table></figure>
+<p>替换其中</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set rtp+&#x3D;~&#x2F;.vim&#x2F;bundle&#x2F;Vundle.vim</span><br><span class="line">call vundle#begin()</span><br></pre></td></tr></table></figure>
+<p>为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set rtp+&#x3D;$VIM&#x2F;vimfiles&#x2F;bundle&#x2F;vundle.vim&#x2F;</span><br><span class="line">call vundle#rc(&#39;$VIM&#x2F;vimfiles&#x2F;bundle&#x2F;&#39;)</span><br></pre></td></tr></table></figure>
+<p>即指定<code>vundle</code>的目录</p>
+<p>其中如</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Plugin &#39;tpope&#x2F;vim-fugitive&#39;</span><br><span class="line">Plugin &#39;git:&#x2F;&#x2F;git.wincent.com&#x2F;command-t.git&#39;</span><br><span class="line">Plugin &#39;file:&#x2F;&#x2F;&#x2F;home&#x2F;gmarik&#x2F;path&#x2F;to&#x2F;plugin&#39;</span><br><span class="line">Plugin &#39;rstacruz&#x2F;sparkup&#39;, &#123;&#39;rtp&#39;: &#39;vim&#x2F;&#39;&#125;</span><br></pre></td></tr></table></figure>
+<p>是几种配置插件的方式</p>
+<p>可自行替换成自己需要的插件</p>
+<p>打开<code>gvim</code>后使用<br><code>:BundleInstall</code>命令安装插件<br><code>:BundleList</code> 查看插件列表<br><code>:BundleClean</code> 清理不用的插件</p>
+]]></content>
+      <tags>
+        <tag>vim</tag>
+        <tag>vundle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git 入门</title>
+    <url>/posts/c2d266ba/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<h2 id="初始化参数"><a href="#初始化参数" class="headerlink" title="初始化参数"></a>初始化参数</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;你的名字&quot;</span><br><span class="line">git config --global user.email &quot;你的邮箱地址&quot;</span><br></pre></td></tr></table></figure>
+<!-- more -->
+
+<h2 id="保存账号密码"><a href="#保存账号密码" class="headerlink" title="保存账号密码"></a>保存账号密码</h2><ul>
+<li>记住密码(默认15分钟)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global credential.helper cache</span><br></pre></td></tr></table></figure>
+<ul>
+<li>自己设置时间(单位，秒)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config credential.helper &#39;cache --timeout&#x3D;3600&#39;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>长期保存</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ul>
+<li>克隆项目</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 克隆master分支</span><br><span class="line">git clone &lt;版本库的网址&gt;</span><br><span class="line">&#x2F;&#x2F; 指定克隆的分支名</span><br><span class="line">git clone -b &lt;分支名&gt; &lt;版本库的网址&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看状态</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 查看当前状态</span><br><span class="line">git status</span><br><span class="line">&#x2F;&#x2F; 查看本地仓库的提交历史</span><br><span class="line">git log</span><br></pre></td></tr></table></figure>
+<ul>
+<li>提交代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 添加文件包版本控制</span><br><span class="line">git add &lt;文件&gt;</span><br><span class="line">&#x2F;&#x2F; 提交到本地仓库</span><br><span class="line">git commit -m &#39;提交说明&#39;</span><br><span class="line">&#x2F;&#x2F; 提交代码到远程仓库</span><br><span class="line">git push origin &lt;分支名&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>更新代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git pull origin &lt;分支名&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="一次简单的流程"><a href="#一次简单的流程" class="headerlink" title="一次简单的流程"></a>一次简单的流程</h2><p>先将代码clone到本地</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone &lt;项目地址&gt;</span><br></pre></td></tr></table></figure>
+<p>添加一个新文件,并将新文件添加到版本控制</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add init.txt</span><br></pre></td></tr></table></figure>
+<p>提交到本地仓库</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit -m &#39;添加了一个新文件&#39; </span><br></pre></td></tr></table></figure>
+<p>将文件<code>init.txt</code>修改一点内容,再次提交</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add init.txt</span><br><span class="line">git commit -m &#39;修改了一点内容&#39;</span><br></pre></td></tr></table></figure>
+<p>将文件提交到远程仓库</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push origin &lt;分支,默认master&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一些jvm内存分析命令</title>
+    <url>/posts/f76bf494/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">导出简单的内存信息</span><br><span class="line">jmap -histo &lt;pid&gt; &gt; file.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">导出完整heap信息</span><br><span class="line">jmap -dump:live,format=b,file=heap-dump.bin &lt;pid&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">分析dumpfile</span><br><span class="line">jhat &lt;dumpfile&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1s打印一次内存信息</span><br><span class="line">jstat -gcutil &lt;pid&gt; 1000</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>jvm</tag>
+        <tag>内存</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql主从复制及读写分离的尝试</title>
+    <url>/posts/6fc5faff/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<hr>
+<h1 id="centos7-rpm安装mysql"><a href="#centos7-rpm安装mysql" class="headerlink" title="centos7 rpm安装mysql"></a>centos7 rpm安装mysql</h1><p>此次使用的是<code>MySQL Community Server 5.5.62</code></p>
+<p>可以自己选择版本<a href="https://dev.mysql.com/downloads/mysql/5.5.html#downloads">下载页面</a></p>
+<p>附上本次下载地址<br><a href="https://cdn.mysql.com//Downloads/MySQL-5.5/MySQL-server-5.5.62-1.el7.x86_64.rpm">mysql server</a><br><a href="https://cdn.mysql.com//Downloads/MySQL-5.5/MySQL-client-5.5.62-1.el7.x86_64.rpm">mysql client</a></p>
+<ul>
+<li><p>安装mysql-server  </p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rpm -ivh MySQL-server-5.5.62-1.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
+<p>  注: <code>-i</code>安装<br><code>-v</code>可视化<br><code>-h</code>显示进度</p>
+<p>  出现一下错误</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">error: Failed dependencies:</span><br><span class="line">        libaio.so.1()(64bit) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br><span class="line">        libaio.so.1(LIBAIO_0.1)(64bit) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br><span class="line">        libaio.so.1(LIBAIO_0.4)(64bit) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br><span class="line">        perl(Data::Dumper) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br></pre></td></tr></table></figure>
+<p>  提示缺少以下依赖</p>
+<ul>
+<li>libaio</li>
+<li>perl(Data::Dumper)</li>
+</ul>
+</li>
+</ul>
+<pre><code>下载地址  </code></pre><p><a href="http://mirror.centos.org/centos-7/7.6.1810/os/x86_64/Packages/libaio-0.3.109-13.el7.x86_64.rpm">libaio-0.3.109-13.el7.x86_64.rpm</a><br><a href="http://mirror.centos.org/centos-7/7.6.1810/os/x86_64/Packages/perl-Data-Dumper-2.145-3.el7.x86_64.rpm">perl-Data-Dumper-2.145-3.el7.x86_64.rpm</a></p>
+<pre><code>将以上依赖安装后再次安装mysql-server
+
+又出现以下错误
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Preparing...                          ################################# [100%]</span><br><span class="line">        file &#x2F;usr&#x2F;share&#x2F;mysql&#x2F;charsets&#x2F;README from install of MySQL-server-5.5.62-1.el7.x86_64 conflicts with file from package mariadb-libs-1:5.5.60-1.el7_5.x86_64</span><br><span class="line">        file &#x2F;usr&#x2F;share&#x2F;mysql&#x2F;charsets&#x2F;Index.xml from install of MySQL-server-5.5.62-1.el7.x86_64 conflicts with file from package mariadb-libs-1:5.5.60-1.el7_5.x86_64</span><br></pre></td></tr></table></figure>
+先卸载旧的mysql-libs
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum remove mysql-libs</span><br></pre></td></tr></table></figure>
+再次安装mysql-server
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">warning: MySQL-server-5.5.62-1.el7.x86_64.rpm: Header V3 DSA&#x2F;SHA1 Signature, key ID 5072e1f5: NOKEY</span><br><span class="line">Preparing...                          ################################# [100%]</span><br><span class="line">Updating &#x2F; installing...</span><br><span class="line">   1:MySQL-server-5.5.62-1.el7        ################################# [100%]</span><br><span class="line">warning: user mysql does not exist - using root</span><br><span class="line">warning: group mysql does not exist - using root</span><br><span class="line">190711  9:20:16 [Note] Ignoring --secure-file-priv value as server is running with --bootstrap.</span><br><span class="line">190711  9:20:16 [Note] &#x2F;usr&#x2F;sbin&#x2F;mysqld (mysqld 5.5.62) starting as process 12846 ...</span><br><span class="line">190711  9:20:16 [Note] Ignoring --secure-file-priv value as server is running with --bootstrap.</span><br><span class="line">190711  9:20:16 [Note] &#x2F;usr&#x2F;sbin&#x2F;mysqld (mysqld 5.5.62) starting as process 12853 ...</span><br><span class="line"></span><br><span class="line">	PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !</span><br><span class="line">To do so, start the server, then issue the following commands:</span><br><span class="line"></span><br><span class="line">	&#x2F;usr&#x2F;bin&#x2F;mysqladmin -u root password &#39;new-password&#39;</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysqladmin -u root -h iZm5e2cvrl3la2bzgnuxnnZ password &#39;new-password&#39;</span><br><span class="line"></span><br><span class="line">	Alternatively you can run:</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysql_secure_installation</span><br><span class="line"></span><br><span class="line">	which will also give you the option of removing the test</span><br><span class="line">databases and anonymous user created by default.  This is</span><br><span class="line">strongly recommended for production servers.</span><br><span class="line"></span><br><span class="line">	See the manual for more instructions.</span><br><span class="line"></span><br><span class="line">	Please report any problems at http:&#x2F;&#x2F;bugs.mysql.com&#x2F;</span><br></pre></td></tr></table></figure>
+有以上提示就安装成功了</code></pre><ul>
+<li><p>安装mysql-client</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rpm -ivh MySQL-client-5.5.62-1.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
+<p>  根据先前mysql-server安装成功后的提示依次执行</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysqladmin -u root password &#39;new-password&#39;</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysqladmin -u root -h iZm5e2cvrl3la2bzgnuxnnZ password &#39;new-password&#39;</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;mysql_secure_installation</span><br></pre></td></tr></table></figure>
+<p>以交互式方式</p>
+<ul>
+<li>设置root密码</li>
+<li>移除test库</li>
+<li>禁止root远程登录</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+<h1 id="配置master数据库"><a href="#配置master数据库" class="headerlink" title="配置master数据库"></a>配置master数据库</h1><ul>
+<li><p>my.cnf文件新增</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server-id &#x3D; 1</span><br><span class="line">log-bin&#x3D;&#x2F;var&#x2F;lib&#x2F;mysql&#x2F;mysql-bin</span><br><span class="line">binlog-ignore-db &#x3D; mysql</span><br><span class="line">binlog-ignore-db &#x3D; information_schema</span><br></pre></td></tr></table></figure></li>
+<li><p>重启master数据库  </p>
+</li>
+<li><p>查看master状态</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql&gt; show master status;</span><br><span class="line">+------------------+----------+--------------+--------------------------+</span><br><span class="line">| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB         |</span><br><span class="line">+------------------+----------+--------------+--------------------------+</span><br><span class="line">| mysql-bin.000001 |      339 |              | mysql,information_schema |</span><br><span class="line">+------------------+----------+--------------+--------------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure></li>
+<li><p>给slave数据库分配账号</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">grant replication slave on *.* to &#39;slave&#39;@&#39;%&#39; identified by &#39;password&#39;;</span><br></pre></td></tr></table></figure>
+<p>  此处<code>slave@%</code>中的<code>%</code>可以换成slave的ip</p>
+</li>
+</ul>
+<h1 id="配置slave数据库"><a href="#配置slave数据库" class="headerlink" title="配置slave数据库"></a>配置slave数据库</h1><ul>
+<li><p>my.cnf文件新增</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server-id &#x3D; 2</span><br><span class="line">replicate-ignore-db &#x3D; mysql</span><br><span class="line">replicate-ignore-db &#x3D; information_schema</span><br></pre></td></tr></table></figure></li>
+<li><p>连接到master数据库</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CHANGE MASTER TO MASTER_HOST&#x3D;&#39;1.1.1.1(masterIp)&#39;,MASTER_USER&#x3D;&#39;slave&#39;, MASTER_PASSWORD&#x3D;&#39;password&#39;,MASTER_LOG_FILE&#x3D;&#39; mysql-binlog.000001&#39;,MASTER_LOG_POS&#x3D;339;</span><br></pre></td></tr></table></figure>
+<p>填入<code>master数据库地址</code>、先前从master数据库中查看到的<code>binlog信息</code>，以及分配的<code>账号密码</code></p>
+</li>
+<li><p>启用slave同步</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">start slave;</span><br></pre></td></tr></table></figure></li>
+<li><p>查看slave信息</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">show slave status\G;</span><br></pre></td></tr></table></figure>
+<p>  显示如下即开启同步</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Slave_IO_Running: Yes</span><br><span class="line">Slave_SQL_Running: Yes</span><br></pre></td></tr></table></figure>
+<h1 id="mycat读写分离配置"><a href="#mycat读写分离配置" class="headerlink" title="mycat读写分离配置"></a>mycat读写分离配置</h1></li>
+</ul>
+<p>config/schema.xml</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;schema name&#x3D;&quot;databasename&quot; checkSQLschema&#x3D;&quot;false&quot; sqlMaxLimit&#x3D;&quot;100&quot; dataNode&#x3D;&quot;dn1&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;schema&gt;</span><br><span class="line"></span><br><span class="line">&lt;dataNode name&#x3D;&quot;dn1&quot; dataHost&#x3D;&quot;localhost1&quot; database&#x3D;&quot;databasename&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">&lt;dataHost name&#x3D;&quot;localhost1&quot; maxCon&#x3D;&quot;1000&quot; minCon&#x3D;&quot;10&quot; balance&#x3D;&quot;3&quot;</span><br><span class="line">		  writeType&#x3D;&quot;0&quot; dbType&#x3D;&quot;mysql&quot; dbDriver&#x3D;&quot;native&quot; switchType&#x3D;&quot;1&quot;  slaveThreshold&#x3D;&quot;100&quot;&gt;</span><br><span class="line">	&lt;heartbeat&gt;select user()&lt;&#x2F;heartbeat&gt;</span><br><span class="line">	&lt;!-- can have multi write hosts --&gt;</span><br><span class="line">	&lt;writeHost host&#x3D;&quot;hostM1&quot; url&#x3D;&quot;master1:3306&quot; user&#x3D;&quot;root&quot;</span><br><span class="line">			   password&#x3D;&quot;root&quot;&gt;</span><br><span class="line">		&lt;!-- can have multi read hosts --&gt;</span><br><span class="line">		&lt;readHost host&#x3D;&quot;hostS2&quot; url&#x3D;&quot;ip1:3306&quot; user&#x3D;&quot;root&quot; password&#x3D;&quot;root&quot; &#x2F;&gt;</span><br><span class="line">		&lt;readHost host&#x3D;&quot;hosts3&quot; url&#x3D;&quot;ip2:3306&quot; user&#x3D;&quot;root&quot; password&#x3D;&quot;root&quot; &#x2F;&gt;</span><br><span class="line">	&lt;&#x2F;writeHost&gt;</span><br><span class="line">&lt;&#x2F;dataHost&gt;</span><br></pre></td></tr></table></figure>
+<p>config/server.xml</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;user name&#x3D;&quot;username&quot; defaultAccount&#x3D;&quot;true&quot;&gt;</span><br><span class="line">	&lt;property name&#x3D;&quot;password&quot;&gt;password&lt;&#x2F;property&gt;</span><br><span class="line">	&lt;property name&#x3D;&quot;schemas&quot;&gt;database&lt;&#x2F;property&gt;</span><br><span class="line">&lt;&#x2F;user&gt;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用Let&#39;s Encrypt为你的网站启用https</title>
+    <url>/posts/16932c27/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<blockquote class="blockquote-center">`Let's Encrypt` 是一个`免费`、`开放`，`自动化`的`证书颁发机构`。我们可以从这取得一个证书为网站启用https
+</blockquote>
+
+
+
+<h2 id="安装cerbot"><a href="#安装cerbot" class="headerlink" title="安装cerbot"></a>安装<code>cerbot</code></h2><p>官方推荐我们使用<code>cerbot</code>客户端<br>我这里使用的是<code>centos-7</code>系统</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y cerbot</span><br></pre></td></tr></table></figure>
+<p>若yum仓库无cerbot<br>则尝试</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum -y install yum-utils</span><br><span class="line">yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install python2-certbot-nginx</span><br></pre></td></tr></table></figure>
+<h4 id="安装中可能出现的问题"><a href="#安装中可能出现的问题" class="headerlink" title="安装中可能出现的问题"></a>安装中可能出现的问题</h4><p>解决方案</p>
+<p>1.安装python-urllib3</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;vault.centos.org&#x2F;7.7.1908&#x2F;os&#x2F;Source&#x2F;SPackages&#x2F;python-urllib3-1.10.2-7.el7.src.rpm</span><br><span class="line">rpm -ivh python-urllib3-1.10.2-7.el7.src.rpm</span><br></pre></td></tr></table></figure>
+<p>2.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install --upgrade setuptools</span><br></pre></td></tr></table></figure>
+<p>3.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install requests urllib3 pyOpenSSL --force --upgrade</span><br></pre></td></tr></table></figure>
+<p>4.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install requests&#x3D;&#x3D;2.6.0</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="获取证书"><a href="#获取证书" class="headerlink" title="获取证书"></a>获取证书</h2><p>有两种情况</p>
+<h3 id="网站已经在运行了"><a href="#网站已经在运行了" class="headerlink" title="网站已经在运行了"></a>网站已经在运行了</h3><p>那么使用<code>webroot</code>模式</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo certbot certonly --webroot -w /var/www/example -d example.com</span><br></pre></td></tr></table></figure>
+<h3 id="项目不是一个网站而是服务"><a href="#项目不是一个网站而是服务" class="headerlink" title="项目不是一个网站而是服务"></a>项目不是一个网站而是服务</h3><p>可以使用<code>standalone</code>模式</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo certbot certonly --standalone -d example.com</span><br></pre></td></tr></table></figure>
+<p>完成后提示如下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">IMPORTANT NOTES:</span><br><span class="line"></span><br><span class="line">- Congratulations! Your certificate and chain have been saved at</span><br><span class="line"></span><br><span class="line">/etc/letsencrypt/live/example.com/fullchain.pem. Your cert will</span><br><span class="line"></span><br><span class="line">expire on 2018-02-08. To obtain a new version of the certificate in</span><br><span class="line"></span><br><span class="line">the future, simply run Let&#x27;s Encrypt again.</span><br><span class="line"></span><br><span class="line">- If you like Let&#x27;s Encrypt, please consider supporting our work by:</span><br><span class="line"></span><br><span class="line">Donating to ISRG / Let&#x27;s Encrypt:  https://letsencrypt.org/donate</span><br><span class="line"></span><br><span class="line">Donating to EFF:                    https://eff.org/donate-le</span><br></pre></td></tr></table></figure>
+<p>证书生成目录为<code>/etc/letsencrypt/live/</code>下域名对应目录下</p>
+<h5 id="注意：获取证书时可以先关闭防火墙，然后确保80、443端口没有被占用-关闭nginx"><a href="#注意：获取证书时可以先关闭防火墙，然后确保80、443端口没有被占用-关闭nginx" class="headerlink" title="注意：获取证书时可以先关闭防火墙，然后确保80、443端口没有被占用(关闭nginx)"></a>注意：获取证书时可以先关闭防火墙，然后确保80、443端口没有被占用(关闭nginx)</h5><h2 id="配置https"><a href="#配置https" class="headerlink" title="配置https"></a>配置https</h2><p>此处以nginx 为例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    listen 80;</span><br><span class="line">	server_name example.com;</span><br><span class="line">	rewrite ^&#x2F;(.*) https:&#x2F;&#x2F;$server_name&#x2F;$1 permanent;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">	listen 443;</span><br><span class="line">        server_name example.com;</span><br><span class="line">        ssl on;</span><br><span class="line">        ssl_certificate   &#x2F;etc&#x2F;letsencrypt&#x2F;live&#x2F;example.com&#x2F;fullchain.pem;</span><br><span class="line">        ssl_certificate_key  &#x2F;etc&#x2F;letsencrypt&#x2F;live&#x2F;example.com&#x2F;privkey.pem;</span><br><span class="line">        ssl_session_timeout 5m;</span><br><span class="line">        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;</span><br><span class="line">        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">        ssl_prefer_server_ciphers on;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如出现<code>the &quot;ssl&quot; parameter requires ngx_http_ssl_module</code>错误,则需要安装<code>https</code>模块<br>进入nginx源码目录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./configure --with-http_ssl_module</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+<p>然后将<code>objs</code>目录下<code>nginx</code>文件替换安装目录下的文件<br>重启nginx</p>
+<h2 id="刷新证书"><a href="#刷新证书" class="headerlink" title="刷新证书"></a>刷新证书</h2><p><code>Let&#39;s Encrypt</code> 提供的证书只有 <code>90</code> 天的<code>有效期</code><br>我看可以使用如下命令刷新证书时间</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">certbot renew --pre-hook &quot;systemctl stop nginx&quot; --post-hook &quot;systemctl start nginx&quot;</span><br></pre></td></tr></table></figure>
+<p>也可以写个定时任务自动刷新,如使用<code>crontab</code></p>
+]]></content>
+      <tags>
+        <tag>https</tag>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>小米手环NFC模拟加密卡</title>
     <url>/posts/1fd4902a/</url>
     <content><![CDATA[<h4 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h4><ul>
@@ -873,6 +873,28 @@
         <tag>加密卡</tag>
         <tag>MifareOneTool</tag>
         <tag>pn532</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记一次ThreadLocal取值失败的问题</title>
+    <url>/posts/7ba3d7ca/</url>
+    <content><![CDATA[<p><span></span></p>
+<a id="more"></a>
+
+
+<h5 id="简单描述一下问题的情况"><a href="#简单描述一下问题的情况" class="headerlink" title="简单描述一下问题的情况"></a>简单描述一下问题的情况</h5><p>1.<code>springboot</code>项目</p>
+<p>2.使用<code>@FeignClient</code>处理微服务之间的调用</p>
+<p>3.项目中使用了<code>feign.RequestInterceptor</code>处理<code>token</code>传递,token校验完成后存放于线程变量<code>ThreadLocal</code>中</p>
+<p>4.开启<code>hystrix</code>后,在<code>RequestInterceptor</code>中无法获取到<code>ThreadLocal</code>存储的token</p>
+<h5 id="查找问题的过程"><a href="#查找问题的过程" class="headerlink" title="查找问题的过程"></a>查找问题的过程</h5><p>1.首先通过断点发现ThreadLocal取值失败</p>
+<p>2.怀疑是不在同一线程中，打印线程名，证实确实不是同一线程</p>
+<p>3.了解到Hystrix默认使用线程隔离</p>
+<h5 id="处理方式"><a href="#处理方式" class="headerlink" title="处理方式"></a>处理方式</h5><p>1.将<code>ThreadLocal</code>换成<code>InheritableThreadLocal</code>，这样可以在<code>子线程</code>内也获取到存入的值</p>
+]]></content>
+      <tags>
+        <tag>线程</tag>
+        <tag>ThreadLocal</tag>
+        <tag>Hystrix</tag>
       </tags>
   </entry>
   <entry>
@@ -1022,28 +1044,6 @@
 ]]></content>
       <tags>
         <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记一次ThreadLocal取值失败的问题</title>
-    <url>/posts/7ba3d7ca/</url>
-    <content><![CDATA[<p><span></span></p>
-<a id="more"></a>
-
-
-<h5 id="简单描述一下问题的情况"><a href="#简单描述一下问题的情况" class="headerlink" title="简单描述一下问题的情况"></a>简单描述一下问题的情况</h5><p>1.<code>springboot</code>项目</p>
-<p>2.使用<code>@FeignClient</code>处理微服务之间的调用</p>
-<p>3.项目中使用了<code>feign.RequestInterceptor</code>处理<code>token</code>传递,token校验完成后存放于线程变量<code>ThreadLocal</code>中</p>
-<p>4.开启<code>hystrix</code>后,在<code>RequestInterceptor</code>中无法获取到<code>ThreadLocal</code>存储的token</p>
-<h5 id="查找问题的过程"><a href="#查找问题的过程" class="headerlink" title="查找问题的过程"></a>查找问题的过程</h5><p>1.首先通过断点发现ThreadLocal取值失败</p>
-<p>2.怀疑是不在同一线程中，打印线程名，证实确实不是同一线程</p>
-<p>3.了解到Hystrix默认使用线程隔离</p>
-<h5 id="处理方式"><a href="#处理方式" class="headerlink" title="处理方式"></a>处理方式</h5><p>1.将<code>ThreadLocal</code>换成<code>InheritableThreadLocal</code>，这样可以在<code>子线程</code>内也获取到存入的值</p>
-]]></content>
-      <tags>
-        <tag>线程</tag>
-        <tag>ThreadLocal</tag>
-        <tag>Hystrix</tag>
       </tags>
   </entry>
 </search>
