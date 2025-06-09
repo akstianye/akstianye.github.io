@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="编程,摄影,分享,博客,blog" />
+  <meta name="author" content="akstianye" />
+  <meta name="description" content="记录生活,分享所学" />
+  
+  
+  <title>
+    
+      关于java一些零零散散的点(二) 
+      
+      
+    
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon32.png">
+    <link rel="icon" href="/images/favicon32.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:400,400italic,600|Roboto+Mono" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+
+
+  
+
+  
+    
+<link rel="stylesheet" href="/css/post.css">
+
+  
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="akstianye's blog" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <a href="/">AKSTIANYE</a>
+</div>
+
+
+      <p class="links">
+  
+    <a title="archives" target="" href="/archives/">
+      <i class="iconfont icon-bookmark"></i>
+    </a>
+  
+    <a title="rss" target="_blank" href="/atom.xml">
+      <i class="iconfont icon-rss"></i>
+    </a>
+  
+</p>
+
+
+      <div class="main">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+</script>
+
+<div class="post">
+  <h3 class="date">
+    Dec 10, 2018
+  </h3>
+  <h1>
+    关于java一些零零散散的点(二)
+  </h1>
+  <div class="content markdown-body">
+    <hr>
+<h1 id="instanceof与Class-isInstance-Object-obj-的区别"><a href="#instanceof与Class-isInstance-Object-obj-的区别" class="headerlink" title="instanceof与Class.isInstance(Object obj)的区别"></a>instanceof与Class.isInstance(Object obj)的区别</h1><ul>
+<li><p>instanceof</p>
+</li>
+<li><p>instanceof运算符只能被用于对象引用变量</p>
+</li>
+<li><p>运算符左侧为被测对象</p>
+</li>
+<li><p>测试被测对象是否为运算符右侧类或接口的实例</p>
+</li>
+<li><p>Class.isInstance(Object obj)</p>
+</li>
+<li><p>obj为被测对象</p>
+</li>
+<li><p>测试被测对象是否为Class的实例</p>
+</li>
+</ul>
+<hr>
+<h1 id="不定项参数个数的问题"><a href="#不定项参数个数的问题" class="headerlink" title="不定项参数个数的问题"></a>不定项参数个数的问题</h1><ul>
+<li>传入<code>单个</code> <code>数组</code><br>数组中每个元素为一个参数  </li>
+<li>传入<code>多个</code> <code>数组</code><br>每个数组为一个参数</li>
+<li>传入集合<br>每个集合为一个参数</li>
+</ul>
+<hr>
+<h1 id="JDK动态代理与CGLIB"><a href="#JDK动态代理与CGLIB" class="headerlink" title="JDK动态代理与CGLIB"></a>JDK动态代理与CGLIB</h1><ul>
+<li><p>JDK动态代理<br>针对接口实现，被代理类需要实现接口，只能代理接口方法,java自带，无需引入外部包</p>
+</li>
+<li><p>CGLIB<br>通过生成被代理对象的子类实现，可代理被代理对象内public,protected方法,被代理类不能是final类型,需要外部引入包</p>
+</li>
+</ul>
+<hr>
+<h1 id="反射获取方法参数名"><a href="#反射获取方法参数名" class="headerlink" title="反射获取方法参数名"></a>反射获取方法参数名</h1><ul>
+<li><p>java.lang.reflect.Parameter类<br>通过method.getParameters()获取得到参数<br>在通过参数<code>getName()</code>方法得到参数名</p>
+</li>
+<li><p>若得到的事arg0等名称<br>是因为编译版本小于1.8</p>
+</li>
+<li><p>idea中可通过Java Compiler中设置模块编译版本大于<code>1.8</code><br>并且在Additional command line parameters中<br>设置 <code>-parameters</code></p>
+</li>
+<li><p>maven中可以配置插件</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">	&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">	&lt;version&gt;<span class="number">3.8</span><span class="number">.0</span>&lt;/version&gt;</span><br><span class="line">	&lt;configuration&gt;</span><br><span class="line">		&lt;compilerArgument&gt;-parameters&lt;/compilerArgument&gt;</span><br><span class="line">		&lt;source&gt;<span class="number">1.8</span>&lt;/source&gt;</span><br><span class="line">		&lt;target&gt;<span class="number">1.8</span>&lt;/target&gt;</span><br><span class="line">	&lt;/configuration&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h1 id="子线程中异常的捕获"><a href="#子线程中异常的捕获" class="headerlink" title="子线程中异常的捕获"></a>子线程中异常的捕获</h1><ul>
+<li>子线程中的异常，可以根据情况在子线程中处理</li>
+<li>若需要在父线程中处理,可使用java中的<code>Future</code>,<br>线程池执行任务时，使用<code>submit()</code>而不是<code>execute()</code>。  </li>
+<li><code>submit</code>方法有一个返回值,可用于获取线程执行结果，即<code>Future.get()</code>，该方法在线程内部抛出异常时，可catch到<code>ExecutionException</code>，使用<code>ExecutionException.getCause()</code>即可得到内部异常。</li>
+<li>注意<ul>
+<li>Future.get()会<code>阻塞</code>函数以获取结果</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="一次线程池死锁问题"><a href="#一次线程池死锁问题" class="headerlink" title="一次线程池死锁问题"></a>一次线程池死锁问题</h1><p>写在前面：  </p>
+<pre><code>使用线程池时,不要在Task中嵌套Task
+</code></pre>
+<p>简单解释：</p>
+<p><code>newFixedThreadPool</code>在当前池内线程全部被使用时，后来的任务会进行排队。此时，一个Task内部提交了一个新的Task，这个新的Task会进行排队。外部Task需要等待内部Task完成才会释放线程给后来的任务使用，而此时内部Task在排队，无法完成，进而导致双方都无法完成，形成死锁。</p>
+<p>参考<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/caoshenglu/p/9461567.html">线程池使用不当也会死锁？</a></p>
+<hr>
+  </div>
+  
+    
+      <a id="older" class="blog-nav" href="/posts/f9ac33e3/">OLDER&nbsp;&gt;</a>
+      
+        
+          <a id="newer" class="blog-nav" href="/posts/f76bf494/">&lt;&nbsp;NEWER</a>
+          
+            
+</div>
+        <div class="footer">
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/leedom92/hexo-theme-leedom">Theme by Leedom | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="back-to-top hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+      
+  <div class="search-icon" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-box">
+        <div class="search-title">
+          <!-- <span class="search-icon-input">
+            <a href="javascript: void(0)">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </span> -->
+          
+            <input type="text" class="search-input" id="search-input" placeholder="搜索">
+          
+          <span class="search-close-icon" id="search-close-icon">
+            <a href="javascript: void(0)">
+              <i class="iconfont icon-close"></i>
+            </a>
+          </span>
+        </div>
+        <div class="search-result" id="search-result"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    // inputArea.onclick = function() {
+    //   getSearchFile()
+    //   this.onclick = null
+    // }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        inputArea.focus()
+        getSearchFile()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'><span></ul>";
+      // $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'><h2>" + orig_data_title + "</h2></a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<h3 class=\"search-result-abstract\">" + match_content + "...</h3>"
+                }
+                str += "<hr></li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/leedom92/hexo-theme-leedom#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="编程,摄影,分享,博客,blog" />
+  <meta name="author" content="akstianye" />
+  <meta name="description" content="记录生活,分享所学" />
+  
+  
+  <title>
+    
+      Effective Java 笔记(一) 
+      
+      
+    
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon32.png">
+    <link rel="icon" href="/images/favicon32.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:400,400italic,600|Roboto+Mono" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+
+
+  
+
+  
+    
+<link rel="stylesheet" href="/css/post.css">
+
+  
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="akstianye's blog" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <a href="/">AKSTIANYE</a>
+</div>
+
+
+      <p class="links">
+  
+    <a title="archives" target="" href="/archives/">
+      <i class="iconfont icon-bookmark"></i>
+    </a>
+  
+    <a title="rss" target="_blank" href="/atom.xml">
+      <i class="iconfont icon-rss"></i>
+    </a>
+  
+</p>
+
+
+      <div class="main">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+</script>
+
+<div class="post">
+  <h3 class="date">
+    Oct 19, 2018
+  </h3>
+  <h1>
+    Effective Java 笔记(一)
+  </h1>
+  <div class="content markdown-body">
+    <h5 id="以下的所有条例仅仅作为一种大多数情况下的选择，但是编写代码仍需以实际情况-权衡"><a href="#以下的所有条例仅仅作为一种大多数情况下的选择，但是编写代码仍需以实际情况-权衡" class="headerlink" title="以下的所有条例仅仅作为一种大多数情况下的选择，但是编写代码仍需以实际情况[权衡]"></a>以下的所有条例仅仅作为一种大多数情况下的选择，但是编写代码仍需以实际情况[权衡]</h5><h1 id="1-考虑用静态方法替代构造器"><a href="#1-考虑用静态方法替代构造器" class="headerlink" title="1: 考虑用静态方法替代构造器"></a>1: 考虑用静态方法替代构造器</h1><p>指用静态方法返回某个类的实例<br>eg:  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Test <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Test</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>优点:  </p>
+<ul>
+<li>可命名，更容易使调用者理解</li>
+<li>实例化更加可控与可定制化</li>
+<li>可用于单例模式，避免实例化重复对象</li>
+<li>可返回原来类型的任何子类</li>
+<li>创建参数化类型实例时更加简洁</li>
+</ul>
+<hr>
+<h1 id="2-遇到多个构造器参数时，考虑使用构建器"><a href="#2-遇到多个构造器参数时，考虑使用构建器" class="headerlink" title="2: 遇到多个构造器参数时，考虑使用构建器"></a>2: 遇到多个构造器参数时，考虑使用构建器</h1><p>eg:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Student</span> <span class="variable">student</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>.Builder(<span class="string">&quot;kevin&quot;</span>, <span class="number">23</span>).grade(<span class="string">&quot;1年级&quot;</span>).build();</span><br></pre></td></tr></table></figure>
+
+<p>优点:  </p>
+<ul>
+<li>链式调用易于编写和理解</li>
+<li>避免编写过多的构造函数</li>
+<li>避免使用set方法分步实例化，会有线程安全问题</li>
+</ul>
+<hr>
+<h1 id="3-用枚举类型强化Singleton属性"><a href="#3-用枚举类型强化Singleton属性" class="headerlink" title="3: 用枚举类型强化Singleton属性"></a>3: 用枚举类型强化Singleton属性</h1><p>eg:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">Instance</span> &#123;</span><br><span class="line">	INSTANCE</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>优点:  </p>
+<ul>
+<li>无需实现readResolve方法即可保证反序列化无法破坏单例</li>
+</ul>
+<hr>
+<h1 id="4-使用私有构造器强化不可实例化的能力"><a href="#4-使用私有构造器强化不可实例化的能力" class="headerlink" title="4: 使用私有构造器强化不可实例化的能力"></a>4: 使用私有构造器强化不可实例化的能力</h1><p>一些没有必要实例化的类[如工具类]，应当私有其构造函数  </p>
+<p>优点:避免无意识[不小心]的实例化<br>缺点:导致其无法被继承</p>
+<hr>
+<h1 id="5-避免创造不必要的对象"><a href="#5-避免创造不必要的对象" class="headerlink" title="5: 避免创造不必要的对象"></a>5: 避免创造不必要的对象</h1><p>当你应该重用现有对象时，请不要创建新对象,这里的[应该]指创建新对象代价较高时</p>
+<p>一些公用的，不变的实例，可以提出来只构建一次，而不是放在方法内部去每次创建新实例  </p>
+<p><code>自动装箱</code>会导致实例化其包装对象,因此在基本类型满足需求的情况下，不要使用其包装类型</p>
+<hr>
+<h1 id="6-消除过期的对象引用"><a href="#6-消除过期的对象引用" class="headerlink" title="6: 消除过期的对象引用"></a>6: 消除过期的对象引用</h1><p>过期的对象引用会在极端情况下导致内存泄漏,内存泄漏常见于三个来源</p>
+<ul>
+<li><p>自己管理内存</p>
+<p>  如果一个容器中对象引用的删除是逻辑管理[类似逻辑删除]的，即其没有被真正移除，而用户在逻辑上认为已被移除.那么应该警惕内存泄漏问题,一旦元素被释放掉，应当同时移除该对象的引用</p>
+<p>  eg:  </p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Strack</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Object[] elements;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">DEFAULT_INITIAL_CAPACITY</span> <span class="operator">=</span> <span class="number">16</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Strack</span><span class="params">()</span> &#123;</span><br><span class="line">        elements = <span class="keyword">new</span> <span class="title class_">Object</span>[DEFAULT_INITIAL_CAPACITY];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(Object e)</span> &#123;</span><br><span class="line">        ensureCapacity();</span><br><span class="line">        elements[size++] = e;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">pop</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (size == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">EmptyStackException</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">Object</span> <span class="variable">result</span> <span class="operator">=</span> <span class="keyword">return</span> elements[--size];</span><br><span class="line">		<span class="comment">// 移除该对象的引用</span></span><br><span class="line">		elements[size] = <span class="literal">null</span>;</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">ensureCapacity</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (elements.length == size) &#123;</span><br><span class="line">            elements = Arrays.copyOf(elements, <span class="number">2</span> * size + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  例如eg中被弹出的对象，哪怕在别的地方已经失去引用，但在elements中其位置未被别的对象引用替换前，elements仍保持了其过期的引用，会导致该对象以及该对象引用的对象无法被垃圾回收</p>
+</li>
+<li><p>缓存</p>
+<p>  当对象的引用被放入缓存中后，很容易被遗忘或忽略  </p>
+<p>  在某些情况下，如缓存的存在是否必要仅有外部引用而不是值来决定时，可以考虑使用WeakHashMap来处理</p>
+<p>  更常见的做法是使用某种策略定期清理不用的缓存，正如许多框架所做的那样</p>
+</li>
+<li><p>监听器与其他回调</p>
+</li>
+</ul>
+<hr>
+<h1 id="7-避免使用终结方法"><a href="#7-避免使用终结方法" class="headerlink" title="7: 避免使用终结方法"></a>7: 避免使用终结方法</h1><p>finalizer方法通常是不可预测、不稳定的，java规范也并不保证其一定会执行。在java中，内存资源的回收通常交由垃圾回收器处理，而其他资源[如文件流]的回收通常用try-finally来完成,因此应该尽量[避免]使用finalizer来做这些事。</p>
+<hr>
+<h1 id="8-覆盖equals时遵守通用约定"><a href="#8-覆盖equals时遵守通用约定" class="headerlink" title="8: 覆盖equals时遵守通用约定"></a>8: 覆盖equals时遵守通用约定</h1><p>通常情况下，我们认为每一个对象都是独一无二的，因此它应该只等于其自身,Object类的equals方法也确实是这么做的<br>但equals方法的结果应当取决于用户当前期望什么样是相等的，即逻辑相等。所以在某些情况下我们需要重写equals方法以达到目的。<br>很多已有的类中也重写了equals方法，他们都遵循了一些通用的约定。若我们重写方法时没有遵循这些约定，会造成某些不可预知的错误。</p>
+<ul>
+<li>自反性<br>对于任何非null的引用值x，x.equals(x)必须返回true</li>
+<li>对称性<br>对于任何非null的引用值x、y，当且仅当y.equals(x)为true时，x.equals(y)必须为true</li>
+<li>传递性<br>对于任何非null的引用值x、y、z，如果x.equals(y)为true，并且y.equals(z)也为true，那么x.equals(z)也必须为true</li>
+<li>一致性<br>对于任何非null的引用值x、y，只要equals的比较操作在对象中所用的信息没有被修改,多次调用equals方法返回的结果必须一致</li>
+<li>对于任何非null的引用值x,x.equals(null)必须为false</li>
+</ul>
+<hr>
+<h1 id="9-覆盖equals时总要覆盖hashCode"><a href="#9-覆盖equals时总要覆盖hashCode" class="headerlink" title="9: 覆盖equals时总要覆盖hashCode"></a>9: 覆盖equals时总要覆盖hashCode</h1><p>重写equals方法时应当重写hashCode方法，否则会导致该类无法结合所有基于散列的集合一起正常工作</p>
+<ul>
+<li>若一个类的equals方法返回true，则hashCode方法应当返回相同的整数</li>
+<li>若一个类的equals方法返回false,hashCode方法不一定要返回不同的整数，但返回不同的整数有利于提高性能</li>
+</ul>
+<hr>
+<h1 id="10-使用要覆盖toString"><a href="#10-使用要覆盖toString" class="headerlink" title="10: 使用要覆盖toString"></a>10: 使用要覆盖toString</h1><p>应当尽可能的覆盖toString方法，返回该对象的内容摘要</p>
+<p>有助于在任何可能输出该类信息的地方<br>使得使用者得到易于理解的信息</p>
+  </div>
+  
+    
+      <a id="older" class="blog-nav" href="/posts/e7a2c981/">OLDER&nbsp;&gt;</a>
+      
+        
+          <a id="newer" class="blog-nav" href="/posts/d4f37418/">&lt;&nbsp;NEWER</a>
+          
+            
+</div>
+        <div class="footer">
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/leedom92/hexo-theme-leedom">Theme by Leedom | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="back-to-top hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+      
+  <div class="search-icon" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-box">
+        <div class="search-title">
+          <!-- <span class="search-icon-input">
+            <a href="javascript: void(0)">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </span> -->
+          
+            <input type="text" class="search-input" id="search-input" placeholder="搜索">
+          
+          <span class="search-close-icon" id="search-close-icon">
+            <a href="javascript: void(0)">
+              <i class="iconfont icon-close"></i>
+            </a>
+          </span>
+        </div>
+        <div class="search-result" id="search-result"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    // inputArea.onclick = function() {
+    //   getSearchFile()
+    //   this.onclick = null
+    // }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        inputArea.focus()
+        getSearchFile()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'><span></ul>";
+      // $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'><h2>" + orig_data_title + "</h2></a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<h3 class=\"search-result-abstract\">" + match_content + "...</h3>"
+                }
+                str += "<hr></li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/leedom92/hexo-theme-leedom#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+    </div>
+  </body>
+</html>

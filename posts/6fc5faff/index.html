@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="编程,摄影,分享,博客,blog" />
+  <meta name="author" content="akstianye" />
+  <meta name="description" content="记录生活,分享所学" />
+  
+  
+  <title>
+    
+      mysql主从复制及读写分离的尝试 
+      
+      
+    
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon32.png">
+    <link rel="icon" href="/images/favicon32.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:400,400italic,600|Roboto+Mono" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+
+
+  
+
+  
+    
+<link rel="stylesheet" href="/css/post.css">
+
+  
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="akstianye's blog" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <a href="/">AKSTIANYE</a>
+</div>
+
+
+      <p class="links">
+  
+    <a title="archives" target="" href="/archives/">
+      <i class="iconfont icon-bookmark"></i>
+    </a>
+  
+    <a title="rss" target="_blank" href="/atom.xml">
+      <i class="iconfont icon-rss"></i>
+    </a>
+  
+</p>
+
+
+      <div class="main">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+</script>
+
+<div class="post">
+  <h3 class="date">
+    Jul 11, 2019
+  </h3>
+  <h1>
+    mysql主从复制及读写分离的尝试
+  </h1>
+  <div class="content markdown-body">
+    <hr>
+<h1 id="centos7-rpm安装mysql"><a href="#centos7-rpm安装mysql" class="headerlink" title="centos7 rpm安装mysql"></a>centos7 rpm安装mysql</h1><p>此次使用的是<code>MySQL Community Server 5.5.62</code></p>
+<p>可以自己选择版本<a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/5.5.html#downloads">下载页面</a></p>
+<p>附上本次下载地址<br><a target="_blank" rel="noopener" href="https://cdn.mysql.com//Downloads/MySQL-5.5/MySQL-server-5.5.62-1.el7.x86_64.rpm">mysql server</a><br><a target="_blank" rel="noopener" href="https://cdn.mysql.com//Downloads/MySQL-5.5/MySQL-client-5.5.62-1.el7.x86_64.rpm">mysql client</a></p>
+<ul>
+<li><p>安装mysql-server  </p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh MySQL-server-5.5.62-1.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
+
+<p>  注: <code>-i</code>安装</p>
+</li>
+</ul>
+<p><code>-v</code>可视化<br><code>-h</code>显示进度</p>
+<pre><code>出现一下错误
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">error: Failed dependencies:</span><br><span class="line">        libaio.so.1()(64bit) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br><span class="line">        libaio.so.1(LIBAIO_0.1)(64bit) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br><span class="line">        libaio.so.1(LIBAIO_0.4)(64bit) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br><span class="line">        perl(Data::Dumper) is needed by MySQL-server-5.5.62-1.el7.x86_64</span><br></pre></td></tr></table></figure>
+
+提示缺少以下依赖
+
+- libaio
+- perl(Data::Dumper)
+
+
+下载地址  
+</code></pre>
+<p><a target="_blank" rel="noopener" href="http://mirror.centos.org/centos-7/7.6.1810/os/x86_64/Packages/libaio-0.3.109-13.el7.x86_64.rpm">libaio-0.3.109-13.el7.x86_64.rpm</a><br><a target="_blank" rel="noopener" href="http://mirror.centos.org/centos-7/7.6.1810/os/x86_64/Packages/perl-Data-Dumper-2.145-3.el7.x86_64.rpm">perl-Data-Dumper-2.145-3.el7.x86_64.rpm</a></p>
+<pre><code>将以上依赖安装后再次安装mysql-server
+
+又出现以下错误
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Preparing...                          ################################# [100%]</span><br><span class="line">        file /usr/share/mysql/charsets/README from install of MySQL-server-5.5.62-1.el7.x86_64 conflicts with file from package mariadb-libs-1:5.5.60-1.el7_5.x86_64</span><br><span class="line">        file /usr/share/mysql/charsets/Index.xml from install of MySQL-server-5.5.62-1.el7.x86_64 conflicts with file from package mariadb-libs-1:5.5.60-1.el7_5.x86_64</span><br></pre></td></tr></table></figure>
+
+先卸载旧的mysql-libs
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove mysql-libs</span><br></pre></td></tr></table></figure>
+
+再次安装mysql-server
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">warning: MySQL-server-5.5.62-1.el7.x86_64.rpm: Header V3 DSA/SHA1 Signature, key ID 5072e1f5: NOKEY</span><br><span class="line">Preparing...                          ################################# [100%]</span><br><span class="line">Updating / installing...</span><br><span class="line">   1:MySQL-server-5.5.62-1.el7        ################################# [100%]</span><br><span class="line">warning: user mysql does not exist - using root</span><br><span class="line">warning: group mysql does not exist - using root</span><br><span class="line">190711  9:20:16 [Note] Ignoring --secure-file-priv value as server is running with --bootstrap.</span><br><span class="line">190711  9:20:16 [Note] /usr/sbin/mysqld (mysqld 5.5.62) starting as process 12846 ...</span><br><span class="line">190711  9:20:16 [Note] Ignoring --secure-file-priv value as server is running with --bootstrap.</span><br><span class="line">190711  9:20:16 [Note] /usr/sbin/mysqld (mysqld 5.5.62) starting as process 12853 ...</span><br><span class="line"></span><br><span class="line">	PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !</span><br><span class="line">To do so, start the server, then issue the following commands:</span><br><span class="line"></span><br><span class="line">	/usr/bin/mysqladmin -u root password &#x27;new-password&#x27;</span><br><span class="line">/usr/bin/mysqladmin -u root -h iZm5e2cvrl3la2bzgnuxnnZ password &#x27;new-password&#x27;</span><br><span class="line"></span><br><span class="line">	Alternatively you can run:</span><br><span class="line">/usr/bin/mysql_secure_installation</span><br><span class="line"></span><br><span class="line">	which will also give you the option of removing the test</span><br><span class="line">databases and anonymous user created by default.  This is</span><br><span class="line">strongly recommended for production servers.</span><br><span class="line"></span><br><span class="line">	See the manual for more instructions.</span><br><span class="line"></span><br><span class="line">	Please report any problems at http://bugs.mysql.com/</span><br></pre></td></tr></table></figure>
+
+有以上提示就安装成功了
+</code></pre>
+<ul>
+<li><p>安装mysql-client</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh MySQL-client-5.5.62-1.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
+
+<p>  根据先前mysql-server安装成功后的提示依次执行</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/mysqladmin -u root password &#x27;new-password&#x27;</span><br><span class="line">/usr/bin/mysqladmin -u root -h iZm5e2cvrl3la2bzgnuxnnZ password &#x27;new-password&#x27;</span><br><span class="line">/usr/bin/mysql_secure_installation</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>以交互式方式</p>
+<pre><code>- 设置root密码
+- 移除test库
+- 禁止root远程登录
+- ...
+</code></pre>
+<h1 id="配置master数据库"><a href="#配置master数据库" class="headerlink" title="配置master数据库"></a>配置master数据库</h1><ul>
+<li><p>my.cnf文件新增</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server-id = 1</span><br><span class="line">log-bin=/var/lib/mysql/mysql-bin</span><br><span class="line">binlog-ignore-db = mysql</span><br><span class="line">binlog-ignore-db = information_schema</span><br></pre></td></tr></table></figure></li>
+<li><p>重启master数据库  </p>
+</li>
+<li><p>查看master状态</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show master status;</span><br><span class="line">+------------------+----------+--------------+--------------------------+</span><br><span class="line">| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB         |</span><br><span class="line">+------------------+----------+--------------+--------------------------+</span><br><span class="line">| mysql-bin.000001 |      339 |              | mysql,information_schema |</span><br><span class="line">+------------------+----------+--------------+--------------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>给slave数据库分配账号</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant replication slave on *.* to &#x27;slave&#x27;@&#x27;%&#x27; identified by &#x27;password&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>  此处<code>slave@%</code>中的<code>%</code>可以换成slave的ip</p>
+</li>
+</ul>
+<h1 id="配置slave数据库"><a href="#配置slave数据库" class="headerlink" title="配置slave数据库"></a>配置slave数据库</h1><ul>
+<li><p>my.cnf文件新增</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server-id = 2</span><br><span class="line">replicate-ignore-db = mysql</span><br><span class="line">replicate-ignore-db = information_schema</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>连接到master数据库</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CHANGE MASTER TO MASTER_HOST=&#x27;1.1.1.1(masterIp)&#x27;,MASTER_USER=&#x27;slave&#x27;, MASTER_PASSWORD=&#x27;password&#x27;,MASTER_LOG_FILE=&#x27; mysql-binlog.000001&#x27;,MASTER_LOG_POS=339;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>填入<code>master数据库地址</code>、先前从master数据库中查看到的<code>binlog信息</code>，以及分配的<code>账号密码</code></p>
+<ul>
+<li><p>启用slave同步</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start slave;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看slave信息</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show slave status\G;</span><br></pre></td></tr></table></figure>
+
+<p>  显示如下即开启同步</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Slave_IO_Running: Yes</span><br><span class="line">Slave_SQL_Running: Yes</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="mycat读写分离配置"><a href="#mycat读写分离配置" class="headerlink" title="mycat读写分离配置"></a>mycat读写分离配置</h1><p>config&#x2F;schema.xml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;schema name=&quot;databasename&quot; checkSQLschema=&quot;false&quot; sqlMaxLimit=&quot;100&quot; dataNode=&quot;dn1&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;/schema&gt;</span><br><span class="line"></span><br><span class="line">&lt;dataNode name=&quot;dn1&quot; dataHost=&quot;localhost1&quot; database=&quot;databasename&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;dataHost name=&quot;localhost1&quot; maxCon=&quot;1000&quot; minCon=&quot;10&quot; balance=&quot;3&quot;</span><br><span class="line">		  writeType=&quot;0&quot; dbType=&quot;mysql&quot; dbDriver=&quot;native&quot; switchType=&quot;1&quot;  slaveThreshold=&quot;100&quot;&gt;</span><br><span class="line">	&lt;heartbeat&gt;select user()&lt;/heartbeat&gt;</span><br><span class="line">	&lt;!-- can have multi write hosts --&gt;</span><br><span class="line">	&lt;writeHost host=&quot;hostM1&quot; url=&quot;master1:3306&quot; user=&quot;root&quot;</span><br><span class="line">			   password=&quot;root&quot;&gt;</span><br><span class="line">		&lt;!-- can have multi read hosts --&gt;</span><br><span class="line">		&lt;readHost host=&quot;hostS2&quot; url=&quot;ip1:3306&quot; user=&quot;root&quot; password=&quot;root&quot; /&gt;</span><br><span class="line">		&lt;readHost host=&quot;hosts3&quot; url=&quot;ip2:3306&quot; user=&quot;root&quot; password=&quot;root&quot; /&gt;</span><br><span class="line">	&lt;/writeHost&gt;</span><br><span class="line">&lt;/dataHost&gt;</span><br></pre></td></tr></table></figure>
+
+<p>config&#x2F;server.xml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;user name=&quot;username&quot; defaultAccount=&quot;true&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;password&quot;&gt;password&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;schemas&quot;&gt;database&lt;/property&gt;</span><br><span class="line">&lt;/user&gt;</span><br></pre></td></tr></table></figure>
+  </div>
+  
+    
+      <a id="older" class="blog-nav" href="/posts/d0313409/">OLDER&nbsp;&gt;</a>
+      
+        
+          <a id="newer" class="blog-nav" href="/posts/a84f8eca/">&lt;&nbsp;NEWER</a>
+          
+            
+</div>
+        <div class="footer">
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/leedom92/hexo-theme-leedom">Theme by Leedom | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="back-to-top hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+      
+  <div class="search-icon" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-box">
+        <div class="search-title">
+          <!-- <span class="search-icon-input">
+            <a href="javascript: void(0)">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </span> -->
+          
+            <input type="text" class="search-input" id="search-input" placeholder="搜索">
+          
+          <span class="search-close-icon" id="search-close-icon">
+            <a href="javascript: void(0)">
+              <i class="iconfont icon-close"></i>
+            </a>
+          </span>
+        </div>
+        <div class="search-result" id="search-result"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    // inputArea.onclick = function() {
+    //   getSearchFile()
+    //   this.onclick = null
+    // }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        inputArea.focus()
+        getSearchFile()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'><span></ul>";
+      // $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'><h2>" + orig_data_title + "</h2></a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<h3 class=\"search-result-abstract\">" + match_content + "...</h3>"
+                }
+                str += "<hr></li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/leedom92/hexo-theme-leedom#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+    </div>
+  </body>
+</html>

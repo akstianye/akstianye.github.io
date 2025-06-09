@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>akstianye&#39;s blog</title>
+  
+  <subtitle>世界你到底好不好</subtitle>
+  <link href="https://blog.akstianye.moe/atom.xml" rel="self"/>
+  
+  <link href="https://blog.akstianye.moe/"/>
+  <updated>2025-06-09T11:30:00.000Z</updated>
+  <id>https://blog.akstianye.moe/</id>
+  
+  <author>
+    <name>akstianye</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小米手环NFC模拟加密卡</title>
+    <link href="https://blog.akstianye.moe/posts/1fd4902a/"/>
+    <id>https://blog.akstianye.moe/posts/1fd4902a/</id>
+    <published>2020-08-15T07:49:00.000Z</published>
+    <updated>2025-06-09T11:30:00.000Z</updated>
+    
+    
+    <summary type="html">小米手环NFC版使用MifareOneTool及pn532模拟加密门禁卡的步骤</summary>
+    
+    
+    
+    
+    <category term="小米手环" scheme="https://blog.akstianye.moe/tags/%E5%B0%8F%E7%B1%B3%E6%89%8B%E7%8E%AF/"/>
+    
+    <category term="NFC" scheme="https://blog.akstianye.moe/tags/NFC/"/>
+    
+    <category term="加密卡" scheme="https://blog.akstianye.moe/tags/%E5%8A%A0%E5%AF%86%E5%8D%A1/"/>
+    
+    <category term="MifareOneTool" scheme="https://blog.akstianye.moe/tags/MifareOneTool/"/>
+    
+    <category term="pn532" scheme="https://blog.akstianye.moe/tags/pn532/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IDEA技巧收集</title>
+    <link href="https://blog.akstianye.moe/posts/ec9abed7/"/>
+    <id>https://blog.akstianye.moe/posts/ec9abed7/</id>
+    <published>2020-07-24T02:52:00.000Z</published>
+    <updated>2021-05-27T03:32:35.371Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="IDEA" scheme="https://blog.akstianye.moe/tags/IDEA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记一次ThreadLocal取值失败的问题</title>
+    <link href="https://blog.akstianye.moe/posts/7ba3d7ca/"/>
+    <id>https://blog.akstianye.moe/posts/7ba3d7ca/</id>
+    <published>2020-06-07T16:00:00.000Z</published>
+    <updated>2021-05-27T03:33:17.941Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="线程" scheme="https://blog.akstianye.moe/tags/%E7%BA%BF%E7%A8%8B/"/>
+    
+    <category term="ThreadLocal" scheme="https://blog.akstianye.moe/tags/ThreadLocal/"/>
+    
+    <category term="Hystrix" scheme="https://blog.akstianye.moe/tags/Hystrix/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos7安装DockerCE</title>
+    <link href="https://blog.akstianye.moe/posts/b9257e54/"/>
+    <id>https://blog.akstianye.moe/posts/b9257e54/</id>
+    <published>2019-12-26T01:16:05.000Z</published>
+    <updated>2021-05-27T03:32:02.755Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Centos" scheme="https://blog.akstianye.moe/tags/Centos/"/>
+    
+    <category term="Docker" scheme="https://blog.akstianye.moe/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>apt换国内源</title>
+    <link href="https://blog.akstianye.moe/posts/a84f8eca/"/>
+    <id>https://blog.akstianye.moe/posts/a84f8eca/</id>
+    <published>2019-07-11T16:00:00.000Z</published>
+    <updated>2021-05-27T03:31:59.234Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="apt" scheme="https://blog.akstianye.moe/tags/apt/"/>
+    
+    <category term="镜像" scheme="https://blog.akstianye.moe/tags/%E9%95%9C%E5%83%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql主从复制及读写分离的尝试</title>
+    <link href="https://blog.akstianye.moe/posts/6fc5faff/"/>
+    <id>https://blog.akstianye.moe/posts/6fc5faff/</id>
+    <published>2019-07-10T16:00:00.000Z</published>
+    <updated>2021-05-27T03:32:46.332Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="mysql" scheme="https://blog.akstianye.moe/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos7安装qBittorrent</title>
+    <link href="https://blog.akstianye.moe/posts/d0313409/"/>
+    <id>https://blog.akstianye.moe/posts/d0313409/</id>
+    <published>2019-02-27T08:24:05.000Z</published>
+    <updated>2021-05-27T03:32:11.378Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="centos" scheme="https://blog.akstianye.moe/tags/centos/"/>
+    
+    <category term="bt" scheme="https://blog.akstianye.moe/tags/bt/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于java一些零零散散的点(三)</title>
+    <link href="https://blog.akstianye.moe/posts/aa005433/"/>
+    <id>https://blog.akstianye.moe/posts/aa005433/</id>
+    <published>2019-02-25T16:00:00.000Z</published>
+    <updated>2021-05-27T03:33:11.491Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="文件" scheme="https://blog.akstianye.moe/tags/%E6%96%87%E4%BB%B6/"/>
+    
+    <category term="java" scheme="https://blog.akstianye.moe/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>dns解析记录类型</title>
+    <link href="https://blog.akstianye.moe/posts/b237770b/"/>
+    <id>https://blog.akstianye.moe/posts/b237770b/</id>
+    <published>2019-02-13T16:00:00.000Z</published>
+    <updated>2021-07-10T03:34:33.426Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;一点对dns解析记录类型的说明&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="dns" scheme="https://blog.akstianye.moe/tags/dns/"/>
+    
+    <category term="dns记录类型" scheme="https://blog.akstianye.moe/tags/dns%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一些jvm内存分析命令</title>
+    <link href="https://blog.akstianye.moe/posts/f76bf494/"/>
+    <id>https://blog.akstianye.moe/posts/f76bf494/</id>
+    <published>2019-01-14T08:24:05.000Z</published>
+    <updated>2021-05-27T03:33:27.202Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="jvm" scheme="https://blog.akstianye.moe/tags/jvm/"/>
+    
+    <category term="内存" scheme="https://blog.akstianye.moe/tags/%E5%86%85%E5%AD%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于java一些零零散散的点(二)</title>
+    <link href="https://blog.akstianye.moe/posts/d4f37418/"/>
+    <id>https://blog.akstianye.moe/posts/d4f37418/</id>
+    <published>2018-12-09T16:00:00.000Z</published>
+    <updated>2021-05-27T03:33:08.306Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="java" scheme="https://blog.akstianye.moe/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Effective Java 笔记(一)</title>
+    <link href="https://blog.akstianye.moe/posts/f9ac33e3/"/>
+    <id>https://blog.akstianye.moe/posts/f9ac33e3/</id>
+    <published>2018-10-18T16:00:00.000Z</published>
+    <updated>2021-05-27T03:32:27.859Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="http" scheme="https://blog.akstianye.moe/tags/http/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>rfc2616_section-14</title>
+    <link href="https://blog.akstianye.moe/posts/e7a2c981/"/>
+    <id>https://blog.akstianye.moe/posts/e7a2c981/</id>
+    <published>2018-10-18T16:00:00.000Z</published>
+    <updated>2021-05-27T03:32:50.392Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="http" scheme="https://blog.akstianye.moe/tags/http/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java设计模式之单例模式</title>
+    <link href="https://blog.akstianye.moe/posts/23a824cc/"/>
+    <id>https://blog.akstianye.moe/posts/23a824cc/</id>
+    <published>2018-08-03T16:00:00.000Z</published>
+    <updated>2021-05-27T03:32:39.747Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="java" scheme="https://blog.akstianye.moe/tags/java/"/>
+    
+    <category term="设计模式" scheme="https://blog.akstianye.moe/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    <category term="单例" scheme="https://blog.akstianye.moe/tags/%E5%8D%95%E4%BE%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于java一些零零散散的点(一)</title>
+    <link href="https://blog.akstianye.moe/posts/7bc2ef7a/"/>
+    <id>https://blog.akstianye.moe/posts/7bc2ef7a/</id>
+    <published>2018-08-02T16:00:00.000Z</published>
+    <updated>2021-05-27T03:33:14.758Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="java" scheme="https://blog.akstianye.moe/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Let&#39;s Encrypt为你的网站启用https</title>
+    <link href="https://blog.akstianye.moe/posts/16932c27/"/>
+    <id>https://blog.akstianye.moe/posts/16932c27/</id>
+    <published>2018-07-26T16:00:00.000Z</published>
+    <updated>2021-05-27T03:33:21.212Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="https" scheme="https://blog.akstianye.moe/tags/https/"/>
+    
+    <category term="nginx" scheme="https://blog.akstianye.moe/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>windows下使用vundle管理gvim插件</title>
+    <link href="https://blog.akstianye.moe/posts/d6218fbd/"/>
+    <id>https://blog.akstianye.moe/posts/d6218fbd/</id>
+    <published>2018-07-18T08:24:05.000Z</published>
+    <updated>2021-05-27T03:33:01.926Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="vim" scheme="https://blog.akstianye.moe/tags/vim/"/>
+    
+    <category term="vundle" scheme="https://blog.akstianye.moe/tags/vundle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>springboot devtools 热部署</title>
+    <link href="https://blog.akstianye.moe/posts/5af71517/"/>
+    <id>https://blog.akstianye.moe/posts/5af71517/</id>
+    <published>2018-05-27T16:00:00.000Z</published>
+    <updated>2021-05-27T03:32:53.694Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="springboot" scheme="https://blog.akstianye.moe/tags/springboot/"/>
+    
+    <category term="热部署" scheme="https://blog.akstianye.moe/tags/%E7%83%AD%E9%83%A8%E7%BD%B2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git 入门</title>
+    <link href="https://blog.akstianye.moe/posts/c2d266ba/"/>
+    <id>https://blog.akstianye.moe/posts/c2d266ba/</id>
+    <published>2018-03-22T16:00:00.000Z</published>
+    <updated>2021-05-27T03:32:31.718Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="git" scheme="https://blog.akstianye.moe/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos7挂载硬盘</title>
+    <link href="https://blog.akstianye.moe/posts/e6ac7476/"/>
+    <id>https://blog.akstianye.moe/posts/e6ac7476/</id>
+    <published>2018-03-21T08:24:05.000Z</published>
+    <updated>2021-05-27T03:32:15.211Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Centos" scheme="https://blog.akstianye.moe/tags/Centos/"/>
+    
+    <category term="文件" scheme="https://blog.akstianye.moe/tags/%E6%96%87%E4%BB%B6/"/>
+    
+  </entry>
+  
+</feed>
