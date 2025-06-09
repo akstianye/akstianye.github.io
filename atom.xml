@@ -27,18 +27,6 @@
     <summary type="html">小米手环NFC版使用MifareOneTool及pn532模拟加密门禁卡的步骤</summary>
     
     
-    
-    
-    <category term="小米手环" scheme="https://blog.akstianye.moe/tags/%E5%B0%8F%E7%B1%B3%E6%89%8B%E7%8E%AF/"/>
-    
-    <category term="NFC" scheme="https://blog.akstianye.moe/tags/NFC/"/>
-    
-    <category term="加密卡" scheme="https://blog.akstianye.moe/tags/%E5%8A%A0%E5%AF%86%E5%8D%A1/"/>
-    
-    <category term="MifareOneTool" scheme="https://blog.akstianye.moe/tags/MifareOneTool/"/>
-    
-    <category term="pn532" scheme="https://blog.akstianye.moe/tags/pn532/"/>
-    
   </entry>
   
   <entry>
@@ -51,10 +39,6 @@
     
     <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
-    
-    
-    
-    <category term="IDEA" scheme="https://blog.akstianye.moe/tags/IDEA/"/>
     
   </entry>
   
@@ -69,14 +53,6 @@
     <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
     
-    
-    
-    <category term="线程" scheme="https://blog.akstianye.moe/tags/%E7%BA%BF%E7%A8%8B/"/>
-    
-    <category term="ThreadLocal" scheme="https://blog.akstianye.moe/tags/ThreadLocal/"/>
-    
-    <category term="Hystrix" scheme="https://blog.akstianye.moe/tags/Hystrix/"/>
-    
   </entry>
   
   <entry>
@@ -89,12 +65,6 @@
     
     <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
-    
-    
-    
-    <category term="Centos" scheme="https://blog.akstianye.moe/tags/Centos/"/>
-    
-    <category term="Docker" scheme="https://blog.akstianye.moe/tags/Docker/"/>
     
   </entry>
   
@@ -109,12 +79,6 @@
     <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
     
-    
-    
-    <category term="apt" scheme="https://blog.akstianye.moe/tags/apt/"/>
-    
-    <category term="镜像" scheme="https://blog.akstianye.moe/tags/%E9%95%9C%E5%83%8F/"/>
-    
   </entry>
   
   <entry>
@@ -127,10 +91,6 @@
     
     <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
-    
-    
-    
-    <category term="mysql" scheme="https://blog.akstianye.moe/tags/mysql/"/>
     
   </entry>
   
@@ -145,12 +105,6 @@
     <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
     
-    
-    
-    <category term="centos" scheme="https://blog.akstianye.moe/tags/centos/"/>
-    
-    <category term="bt" scheme="https://blog.akstianye.moe/tags/bt/"/>
-    
   </entry>
   
   <entry>
@@ -163,12 +117,6 @@
     
     <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
-    
-    
-    
-    <category term="文件" scheme="https://blog.akstianye.moe/tags/%E6%96%87%E4%BB%B6/"/>
-    
-    <category term="java" scheme="https://blog.akstianye.moe/tags/java/"/>
     
   </entry>
   
@@ -183,12 +131,6 @@
     <summary type="html">&lt;p&gt;一点对dns解析记录类型的说明&lt;/p&gt;</summary>
     
     
-    
-    
-    <category term="dns" scheme="https://blog.akstianye.moe/tags/dns/"/>
-    
-    <category term="dns记录类型" scheme="https://blog.akstianye.moe/tags/dns%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B/"/>
-    
   </entry>
   
   <entry>
@@ -201,12 +143,6 @@
     
     <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
-    
-    
-    
-    <category term="jvm" scheme="https://blog.akstianye.moe/tags/jvm/"/>
-    
-    <category term="内存" scheme="https://blog.akstianye.moe/tags/%E5%86%85%E5%AD%98/"/>
     
   </entry>
   
@@ -221,10 +157,6 @@
     <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
     
-    
-    
-    <category term="java" scheme="https://blog.akstianye.moe/tags/java/"/>
-    
   </entry>
   
   <entry>
@@ -237,10 +169,6 @@
     
     <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
-    
-    
-    
-    <category term="http" scheme="https://blog.akstianye.moe/tags/http/"/>
     
   </entry>
   
@@ -255,10 +183,6 @@
     <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
     
-    
-    
-    <category term="http" scheme="https://blog.akstianye.moe/tags/http/"/>
-    
   </entry>
   
   <entry>
@@ -271,14 +195,6 @@
     
     <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
-    
-    
-    
-    <category term="java" scheme="https://blog.akstianye.moe/tags/java/"/>
-    
-    <category term="设计模式" scheme="https://blog.akstianye.moe/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    <category term="单例" scheme="https://blog.akstianye.moe/tags/%E5%8D%95%E4%BE%8B/"/>
     
   </entry>
   
@@ -293,10 +209,6 @@
     <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
     
-    
-    
-    <category term="java" scheme="https://blog.akstianye.moe/tags/java/"/>
-    
   </entry>
   
   <entry>
@@ -309,12 +221,6 @@
     
     <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
-    
-    
-    
-    <category term="https" scheme="https://blog.akstianye.moe/tags/https/"/>
-    
-    <category term="nginx" scheme="https://blog.akstianye.moe/tags/nginx/"/>
     
   </entry>
   
@@ -329,12 +235,6 @@
     <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
     
-    
-    
-    <category term="vim" scheme="https://blog.akstianye.moe/tags/vim/"/>
-    
-    <category term="vundle" scheme="https://blog.akstianye.moe/tags/vundle/"/>
-    
   </entry>
   
   <entry>
@@ -347,12 +247,6 @@
     
     <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
-    
-    
-    
-    <category term="springboot" scheme="https://blog.akstianye.moe/tags/springboot/"/>
-    
-    <category term="热部署" scheme="https://blog.akstianye.moe/tags/%E7%83%AD%E9%83%A8%E7%BD%B2/"/>
     
   </entry>
   
@@ -367,10 +261,6 @@
     <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
     
-    
-    
-    <category term="git" scheme="https://blog.akstianye.moe/tags/git/"/>
-    
   </entry>
   
   <entry>
@@ -383,12 +273,6 @@
     
     <summary type="html">&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
-    
-    
-    
-    <category term="Centos" scheme="https://blog.akstianye.moe/tags/Centos/"/>
-    
-    <category term="文件" scheme="https://blog.akstianye.moe/tags/%E6%96%87%E4%BB%B6/"/>
     
   </entry>
   
