@@ -1,0 +1,7 @@
+User-agent: Googlebot
+Disallow: /classes/
+Disallow: /.well-known/
+Disallow: /page/
+Disallow: /tags/
+
+Sitemap: https://blog.akstianye.moe/sitemap.xml
